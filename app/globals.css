@@ -1,1 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+:root {
+  --bg-grad: radial-gradient(1000px 600px at 10% 10%, rgba(76,91,247,0.15), transparent 40%),
+             radial-gradient(800px 500px at 90% 30%, rgba(114,135,253,0.12), transparent 55%),
+             radial-gradient(600px 400px at 50% 90%, rgba(35,43,132,0.12), transparent 60%);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-neutral-50 text-neutral-900;
+  background-image: var(--bg-grad);
+  background-attachment: fixed;
+}
+
+.dark body, .dark {
+  @apply bg-neutral-950 text-neutral-100;
+  --bg-grad: radial-gradient(1000px 600px at 10% 10%, rgba(76,91,247,0.15), transparent 40%),
+             radial-gradient(800px 500px at 90% 30%, rgba(114,135,253,0.12), transparent 55%),
+             radial-gradient(600px 400px at 50% 90%, rgba(35,43,132,0.12), transparent 60%);
+}
+
+.btn-press {
+  transition: transform 0.06s ease;
+}
+
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+.card {
+  @apply rounded-2xl shadow-soft bg-white/70 backdrop-blur dark:bg-neutral-900/70 border border-white/40 dark:border-neutral-800;
+}
+
+.input {
+  @apply w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/70 px-4 py-2 outline-none focus:ring-4 focus:ring-brand-300/40 dark:focus:ring-brand-400/20;
+}
