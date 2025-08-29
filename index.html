@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NJ Cafe — Pemesanan Online</title>
+  <meta name="theme-color" content="#4c5bf7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    // Tailwind config + dark mode class
+    tailwind = { config: {
+      darkMode: 'class',
+      theme: { extend: {
+        colors: {
+          brand: {50:'#f3f5ff',100:'#e6ebff',200:'#c2ccff',300:'#9eaeff',400:'#7287fd',500:'#4c5bf7',600:'#3844d4',700:'#2c35a8',800:'#232b84',900:'#1e256c'}
+        },
+        boxShadow: { soft: '0 8px 30px rgba(0,0,0,0.08)'}
+      }}
+    }};
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/tw-extras.css">
+</head>
+<body class="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+  <!-- Background decor -->
+  <div class="pointer-events-none fixed inset-0 -z-10 [background:radial-gradient(1000px_600px_at_10%_10%,rgba(76,91,247,.15),transparent_40%),radial-gradient(800px_500px_at_90%_30%,rgba(114,135,253,.12),transparent_55%),radial-gradient(600px_400px_at_50%_90%,rgba(35,43,132,.12),transparent_60%)]"></div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-neutral-950/60 border-b border-white/30 dark:border-neutral-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3 justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-700 shadow-soft"></div>
+        <div>
+          <h1 class="text-xl font-extrabold leading-none">NJ Cafe</h1>
+          <p class="text-xs -mt-0.5 text-neutral-500">Specialty coffee • Good food • Great vibes</p>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-2">
+        <input id="searchInput" placeholder="Cari menu..." class="input w-64 md:w-80" />
+        <button id="cartButton" class="btn btn-primary btn-press">Keranjang · Rp <span id="cartTotalHeader">0</span></button>
+        <button id="themeToggle" class="btn btn-ghost btn-press" title="Toggle theme">🌓</button>
+      </div>
+      <div class="md:hidden flex items-center gap-2">
+        <button id="themeToggleSm" class="btn btn-ghost btn-press">🌓</button>
+        <button id="cartButtonSm" class="btn btn-primary btn-press">Cart</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="relative">
+      <div class="max-w-6xl mx-auto px-4 py-10 md:py-16 grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">Temani harimu di <span class="text-brand-700">NJ Cafe</span></h2>
+          <p class="mt-4 text-neutral-600 dark:text-neutral-300">Nikmati kopi spesial, hidangan lezat, dan suasana nyaman. Pesan online—mudah, cepat, dan praktis.</p>
+          <div class="mt-6 flex items-center gap-3">
+            <a href="#menu" class="btn btn-primary btn-press">Lihat Menu</a>
+            <button id="openCartFromHero" class="btn btn-ghost btn-press">Buka Keranjang</button>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-soft border border-white/40 dark:border-neutral-800">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-400/50 to-brand-700/40"></div>
+            <img alt="NJ Cafe" class="w-full h-full object-cover" src="assets/hero.svg">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTERS -->
+    <section id="menu" class="max-w-6xl mx-auto px-4 pb-4">
+      <div id="categoryChips" class="flex items-center gap-2 flex-wrap"></div>
+      <div class="mt-3 md:hidden">
+        <input id="searchInputSm" placeholder="Cari menu..." class="input w-full" />
+      </div>
+    </section>
+
+    <!-- GRID MENU -->
+    <section class="max-w-6xl mx-auto px-4 pb-24 grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="menuGrid"></section>
+  </main>
+
+  <!-- Floating Cart (mobile) -->
+  <button id="floatingCart" class="md:hidden fixed bottom-5 right-5 rounded-full px-5 py-3 bg-brand-700 text-white font-semibold shadow-soft btn-press">Keranjang · Rp <span id="cartTotalMobile">0</span></button>
+
+  <!-- CART DRAWER -->
+  <aside id="drawer" class="fixed inset-y-0 right-0 w-full max-w-md z-50 translate-x-full transition-transform duration-300 bg-white dark:bg-neutral-950 shadow-soft border-l border-neutral-200 dark:border-neutral-800 flex flex-col">
+    <div class="p-4 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
+      <h2 class="text-xl font-bold">Keranjang</h2>
+      <button id="closeDrawer" class="btn btn-ghost btn-press">Tutup</button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-4 space-y-3">
+      <div id="cartItems" class="space-y-3"></div>
+
+      <div class="card p-3 space-y-1">
+        <div class="flex items-center justify-between py-1"><span>Subtotal</span><b id="subtotal">Rp 0</b></div>
+        <div class="flex items-center justify-between py-1"><span>Pajak (10%)</span><b id="tax">Rp 0</b></div>
+        <div class="flex items-center justify-between py-1"><span>Biaya Layanan</span><b id="service">Rp 0</b></div>
+        <div class="flex items-center justify-between py-2 border-t border-neutral-200 dark:border-neutral-800 mt-2"><span>Total</span><b id="total" class="text-lg">Rp 0</b></div>
+      </div>
+
+      <div class="card p-3 space-y-3">
+        <h3 class="font-semibold">Detail Pemesan</h3>
+        <input id="customerName" class="input" placeholder="Nama lengkap" />
+        <input id="customerEmail" class="input" placeholder="Email (opsional)" />
+        <input id="customerPhone" class="input" placeholder="No. HP / WhatsApp" />
+        <div class="grid grid-cols-3 gap-2">
+          <button data-type="DINE_IN" class="opt btn btn-chip btn-press active">DINE IN</button>
+          <button data-type="TAKEAWAY" class="opt btn btn-chip btn-press">TAKEAWAY</button>
+          <button data-type="DELIVERY" class="opt btn btn-chip btn-press">DELIVERY</button>
+        </div>
+        <textarea id="address" class="input hidden" placeholder="Alamat pengantaran"></textarea>
+        <button id="submitOrder" class="btn btn-secondary btn-press w-full">Kirim Pesanan</button>
+        <p class="text-sm text-neutral-500">Pesanan dikirim ke <b>narenskii@gmail.com</b> via EmailJS (opsional) atau fallback <i>mailto</i>.</p>
+      </div>
+    </div>
+  </aside>
+  <div id="drawerMask" class="fixed inset-0 bg-black/40 z-40 opacity-0 pointer-events-none transition-opacity"></div>
+
+  <footer class="border-t border-white/30 dark:border-neutral-800 py-8 text-center text-sm text-neutral-500">
+    © <span id="year"></span> NJ Cafe — Depok • IG: @jenfornaren
+  </footer>
+
+  <!-- EmailJS SDK (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="assets/email.js"></script>
+  <script src="assets/menu.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
