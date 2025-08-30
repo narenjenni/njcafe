@@ -1,132 +1,157 @@
-<!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<!doctype html>
+<html lang="id">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NJ Cafe — Pemesanan Online</title>
-  <meta name="theme-color" content="#4c5bf7">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    // Tailwind config + dark mode class
-    tailwind = { config: {
-      darkMode: 'class',
-      theme: { extend: {
-        colors: {
-          brand: {50:'#f3f5ff',100:'#e6ebff',200:'#c2ccff',300:'#9eaeff',400:'#7287fd',500:'#4c5bf7',600:'#3844d4',700:'#2c35a8',800:'#232b84',900:'#1e256c'}
-        },
-        boxShadow: { soft: '0 8px 30px rgba(0,0,0,0.08)'}
-      }}
-    }};
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="assets/tw-extras.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NJ Cafe — Cozy, Craft, & Comfort</title>
+  <meta name="description" content="NJ Cafe: kopi spesialti, menu comfort food, dan layanan pemesanan online.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 </head>
-<body class="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
-  <!-- Background decor -->
-  <div class="pointer-events-none fixed inset-0 -z-10 [background:radial-gradient(1000px_600px_at_10%_10%,rgba(76,91,247,.15),transparent_40%),radial-gradient(800px_500px_at_90%_30%,rgba(114,135,253,.12),transparent_55%),radial-gradient(600px_400px_at_50%_90%,rgba(35,43,132,.12),transparent_60%)]"></div>
-
+<body>
   <!-- NAV -->
-  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-neutral-950/60 border-b border-white/30 dark:border-neutral-800">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3 justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-700 shadow-soft"></div>
-        <div>
-          <h1 class="text-xl font-extrabold leading-none">NJ Cafe</h1>
-          <p class="text-xs -mt-0.5 text-neutral-500">Specialty coffee • Good food • Great vibes</p>
+  <nav class="nav">
+    <div class="container wrap">
+      <a href="index.html" class="brand" aria-label="NJ Cafe">
+        <span class="logo"></span>
+        <span class="name">NJ Cafe</span>
+      </a>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#owner">Owner</a></li>
+        <li><a href="#info">Informasi</a></li>
+        <li><a href="order.html" class="btn ripple">Mulai Pesan</a></li>
+      </ul>
+      <button class="burger" aria-label="Buka navigasi"><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container content">
+      <div class="reveal">
+        <div class="kicker">Welcome to</div>
+        <h1 class="spark">NJ Cafe</h1>
+        <p class="lead">Rasakan <strong>kopi spesialti</strong> dan <strong>comfort food</strong> favorit kamu dalam suasana hangat.
+          Kini kamu bisa <strong>pesan online</strong> dan kirim lewat <strong>WhatsApp</strong> atau <strong>Email</strong> dengan rapi.</p>
+        <div class="pills">
+          <span class="pill">Order Online</span>
+          <span class="pill">Responsif PC & Mobile</span>
+          <span class="pill">Animasi Interaktif</span>
+          <span class="pill">UI/UX Modern</span>
+        </div>
+        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+          <a href="order.html" class="btn ripple">Pesan Sekarang</a>
+          <a href="#menu" class="btn ghost ripple">Lihat Menu</a>
         </div>
       </div>
-      <div class="hidden md:flex items-center gap-2">
-        <input id="searchInput" placeholder="Cari menu..." class="input w-64 md:w-80" />
-        <button id="cartButton" class="btn btn-primary btn-press">Keranjang · Rp <span id="cartTotalHeader">0</span></button>
-        <button id="themeToggle" class="btn btn-ghost btn-press" title="Toggle theme">🌓</button>
-      </div>
-      <div class="md:hidden flex items-center gap-2">
-        <button id="themeToggleSm" class="btn btn-ghost btn-press">🌓</button>
-        <button id="cartButtonSm" class="btn btn-primary btn-press">Cart</button>
+      <div class="reveal">
+        <div class="card">
+          <img alt="Kopi latte art" style="border-radius:16px;width:100%;height:auto" src="https://images.unsplash.com/photo-1510992107199-e5224f959d27?q=80&w=1400&auto=format&fit=crop"/>
+        </div>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="relative">
-      <div class="max-w-6xl mx-auto px-4 py-10 md:py-16 grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">Temani harimu di <span class="text-brand-700">NJ Cafe</span></h2>
-          <p class="mt-4 text-neutral-600 dark:text-neutral-300">Nikmati kopi spesial, hidangan lezat, dan suasana nyaman. Pesan online—mudah, cepat, dan praktis.</p>
-          <div class="mt-6 flex items-center gap-3">
-            <a href="#menu" class="btn btn-primary btn-press">Lihat Menu</a>
-            <button id="openCartFromHero" class="btn btn-ghost btn-press">Buka Keranjang</button>
+  <!-- MENU PREVIEW -->
+  <section class="section" id="menu">
+    <div class="container">
+      <h2 class="spark">Menu Favorit</h2>
+      <p>Cuplikan beberapa menu kami. Lihat daftar lengkap & lakukan pemesanan di halaman <a href="order.html">Order</a>.</p>
+      <div class="grid menu-grid" style="margin-top:18px">
+        <!-- 4 highlight cards -->
+        <article class="card menu-card reveal">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?q=80&w=1400&auto=format&fit=crop" alt="Cappuccino"/></div>
+          <div class="body">
+            <h3>Cappuccino</h3>
+            <div class="badge">Minuman</div>
+            <div class="price">Rp 28.000</div>
           </div>
-        </div>
-        <div class="hidden md:block">
-          <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-soft border border-white/40 dark:border-neutral-800">
-            <div class="absolute inset-0 bg-gradient-to-br from-brand-400/50 to-brand-700/40"></div>
-            <img alt="NJ Cafe" class="w-full h-full object-cover" src="assets/hero.svg">
+        </article>
+        <article class="card menu-card reveal">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1400&auto=format&fit=crop" alt="Chicken Wings"/></div>
+          <div class="body">
+            <h3>Chicken Wings (6pcs)</h3>
+            <div class="badge">Makanan</div>
+            <div class="price">Rp 38.000</div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FILTERS -->
-    <section id="menu" class="max-w-6xl mx-auto px-4 pb-4">
-      <div id="categoryChips" class="flex items-center gap-2 flex-wrap"></div>
-      <div class="mt-3 md:hidden">
-        <input id="searchInputSm" placeholder="Cari menu..." class="input w-full" />
-      </div>
-    </section>
-
-    <!-- GRID MENU -->
-    <section class="max-w-6xl mx-auto px-4 pb-24 grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="menuGrid"></section>
-  </main>
-
-  <!-- Floating Cart (mobile) -->
-  <button id="floatingCart" class="md:hidden fixed bottom-5 right-5 rounded-full px-5 py-3 bg-brand-700 text-white font-semibold shadow-soft btn-press">Keranjang · Rp <span id="cartTotalMobile">0</span></button>
-
-  <!-- CART DRAWER -->
-  <aside id="drawer" class="fixed inset-y-0 right-0 w-full max-w-md z-50 translate-x-full transition-transform duration-300 bg-white dark:bg-neutral-950 shadow-soft border-l border-neutral-200 dark:border-neutral-800 flex flex-col">
-    <div class="p-4 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
-      <h2 class="text-xl font-bold">Keranjang</h2>
-      <button id="closeDrawer" class="btn btn-ghost btn-press">Tutup</button>
-    </div>
-    <div class="flex-1 overflow-y-auto p-4 space-y-3">
-      <div id="cartItems" class="space-y-3"></div>
-
-      <div class="card p-3 space-y-1">
-        <div class="flex items-center justify-between py-1"><span>Subtotal</span><b id="subtotal">Rp 0</b></div>
-        <div class="flex items-center justify-between py-1"><span>Pajak (10%)</span><b id="tax">Rp 0</b></div>
-        <div class="flex items-center justify-between py-1"><span>Biaya Layanan</span><b id="service">Rp 0</b></div>
-        <div class="flex items-center justify-between py-2 border-t border-neutral-200 dark:border-neutral-800 mt-2"><span>Total</span><b id="total" class="text-lg">Rp 0</b></div>
-      </div>
-
-      <div class="card p-3 space-y-3">
-        <h3 class="font-semibold">Detail Pemesan</h3>
-        <input id="customerName" class="input" placeholder="Nama lengkap" />
-        <input id="customerEmail" class="input" placeholder="Email (opsional)" />
-        <input id="customerPhone" class="input" placeholder="No. HP / WhatsApp" />
-        <div class="grid grid-cols-3 gap-2">
-          <button data-type="DINE_IN" class="opt btn btn-chip btn-press active">DINE IN</button>
-          <button data-type="TAKEAWAY" class="opt btn btn-chip btn-press">TAKEAWAY</button>
-          <button data-type="DELIVERY" class="opt btn btn-chip btn-press">DELIVERY</button>
-        </div>
-        <textarea id="address" class="input hidden" placeholder="Alamat pengantaran"></textarea>
-        <button id="submitOrder" class="btn btn-secondary btn-press w-full">Kirim Pesanan</button>
-        <p class="text-sm text-neutral-500">Pesanan dikirim ke <b>narenskii@gmail.com</b> via EmailJS (opsional) atau fallback <i>mailto</i>.</p>
+        </article>
+        <article class="card menu-card reveal">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=1400&auto=format&fit=crop" alt="Spaghetti Bolognese"/></div>
+          <div class="body">
+            <h3>Spaghetti Bolognese</h3>
+            <div class="badge">Makanan</div>
+            <div class="price">Rp 38.000</div>
+          </div>
+        </article>
+        <article class="card menu-card reveal">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1400&auto=format&fit=crop" alt="Club Sandwich"/></div>
+          <div class="body">
+            <h3>Club Sandwich</h3>
+            <div class="badge">Makanan</div>
+            <div class="price">Rp 34.000</div>
+          </div>
+        </article>
       </div>
     </div>
-  </aside>
-  <div id="drawerMask" class="fixed inset-0 bg-black/40 z-40 opacity-0 pointer-events-none transition-opacity"></div>
+  </section>
 
-  <footer class="border-t border-white/30 dark:border-neutral-800 py-8 text-center text-sm text-neutral-500">
-    © <span id="year"></span> NJ Cafe — Depok • IG: @jenfornaren
+  <!-- OWNER -->
+  <section class="section" id="owner">
+    <div class="container">
+      <div class="owner">
+        <div class="reveal">
+          <img src="assets/owner.svg" alt="Foto Owner - Narendra"/>
+        </div>
+        <div class="reveal">
+          <h2 class="spark">Owner: Narendra</h2>
+          <p>Kopi yang baik adalah cerita yang dimulai dengan biji terbaik dan diakhiri dengan senyum pelanggan.
+             Narendra mengkurasi bahan-bahan dan racikan agar NJ Cafe selalu konsisten, hangat, dan berkesan.</p>
+          <table class="table" style="margin-top:10px">
+            <tr><th>Alamat</th><td>Jl. Siliwangi No.62, Pancoran Mas, Depok</td></tr>
+            <tr><th>Jam Buka</th><td>Senin–Minggu 09.00–22.00</td></tr>
+            <tr><th>Kontak</th><td>WhatsApp: 0812-8246-0257</td></tr>
+          </table>
+          <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+            <a href="order.html" class="btn ripple">Mulai Pesan</a>
+            <a href="#info" class="btn ghost ripple">Info Lebih Lanjut</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="section" id="info">
+    <div class="container">
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:20px">
+        <div class="card reveal">
+          <h3>Pemesanan Online Super Rapi</h3>
+          <p>Setiap pesanan otomatis dirapikan dalam format profesional yang siap dikirim ke <strong>WhatsApp</strong> atau <strong>Email</strong> NJ Cafe.</p>
+          <ul>
+            <li>Catatan per item (mis. “tidak pedas ya”)</li>
+            <li>Subtotal, pajak, dan total</li>
+            <li>Nama & nomor pelanggan</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3>Pengalaman UI/UX Modern</h3>
+          <p>Desain interaktif dengan animasi halus, tombol ber-ripple, transisi elegan, serta tampilan responsif untuk PC & Mobile.</p>
+          <ul>
+            <li>Filter & pencarian menu</li>
+            <li>Keranjang pintar & drawer mobile</li>
+            <li>Kecepatan & aksesibilitas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">© <span id="y"></span> NJ Cafe. Dibuat dengan cinta & kopi.</div>
   </footer>
 
-  <!-- EmailJS SDK (optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script src="assets/email.js"></script>
-  <script src="assets/menu.js"></script>
-  <script src="assets/app.js"></script>
+  <script src="app.js"></script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>
