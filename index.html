@@ -1,142 +1,162 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NJ Cafe — Cozy, Craft, & Comfort</title>
-  <meta name="description" content="NJ Cafe di Depok: kopi pilihan, comfort food, dan layanan pemesanan online.">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="NJ Cafe di Depok: kopi pilihan, comfort food, dan layanan pemesanan online." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coffee: { 50:'#f6f5f4', 100:'#edeae8', 200:'#d9d2cd', 300:'#c3b7af', 400:'#b08968', 500:'#9c6f55', 600:'#6b4f4f', 700:'#4a3a38', 800:'#2a2422', 900:'#161312' },
+          },
+          boxShadow: { soft:'0 12px 28px rgba(0,0,0,.35)' }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-  <nav class="nav">
-    <div class="container wrap">
-      <a href="index.html" class="brand" aria-label="NJ Cafe">
-        <span class="logo"></span>
-        <span class="name">NJ Cafe</span>
-      </a>
-      <ul>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#owner">Owner</a></li>
-        <li><a href="#bahan">Bahan & Kualitas</a></li>
-        <li><a href="order.html" class="btn ripple">Pesan</a></li>
-      </ul>
-      <button class="burger" aria-label="Buka navigasi" aria-expanded="false"><span></span></button>
+<body class="bg-coffee-900 text-coffee-50 selection:bg-coffee-400 selection:text-black">
+  <nav class="sticky top-0 z-50 backdrop-blur bg-coffee-900/70 border-b border-white/10">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <div class="h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-coffee-600 to-coffee-400 ring-1 ring-white/10"></span>
+          <span class="font-extrabold tracking-wide">NJ Cafe</span>
+        </a>
+        <ul id="navlinks" class="hidden md:flex items-center gap-4">
+          <li><a href="#menu" class="hover:text-white/90">Menu</a></li>
+          <li><a href="#owner" class="hover:text-white/90">Owner</a></li>
+          <li><a href="#bahan" class="hover:text-white/90">Bahan</a></li>
+          <li><a href="order.html" class="inline-flex items-center px-4 py-2 rounded-xl bg-coffee-400 text-black font-bold shadow-soft active:scale-95 transition">Pesan</a></li>
+        </ul>
+        <button id="burger" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 ring-1 ring-white/10">
+          <span class="sr-only">Buka navigasi</span>
+          <div class="w-5 h-0.5 bg-white relative">
+            <span class="absolute -top-1.5 left-0 w-5 h-0.5 bg-white"></span>
+            <span class="absolute top-1.5 left-0 w-5 h-0.5 bg-white"></span>
+          </div>
+        </button>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden pb-3">
+        <a href="#menu" class="block px-3 py-2 rounded-lg hover:bg-white/5">Menu</a>
+        <a href="#owner" class="block px-3 py-2 rounded-lg hover:bg-white/5">Owner</a>
+        <a href="#bahan" class="block px-3 py-2 rounded-lg hover:bg-white/5">Bahan</a>
+        <a href="order.html" class="mt-2 block text-center px-4 py-2 rounded-xl bg-coffee-400 text-black font-bold shadow-soft active:scale-95 transition">Pesan</a>
+      </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="container content">
-      <div class="reveal">
-        <h1 class="spark">NJ Cafe</h1>
-        <p class="lead">Kopi pilihan, hidangan comfort yang dibuat fresh, dan suasana hangat untuk semua.</p>
-        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
-          <a href="order.html" class="btn ripple">Pesan Sekarang</a>
-          <a href="#menu" class="btn ghost ripple">Lihat Menu</a>
+  <header class="relative overflow-hidden">
+    <div class="max-w-screen-xl mx-auto px-4 grid md:grid-cols-2 gap-8 py-16 md:py-20">
+      <div class="space-y-4">
+        <h1 class="text-4xl md:text-6xl font-extrabold">NJ Cafe</h1>
+        <p class="text-white/80">Kopi pilihan dan hidangan comfort yang dibuat fresh. Nikmati suasana hangat—atau pesan untuk dibawa pulang.</p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="order.html" class="inline-flex items-center px-5 py-3 rounded-xl bg-coffee-400 text-black font-bold shadow-soft active:scale-95 transition">Pesan Sekarang</a>
+          <a href="#menu" class="inline-flex items-center px-5 py-3 rounded-xl ring-1 ring-white/15 hover:bg-white/5 active:scale-95 transition">Lihat Menu</a>
         </div>
       </div>
-      <div class="reveal">
-        <div class="card">
-          <img alt="Kopi latte art" style="border-radius:16px;width:100%;height:auto" src="assets/menu-03.svg"/>
-        </div>
+      <div class="bg-white/5 ring-1 ring-white/10 rounded-2xl p-3 shadow-soft">
+        <img src="assets/menu-03.svg" alt="Cappuccino" class="rounded-xl w-full h-auto" />
       </div>
     </div>
   </header>
 
-  <section class="section" id="menu">
-    <div class="container">
-      <h2 class="spark">Menu Favorit</h2>
-      <p>Cuplikan beberapa menu kami. Lihat daftar lengkap di halaman <a href="order.html">Order</a>.</p>
-      <div class="grid menu-grid" style="margin-top:18px">
-        <article class="card menu-card reveal">
-          <div class="thumb"><img src="assets/menu-03.svg" alt="Cappuccino"/></div>
-          <div class="body">
-            <h3>Cappuccino</h3>
-            <div class="badge">Minuman</div>
-            <div class="price">Rp 28.000</div>
+  <section id="menu" class="py-14">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold">Menu Favorit</h2>
+      <p class="text-white/70">Cuplikan beberapa menu kami. Lihat daftar lengkap di halaman <a class="underline" href="order.html">Order</a>.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6">
+        <article class="bg-white/5 ring-1 ring-white/10 rounded-2xl overflow-hidden">
+          <img src="assets/menu-03.svg" alt="Cappuccino" class="w-full h-44 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">Cappuccino</h3>
+            <div class="text-coffee-400 font-bold">Rp 28.000</div>
           </div>
         </article>
-        <article class="card menu-card reveal">
-          <div class="thumb"><img src="assets/menu-18.svg" alt="Spaghetti Bolognese"/></div>
-          <div class="body">
-            <h3>Spaghetti Bolognese</h3>
-            <div class="badge">Makanan</div>
-            <div class="price">Rp 38.000</div>
+        <article class="bg-white/5 ring-1 ring-white/10 rounded-2xl overflow-hidden">
+          <img src="assets/menu-18.svg" alt="Spaghetti Bolognese" class="w-full h-44 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">Spaghetti Bolognese</h3>
+            <div class="text-coffee-400 font-bold">Rp 38.000</div>
           </div>
         </article>
-        <article class="card menu-card reveal">
-          <div class="thumb"><img src="assets/menu-23.svg" alt="Club Sandwich"/></div>
-          <div class="body">
-            <h3>Club Sandwich</h3>
-            <div class="badge">Makanan</div>
-            <div class="price">Rp 34.000</div>
+        <article class="bg-white/5 ring-1 ring-white/10 rounded-2xl overflow-hidden">
+          <img src="assets/menu-23.svg" alt="Club Sandwich" class="w-full h-44 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">Club Sandwich</h3>
+            <div class="text-coffee-400 font-bold">Rp 34.000</div>
           </div>
         </article>
-        <article class="card menu-card reveal">
-          <div class="thumb"><img src="assets/menu-21.svg" alt="Beef Teriyaki Rice Bowl"/></div>
-          <div class="body">
-            <h3>Beef Teriyaki Rice Bowl</h3>
-            <div class="badge">Makanan</div>
-            <div class="price">Rp 42.000</div>
+        <article class="bg-white/5 ring-1 ring-white/10 rounded-2xl overflow-hidden">
+          <img src="assets/menu-21.svg" alt="Beef Teriyaki Rice Bowl" class="w-full h-44 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold">Beef Teriyaki Rice Bowl</h3>
+            <div class="text-coffee-400 font-bold">Rp 42.000</div>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="owner">
-    <div class="container">
-      <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center">
-        <div class="reveal">
-          <img src="assets/owner.svg" alt="Foto Owner - Narendra" style="width:100%;height:auto;border-radius:24px;border:1px solid rgba(255,255,255,.08)">
-        </div>
-        <div class="reveal">
-          <h2 class="spark">Owner: Narendra</h2>
-          <p>Narendra percaya pada bahan yang jujur dan proses yang rapi. Setiap menu disajikan dengan perhatian pada rasa, tekstur, dan pengalaman.</p>
-          <table class="table" style="margin-top:10px">
-            <tr><th>Alamat</th><td>Jl. Siliwangi No.62, Pancoran Mas, Depok</td></tr>
-            <tr><th>Jam Buka</th><td>Senin–Minggu 09.00–22.00</td></tr>
-            <tr><th>Kontak</th><td>WhatsApp: 0812-8246-0257</td></tr>
-          </table>
-          <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
-            <a href="order.html" class="btn ripple">Mulai Pesan</a>
-            <a href="#bahan" class="btn ghost ripple">Bahan Kami</a>
-          </div>
+  <section id="owner" class="py-14">
+    <div class="max-w-screen-xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+      <img src="assets/owner.svg" alt="Owner Narendra" class="rounded-2xl ring-1 ring-white/10 w-full h-auto">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold">Owner: Narendra</h2>
+        <p class="text-white/80 mt-2">Narendra meracik menu dengan bahan yang jujur dan proses yang rapi—fokus pada rasa, tekstur, dan pengalaman.</p>
+        <dl class="mt-4 grid sm:grid-cols-2 gap-3 text-white/80">
+          <div><dt class="text-white/60">Alamat</dt><dd>Jl. Siliwangi No.62, Pancoran Mas, Depok</dd></div>
+          <div><dt class="text-white/60">Jam Buka</dt><dd>Senin–Minggu 09.00–22.00</dd></div>
+          <div><dt class="text-white/60">Kontak</dt><dd>WhatsApp: 0812-8246-0257</dd></div>
+        </dl>
+        <div class="flex gap-3 mt-4">
+          <a href="order.html" class="inline-flex items-center px-5 py-3 rounded-xl bg-coffee-400 text-black font-bold shadow-soft active:scale-95 transition">Mulai Pesan</a>
+          <a href="#bahan" class="inline-flex items-center px-5 py-3 rounded-xl ring-1 ring-white/15 hover:bg-white/5 active:scale-95 transition">Bahan Kami</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="bahan">
-    <div class="container">
-      <h2 class="spark">Bahan & Kualitas</h2>
-      <div class="grid" style="grid-template-columns:1fr 1fr">
-        <div class="card reveal">
-          <h3>Kopi</h3>
-          <p>Beans arabika pilihan, medium roast. Susu sapi segar dan opsi plant-based sesuai permintaan.</p>
-          <ul>
+  <section id="bahan" class="py-14">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold">Bahan & Kualitas</h2>
+      <div class="grid md:grid-cols-2 gap-5 mt-4">
+        <div class="bg-white/5 ring-1 ring-white/10 rounded-2xl p-5">
+          <h3 class="font-semibold text-lg">Kopi</h3>
+          <p class="text-white/80">Arabika pilihan (medium roast) dengan susu segar; tersedia plant-based milk sesuai permintaan.</p>
+          <ul class="list-disc pl-5 text-white/80 mt-2 space-y-1">
             <li>Espresso base untuk cappuccino & latte</li>
-            <li>Saus karamel rumahan untuk macchiato</li>
+            <li>Saus karamel racikan sendiri untuk macchiato</li>
             <li>Cokelat bubuk premium untuk mocha & chocolate</li>
           </ul>
         </div>
-        <div class="card reveal">
-          <h3>Dapur</h3>
-          <p>Bahan segar harian: ayam fillet, daging sapi pilihan, sayuran renyah, roti panggang rumahan, dan saus racikan sendiri.</p>
-          <ul>
+        <div class="bg-white/5 ring-1 ring-white/10 rounded-2xl p-5">
+          <h3 class="font-semibold text-lg">Dapur</h3>
+          <p class="text-white/80">Bahan segar harian: ayam fillet, daging sapi, sayuran renyah, roti panggang, saus buatan sendiri.</p>
+          <ul class="list-disc pl-5 text-white/80 mt-2 space-y-1">
             <li>Tomato base untuk bolognese</li>
             <li>Bawang putih & olive oil untuk aglio e olio</li>
-            <li>Dressing caesar dengan keju parmesan</li>
+            <li>Dressing caesar dengan parmesan</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">© <span id="y"></span> NJ Cafe</div>
+  <footer class="border-t border-white/10 py-6 text-center text-white/70">
+    © <span id="y"></span> NJ Cafe
   </footer>
 
-  <script src="app.js"></script>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const burger = document.getElementById('burger');
+    const mobile = document.getElementById('mobileMenu');
+    burger?.addEventListener('click', ()=> mobile.classList.toggle('hidden'));
+  </script>
 </body>
 </html>
