@@ -4,12 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NJ Cafe — Cozy, Craft, & Comfort</title>
-  <meta name="description" content="NJ Cafe: kopi spesialti, menu comfort food, dan layanan pemesanan online.">
+  <meta name="description" content="NJ Cafe di Depok: kopi pilihan, comfort food, dan layanan pemesanan online.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 </head>
 <body>
-  <!-- NAV -->
   <nav class="nav">
     <div class="container wrap">
       <a href="index.html" class="brand" aria-label="NJ Cafe">
@@ -19,27 +17,18 @@
       <ul>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#owner">Owner</a></li>
-        <li><a href="#info">Informasi</a></li>
-        <li><a href="order.html" class="btn ripple">Mulai Pesan</a></li>
+        <li><a href="#bahan">Bahan & Kualitas</a></li>
+        <li><a href="order.html" class="btn ripple">Pesan</a></li>
       </ul>
-      <button class="burger" aria-label="Buka navigasi"><span></span></button>
+      <button class="burger" aria-label="Buka navigasi" aria-expanded="false"><span></span></button>
     </div>
   </nav>
 
-  <!-- HERO -->
   <header class="hero">
     <div class="container content">
       <div class="reveal">
-        <div class="kicker">Welcome to</div>
         <h1 class="spark">NJ Cafe</h1>
-        <p class="lead">Rasakan <strong>kopi spesialti</strong> dan <strong>comfort food</strong> favorit kamu dalam suasana hangat.
-          Kini kamu bisa <strong>pesan online</strong> dan kirim lewat <strong>WhatsApp</strong> atau <strong>Email</strong> dengan rapi.</p>
-        <div class="pills">
-          <span class="pill">Order Online</span>
-          <span class="pill">Responsif PC & Mobile</span>
-          <span class="pill">Animasi Interaktif</span>
-          <span class="pill">UI/UX Modern</span>
-        </div>
+        <p class="lead">Kopi pilihan, hidangan comfort yang dibuat fresh, dan suasana hangat untuk semua.</p>
         <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
           <a href="order.html" class="btn ripple">Pesan Sekarang</a>
           <a href="#menu" class="btn ghost ripple">Lihat Menu</a>
@@ -47,21 +36,19 @@
       </div>
       <div class="reveal">
         <div class="card">
-          <img alt="Kopi latte art" style="border-radius:16px;width:100%;height:auto" src="https://images.unsplash.com/photo-1510992107199-e5224f959d27?q=80&w=1400&auto=format&fit=crop"/>
+          <img alt="Kopi latte art" style="border-radius:16px;width:100%;height:auto" src="assets/menu-03.svg"/>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- MENU PREVIEW -->
   <section class="section" id="menu">
     <div class="container">
       <h2 class="spark">Menu Favorit</h2>
-      <p>Cuplikan beberapa menu kami. Lihat daftar lengkap & lakukan pemesanan di halaman <a href="order.html">Order</a>.</p>
+      <p>Cuplikan beberapa menu kami. Lihat daftar lengkap di halaman <a href="order.html">Order</a>.</p>
       <div class="grid menu-grid" style="margin-top:18px">
-        <!-- 4 highlight cards -->
         <article class="card menu-card reveal">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?q=80&w=1400&auto=format&fit=crop" alt="Cappuccino"/></div>
+          <div class="thumb"><img src="assets/menu-03.svg" alt="Cappuccino"/></div>
           <div class="body">
             <h3>Cappuccino</h3>
             <div class="badge">Minuman</div>
@@ -69,15 +56,7 @@
           </div>
         </article>
         <article class="card menu-card reveal">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1400&auto=format&fit=crop" alt="Chicken Wings"/></div>
-          <div class="body">
-            <h3>Chicken Wings (6pcs)</h3>
-            <div class="badge">Makanan</div>
-            <div class="price">Rp 38.000</div>
-          </div>
-        </article>
-        <article class="card menu-card reveal">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=1400&auto=format&fit=crop" alt="Spaghetti Bolognese"/></div>
+          <div class="thumb"><img src="assets/menu-18.svg" alt="Spaghetti Bolognese"/></div>
           <div class="body">
             <h3>Spaghetti Bolognese</h3>
             <div class="badge">Makanan</div>
@@ -85,28 +64,34 @@
           </div>
         </article>
         <article class="card menu-card reveal">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1400&auto=format&fit=crop" alt="Club Sandwich"/></div>
+          <div class="thumb"><img src="assets/menu-23.svg" alt="Club Sandwich"/></div>
           <div class="body">
             <h3>Club Sandwich</h3>
             <div class="badge">Makanan</div>
             <div class="price">Rp 34.000</div>
           </div>
         </article>
+        <article class="card menu-card reveal">
+          <div class="thumb"><img src="assets/menu-21.svg" alt="Beef Teriyaki Rice Bowl"/></div>
+          <div class="body">
+            <h3>Beef Teriyaki Rice Bowl</h3>
+            <div class="badge">Makanan</div>
+            <div class="price">Rp 42.000</div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- OWNER -->
   <section class="section" id="owner">
     <div class="container">
-      <div class="owner">
+      <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center">
         <div class="reveal">
-          <img src="assets/owner.svg" alt="Foto Owner - Narendra"/>
+          <img src="assets/owner.svg" alt="Foto Owner - Narendra" style="width:100%;height:auto;border-radius:24px;border:1px solid rgba(255,255,255,.08)">
         </div>
         <div class="reveal">
           <h2 class="spark">Owner: Narendra</h2>
-          <p>Kopi yang baik adalah cerita yang dimulai dengan biji terbaik dan diakhiri dengan senyum pelanggan.
-             Narendra mengkurasi bahan-bahan dan racikan agar NJ Cafe selalu konsisten, hangat, dan berkesan.</p>
+          <p>Narendra percaya pada bahan yang jujur dan proses yang rapi. Setiap menu disajikan dengan perhatian pada rasa, tekstur, dan pengalaman.</p>
           <table class="table" style="margin-top:10px">
             <tr><th>Alamat</th><td>Jl. Siliwangi No.62, Pancoran Mas, Depok</td></tr>
             <tr><th>Jam Buka</th><td>Senin–Minggu 09.00–22.00</td></tr>
@@ -114,33 +99,33 @@
           </table>
           <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
             <a href="order.html" class="btn ripple">Mulai Pesan</a>
-            <a href="#info" class="btn ghost ripple">Info Lebih Lanjut</a>
+            <a href="#bahan" class="btn ghost ripple">Bahan Kami</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- INFO -->
-  <section class="section" id="info">
+  <section class="section" id="bahan">
     <div class="container">
-      <div class="grid" style="grid-template-columns:1fr 1fr;gap:20px">
+      <h2 class="spark">Bahan & Kualitas</h2>
+      <div class="grid" style="grid-template-columns:1fr 1fr">
         <div class="card reveal">
-          <h3>Pemesanan Online Super Rapi</h3>
-          <p>Setiap pesanan otomatis dirapikan dalam format profesional yang siap dikirim ke <strong>WhatsApp</strong> atau <strong>Email</strong> NJ Cafe.</p>
+          <h3>Kopi</h3>
+          <p>Beans arabika pilihan, medium roast. Susu sapi segar dan opsi plant-based sesuai permintaan.</p>
           <ul>
-            <li>Catatan per item (mis. “tidak pedas ya”)</li>
-            <li>Subtotal, pajak, dan total</li>
-            <li>Nama & nomor pelanggan</li>
+            <li>Espresso base untuk cappuccino & latte</li>
+            <li>Saus karamel rumahan untuk macchiato</li>
+            <li>Cokelat bubuk premium untuk mocha & chocolate</li>
           </ul>
         </div>
         <div class="card reveal">
-          <h3>Pengalaman UI/UX Modern</h3>
-          <p>Desain interaktif dengan animasi halus, tombol ber-ripple, transisi elegan, serta tampilan responsif untuk PC & Mobile.</p>
+          <h3>Dapur</h3>
+          <p>Bahan segar harian: ayam fillet, daging sapi pilihan, sayuran renyah, roti panggang rumahan, dan saus racikan sendiri.</p>
           <ul>
-            <li>Filter & pencarian menu</li>
-            <li>Keranjang pintar & drawer mobile</li>
-            <li>Kecepatan & aksesibilitas</li>
+            <li>Tomato base untuk bolognese</li>
+            <li>Bawang putih & olive oil untuk aglio e olio</li>
+            <li>Dressing caesar dengan keju parmesan</li>
           </ul>
         </div>
       </div>
@@ -148,7 +133,7 @@
   </section>
 
   <footer class="footer">
-    <div class="container">© <span id="y"></span> NJ Cafe. Dibuat dengan cinta & kopi.</div>
+    <div class="container">© <span id="y"></span> NJ Cafe</div>
   </footer>
 
   <script src="app.js"></script>

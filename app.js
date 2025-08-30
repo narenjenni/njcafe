@@ -1,5 +1,4 @@
 
-// UI helpers
 const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
 const $  = (sel, ctx=document) => ctx.querySelector(sel);
 
@@ -7,16 +6,21 @@ const $  = (sel, ctx=document) => ctx.querySelector(sel);
 const nav = $('.nav');
 const burger = $('.burger');
 if (burger){
-  burger.addEventListener('click', ()=> nav.classList.toggle('open'));
+  burger.addEventListener('click', ()=> {
+    const opened = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', opened?'true':'false');
+  });
 }
 
 // IntersectionObserver for reveals
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
-},{threshold:.1});
-$$('.reveal').forEach(el=> observer.observe(el));
+if ('IntersectionObserver' in window){
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  },{threshold:.1});
+  $$('.reveal').forEach(el=> observer.observe(el));
+}
 
-// Ripple on all .btn.ripple
+// Ripple
 function attachRipple(root=document){
   root.querySelectorAll('.btn.ripple, button.ripple').forEach(btn=>{
     btn.addEventListener('click', (e)=>{

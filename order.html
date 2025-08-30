@@ -4,12 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Order • NJ Cafe</title>
-  <meta name="description" content="Halaman pemesanan NJ Cafe: pilih menu, tulis catatan, kirim via WhatsApp atau Email.">
+  <meta name="description" content="Halaman pemesanan NJ Cafe: pilih menu, lihat bahan, tulis catatan, kirim via WhatsApp atau Email.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 </head>
 <body>
-  <!-- NAV (tetap terlihat) -->
   <nav class="nav">
     <div class="container wrap">
       <a href="index.html" class="brand" aria-label="NJ Cafe">
@@ -19,8 +17,8 @@
       <ul>
         <li><a href="index.html#menu">Menu</a></li>
         <li><a href="index.html#owner">Owner</a></li>
-        <li><a href="index.html#info">Informasi</a></li>
-        <li><a href="order.html" class="btn ripple">Halaman Order</a></li>
+        <li><a href="index.html#bahan">Bahan</a></li>
+        <li><a href="order.html" class="btn ripple">Order</a></li>
       </ul>
       <button class="burger" aria-label="Buka navigasi"><span></span></button>
     </div>
@@ -30,8 +28,8 @@
     <!-- LEFT: Items -->
     <section>
       <header class="card" style="margin-bottom:12px">
-        <h2 class="spark" style="margin-bottom:6px">Pilih Menu & Tambahkan ke Keranjang</h2>
-        <p>Gunakan pencarian, filter kategori, dan pengurutan untuk menemukan menu favorit. Tulis <em>catatan</em> per item (contoh: “tidak pedas ya”).</p>
+        <h2 class="spark" style="margin-bottom:6px">Pilih Menu</h2>
+        <p>Gunakan pencarian, filter kategori, dan pengurutan. Buka detail untuk melihat bahan yang digunakan.</p>
         <div class="toolbar">
           <input id="search" class="input search" placeholder="Cari menu... (misal: latte, sandwich)" aria-label="Cari menu">
           <select id="filterCat" class="select" aria-label="Filter kategori">
@@ -51,80 +49,84 @@
       <div id="itemsGrid" class="grid items-grid"></div>
     </section>
 
-    <!-- RIGHT: Cart -->
+    <!-- RIGHT: Cart Sidebar -->
     <aside class="card cart">
-      <h3 style="margin:0 0 10px">Keranjang <span class="badge" id="cartCount">0</span></h3>
-      <div id="cartItems" class="items"></div>
+      <h3 style="margin:0 0 10px">Keranjang <span class="badge" id="cartCountSide">0</span></h3>
+      <div id="cartItemsSide" class="items"></div>
 
       <div class="totals">
         <div class="row" style="border:0;padding-top:0">
-          <div>Subtotal</div><div id="subtotal">Rp 0</div>
+          <div>Subtotal</div><div id="subtotalSide">Rp 0</div>
         </div>
         <div class="row" style="border:0">
-          <div>Pajak (10%)</div><div id="tax">Rp 0</div>
+          <div>Pajak (10%)</div><div id="taxSide">Rp 0</div>
         </div>
         <div class="row" style="border:0">
-          <div style="font-weight:800">Total</div><div id="total" style="font-weight:800">Rp 0</div>
+          <div style="font-weight:800">Total</div><div id="totalSide" style="font-weight:800">Rp 0</div>
         </div>
       </div>
 
       <div class="card" style="background:#1b1718">
         <h3 style="margin:0 0 8px">Detail Pelanggan</h3>
         <div class="grid" style="grid-template-columns:1fr 1fr">
-          <input class="input" id="custName" placeholder="Nama lengkap" aria-label="Nama lengkap">
-          <input class="input" id="custPhone" placeholder="No. HP pelanggan" aria-label="Nomor HP">
+          <input class="input" id="custNameSide" placeholder="Nama lengkap" aria-label="Nama lengkap">
+          <input class="input" id="custPhoneSide" placeholder="No. HP pelanggan" aria-label="Nomor HP">
         </div>
         <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:8px">
-          <select class="select" id="orderType" aria-label="Tipe pesanan">
+          <select class="select" id="orderTypeSide" aria-label="Tipe pesanan">
             <option value="Dine-in">Dine-in</option>
             <option value="Takeaway">Takeaway</option>
             <option value="Delivery">Delivery</option>
           </select>
           <input class="input" placeholder="Meja / Alamat (opsional)">
         </div>
-        <textarea id="orderNote" class="input" rows="2" placeholder="Catatan umum pesanan (opsional)" style="margin-top:8px"></textarea>
+        <textarea id="orderNoteSide" class="input" rows="2" placeholder="Catatan umum pesanan (opsional)" style="margin-top:8px"></textarea>
       </div>
 
       <div class="actions">
         <button class="btn ripple" onclick="sendWhatsApp()">Kirim via WhatsApp</button>
         <button class="btn ghost ripple" onclick="sendEmail()">Kirim via Email</button>
-        <p class="note">Email menggunakan <strong>mailto:</strong> (membuka aplikasi email). Untuk pengiriman server-side, aktifkan EmailJS di <code>order.js</code>.</p>
       </div>
     </aside>
   </main>
 
-  <!-- Mobile sticky open cart -->
+  <!-- Mobile: open cart -->
   <button class="mobile-cart-btn ripple" onclick="openDrawer()">
     Buka Keranjang <span id="cartCountBadge" class="badge">0</span>
   </button>
+
+  <!-- Drawer -->
   <div id="drawer" class="drawer" onclick="closeDrawer()">
     <div class="panel card" onclick="event.stopPropagation()">
       <div style="display:flex;align-items:center;justify-content:space-between">
-        <h3 style="margin:0">Keranjang</h3>
+        <h3 style="margin:0">Keranjang <span class="badge" id="cartCountDrawer">0</span></h3>
         <button class="btn ghost ripple" onclick="closeDrawer()">Tutup</button>
       </div>
-      <div id="cartItems" class="items" style="margin-top:10px"></div>
+      <div id="cartItemsDrawer" class="items" style="margin-top:10px"></div>
+
       <div class="totals">
-        <div class="row" style="border:0;padding-top:0"><div>Subtotal</div><div id="subtotal">Rp 0</div></div>
-        <div class="row" style="border:0"><div>Pajak (10%)</div><div id="tax">Rp 0</div></div>
-        <div class="row" style="border:0"><div style="font-weight:800">Total</div><div id="total" style="font-weight:800">Rp 0</div></div>
+        <div class="row" style="border:0;padding-top:0"><div>Subtotal</div><div id="subtotalDrawer">Rp 0</div></div>
+        <div class="row" style="border:0"><div>Pajak (10%)</div><div id="taxDrawer">Rp 0</div></div>
+        <div class="row" style="border:0"><div style="font-weight:800">Total</div><div id="totalDrawer" style="font-weight:800">Rp 0</div></div>
       </div>
+
       <div class="card" style="background:#1b1718;margin-top:10px">
         <h3 style="margin:0 0 8px">Detail Pelanggan</h3>
         <div class="grid" style="grid-template-columns:1fr 1fr">
-          <input class="input" id="custName" placeholder="Nama lengkap">
-          <input class="input" id="custPhone" placeholder="No. HP pelanggan">
+          <input class="input" id="custNameDrawer" placeholder="Nama lengkap">
+          <input class="input" id="custPhoneDrawer" placeholder="No. HP pelanggan">
         </div>
         <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:8px">
-          <select class="select" id="orderType">
+          <select class="select" id="orderTypeDrawer">
             <option value="Dine-in">Dine-in</option>
             <option value="Takeaway">Takeaway</option>
             <option value="Delivery">Delivery</option>
           </select>
           <input class="input" placeholder="Meja / Alamat (opsional)">
         </div>
-        <textarea id="orderNote" class="input" rows="2" placeholder="Catatan umum pesanan (opsional)" style="margin-top:8px"></textarea>
+        <textarea id="orderNoteDrawer" class="input" rows="2" placeholder="Catatan umum pesanan (opsional)" style="margin-top:8px"></textarea>
       </div>
+
       <div class="actions" style="margin-top:10px">
         <button class="btn ripple" onclick="sendWhatsApp()">Kirim via WhatsApp</button>
         <button class="btn ghost ripple" onclick="sendEmail()">Kirim via Email</button>
