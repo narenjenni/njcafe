@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NJ Cafe — NOVA UX</title>
-  <meta name="description" content="NJ Cafe: kopi pilihan dan comfort food, pemesanan email yang rapi.">
+  <title>NJ Cafe — NOVA CT-inspired</title>
+  <meta name="description" content="NJ Cafe: kopi pilihan, menu lengkap, layanan katering & merchandise, pemesanan online.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -15,17 +15,27 @@
     <div class="container navbar">
       <a href="index.html" class="brand"><span class="brand-badge" aria-hidden="true"></span><strong>NJ Cafe</strong></a>
       <div class="navlinks">
+        <a href="#plantation">Perkebunan</a>
+        <a href="#coffee">Kopi Kami</a>
         <a href="#menu">Menu</a>
-        <a href="#owner">Owner</a>
-        <a href="#bahan">Bahan</a>
+        <a href="#awards">Penghargaan</a>
+        <a href="#services">Layanan</a>
+        <a href="#story">Cerita</a>
+        <a href="#gallery">Galeri</a>
+        <a href="#contact">Kontak</a>
         <a href="order.html" class="cta">Pesan Sekarang</a>
       </div>
       <button id="burger" class="burger" aria-expanded="false" aria-controls="mobile">☰</button>
     </div>
     <div class="container mobilemenu" id="mobile">
+      <a href="#plantation">Perkebunan</a>
+      <a href="#coffee">Kopi Kami</a>
       <a href="#menu">Menu</a>
-      <a href="#owner">Owner</a>
-      <a href="#bahan">Bahan</a>
+      <a href="#awards">Penghargaan</a>
+      <a href="#services">Layanan</a>
+      <a href="#story">Cerita</a>
+      <a href="#gallery">Galeri</a>
+      <a href="#contact">Kontak</a>
       <a href="order.html" class="cta">Pesan Sekarang</a>
     </div>
   </nav>
@@ -34,70 +44,119 @@
     <div class="container hero-grid">
       <div>
         <h1>NJ Cafe</h1>
-        <p>Tempat hangout yang menyajikan kopi pilihan dan comfort food. Pesan online, ambil di gerai, atau nikmati di tempat.</p>
+        <p>Yes, we brew Indonesian coffee. Dari biji pilihan hingga menu comfort yang cocok untuk semua momen.</p>
         <div class="buttons">
           <a class="cta" href="order.html">Pesan Sekarang</a>
           <a class="button" href="#menu">Lihat Menu</a>
         </div>
-        <div class="tiles">
+        <div class="tiles" style="grid-template-columns: repeat(3,1fr); margin-top:14px">
           <div class="tile"><strong>Alamat</strong><div>Jl. Siliwangi No.62</div></div>
           <div class="tile"><strong>Jam Buka</strong><div>09.00–22.00</div></div>
           <div class="tile"><strong>Kontak</strong><div>0812-8246-0257</div></div>
         </div>
       </div>
-      <div class="card-hero"><img src="assets/menu-12.svg" alt="Strawberry Smoothie"></div>
+      <div class="card-hero"><img src="assets/hero.svg" alt="NJ Cafe"></div>
     </div>
   </header>
 
+  <section id="plantation" class="section">
+    <div class="container">
+      <h2>Perkebunan Kami</h2>
+      <p class="muted">Terletak di ketinggian pegunungan dengan udara sejuk—biji kopi dipanen matang dan diproses dengan standar mutu.</p>
+      <div class="tiles">
+        <div class="tile"><strong>Lokasi</strong><div>Lereng pegunungan, 600–900 mdpl</div></div>
+        <div class="tile"><strong>Metode</strong><div>Full-wash & Natural</div></div>
+        <div class="tile"><strong>Traceability</strong><div>Batching & cupping rutin</div></div>
+        <div class="tile"><strong>Komitmen</strong><div>Kelestarian & kemitraan petani</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="coffee" class="section">
+    <div class="container">
+      <h2>Kopi Kami</h2>
+      <p class="muted">Hanya yang terbaik dari origin Indonesia: Java, Bali, Toraja, Gayo, Kintamani, dan lainnya.</p>
+      <div class="grid menu" style="margin-top:12px">
+        <article class="card"><div style="position:relative"><img src="assets/our-coffee.svg" alt="Beans"><span class="pill">Our Beans</span></div><div class="pad"><strong>Beans</strong><div class="muted">Specialty Arabica & Fine Robusta</div></div></article>
+        <article class="card"><div style="position:relative"><img src="assets/menu-03.svg" alt="Coffee drinks"><span class="pill">Coffee</span></div><div class="pad"><strong>Coffee-based Drinks</strong><div class="muted">Espresso, latte, cappuccino, dll.</div></div></article>
+        <article class="card"><div style="position:relative"><img src="assets/menu-08.svg" alt="Non coffee"><span class="pill">Non-Coffee</span></div><div class="pad"><strong>Non-Coffee</strong><div class="muted">Cokelat, teh, smoothies.</div></div></article>
+        <article class="card"><div style="position:relative"><img src="assets/menu-23.svg" alt="Food & Snack"><span class="pill">Food</span></div><div class="pad"><strong>Food & Snack</strong><div class="muted">Sandwich, pasta, rice bowl, dessert.</div></div></article>
+      </div>
+    </div>
+  </section>
+
   <section id="menu" class="section">
     <div class="container">
-      <h2>Menu Signature</h2>
-      <p class="muted">Racikan kopi dan hidangan favorit pelanggan.</p>
+      <h2>Menu</h2>
+      <p class="muted">Lihat cuplikan – daftar lengkap ada di halaman pemesanan.</p>
       <div class="grid menu" style="margin-top:12px">
-        <article class="card"><div style="position:relative"><img src="assets/menu-03.svg" alt="Cappuccino"><span class="pill">Minuman</span></div><div class="pad"><strong>Cappuccino</strong><div class="price">Rp 28.000</div></div></article>
         <article class="card"><div style="position:relative"><img src="assets/menu-05.svg" alt="Caramel Macchiato"><span class="pill">Minuman</span></div><div class="pad"><strong>Caramel Macchiato</strong><div class="price">Rp 32.000</div></div></article>
         <article class="card"><div style="position:relative"><img src="assets/menu-18.svg" alt="Bolognese"><span class="pill">Makanan</span></div><div class="pad"><strong>Spaghetti Bolognese</strong><div class="price">Rp 38.000</div></div></article>
-        <article class="card"><div style="position:relative"><img src="assets/menu-23.svg" alt="Club Sandwich"><span class="pill">Makanan</span></div><div class="pad"><strong>Club Sandwich</strong><div class="price">Rp 34.000</div></div></article>
+        <article class="card"><div style="position:relative"><img src="assets/menu-21.svg" alt="Teriyaki"><span class="pill">Makanan</span></div><div class="pad"><strong>Beef Teriyaki Bowl</strong><div class="price">Rp 42.000</div></div></article>
+        <article class="card"><div style="position:relative"><img src="assets/menu-24.svg" alt="Waffle"><span class="pill">Dessert</span></div><div class="pad"><strong>Waffle Maple</strong><div class="price">Rp 28.000</div></div></article>
       </div>
-      <div style="margin-top:14px"><a class="cta" href="order.html">Lihat Semua & Pesan</a></div>
+      <div style="margin-top:12px"><a class="cta" href="order.html">Pesan Online</a></div>
     </div>
   </section>
 
-  <section id="owner" class="section">
+  <section id="awards" class="section">
+    <div class="container">
+      <h2>Penghargaan & Apresiasi</h2>
+      <div class="tiles">
+        <div class="tile"><strong>Quality Commitment</strong><div>Standar kopi & dapur konsisten.</div></div>
+        <div class="tile"><strong>Community</strong><div>Program pelatihan barista lokal.</div></div>
+        <div class="tile"><strong>Sustainability</strong><div>Refill tumbler & waste management.</div></div>
+        <div class="tile"><strong>Service</strong><div>Pelayanan ramah & cepat.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <div class="container">
+      <h2>Layanan</h2>
+      <div class="tiles">
+        <div class="tile"><strong>Catering</strong><p class="muted">Untuk meeting & selebrasi.</p></div>
+        <div class="tile"><strong>Coffee Pack</strong><p class="muted">Beans 200gr untuk di rumah.</p></div>
+        <div class="tile"><strong>Merchandise</strong><p class="muted">Mug, tote bag, t-shirt.</p></div>
+        <div class="tile"><strong>Hampers</strong><p class="muted">Kado kopi lengkap.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story" class="section">
     <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:14px">
-      <div class="card-hero"><img src="assets/owner.svg" alt="Owner Narendra" style="border-radius:12px"></div>
+      <div class="card-hero"><img src="assets/owner.svg" alt="Owner Narendra"></div>
       <div>
-        <h2>Owner: Narendra</h2>
-        <p class="muted">Narendra meracik menu dengan perhatian pada rasa, tekstur, dan konsistensi—dari espresso seimbang hingga pasta beraroma.</p>
-        <div class="tiles">
+        <h2>Cerita Kami</h2>
+        <p class="muted">Berawal dari kedai kecil di sudut kota, kini NJ Cafe menjadi tempat favorit untuk ngopi dan makan santai.</p>
+        <div class="tiles" style="grid-template-columns:repeat(3,1fr)">
           <div class="tile"><strong>Filosofi</strong><div>Good coffee, good mood.</div></div>
           <div class="tile"><strong>Spesialis</strong><div>Kopi & comfort food.</div></div>
-          <div class="tile"><strong>Pelayanan</strong><div>Cepat & ramah.</div></div>
+          <div class="tile"><strong>Layanan</strong><div>Cepat & ramah.</div></div>
         </div>
-        <div style="margin-top:12px"><a class="cta" href="order.html">Pesan Sekarang</a></div>
       </div>
     </div>
   </section>
 
-  <section id="bahan" class="section">
+  <section id="gallery" class="section">
     <div class="container">
-      <h2>Bahan & Kualitas</h2>
-      <div class="tiles" style="grid-template-columns: repeat(4,1fr)">
-        <div class="tile"><strong>Kopi</strong><p class="muted">Arabika medium roast.</p><ul><li>Espresso base</li><li>Latte & cappuccino</li><li>Mocha premium cocoa</li></ul></div>
-        <div class="tile"><strong>Dapur</strong><p class="muted">Bahan segar harian.</p><ul><li>Saus bolognese tomat</li><li>Aglio e olio</li><li>Teriyaki sapi</li></ul></div>
-        <div class="tile"><strong>Bakery</strong><p class="muted">Dipanggang harian.</p><ul><li>Croissant butter</li><li>Waffle maple</li><li>Brownies cokelat</li></ul></div>
-        <div class="tile"><strong>Kebersihan</strong><p class="muted">Standar higienis.</p><ul><li>Dapur bersih</li><li>Sayur segar</li><li>Susu dingin</li></ul></div>
+      <h2>Galeri</h2>
+      <div class="gallery" style="margin-top:10px">
+        <img src="assets/menu-01.svg" alt="Gallery 1"><img src="assets/menu-02.svg" alt="Gallery 2"><img src="assets/menu-03.svg" alt="Gallery 3">
+        <img src="assets/menu-04.svg" alt="Gallery 4"><img src="assets/menu-05.svg" alt="Gallery 5"><img src="assets/menu-06.svg" alt="Gallery 6">
+        <img src="assets/menu-07.svg" alt="Gallery 7"><img src="assets/menu-08.svg" alt="Gallery 8"><img src="assets/menu-09.svg" alt="Gallery 9">
+        <img src="assets/menu-10.svg" alt="Gallery 10"><img src="assets/menu-11.svg" alt="Gallery 11"><img src="assets/menu-12.svg" alt="Gallery 12">
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section id="contact" class="section">
     <div class="container">
-      <h2>FAQ</h2>
-      <div class="tiles">
-        <div class="tile"><strong>Apakah bisa catatan khusus?</strong><p class="muted">Bisa. Tulis catatan di setiap item, contoh: “tidak pedas ya”.</p></div>
-        <div class="tile"><strong>Pengiriman bagaimana?</strong><p class="muted">Saat ini fokus ambil di gerai atau delivery by request.</p></div>
-        <div class="tile"><strong>Pembayaran?</strong><p class="muted">Tunai & nontunai di kasir.</p></div>
+      <h2>Kontak</h2>
+      <div class="tiles" style="grid-template-columns: repeat(3,1fr)">
+        <div class="tile"><strong>Alamat</strong><div>Jl. Siliwangi No.62</div></div>
+        <div class="tile"><strong>Email</strong><div>narenskii@gmail.com</div></div>
+        <div class="tile"><strong>Telepon</strong><div>0812-8246-0257</div></div>
       </div>
     </div>
   </section>
@@ -107,7 +166,7 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
     const burger = document.getElementById('burger'); const mobile = document.getElementById('mobile');
-    burger?.addEventListener('click', ()=> { const open = mobile.style.display==='block'; mobile.style.display=open?'none':'block'; burger.setAttribute('aria-expanded', (!open).toString()); });
+    burger?.addEventListener('click', ()=> { const o = mobile.style.display==='block'; mobile.style.display=o?'none':'block'; burger.setAttribute('aria-expanded', (!o).toString()); });
   </script>
 </body>
 </html>
