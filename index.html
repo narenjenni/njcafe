@@ -3,77 +3,78 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NJ Cafe — Aurora UI</title>
-  <meta name="description" content="NJ Cafe: kopi pilihan, comfort food, dan pemesanan online." />
+  <title>NJ Cafe — NOVA UX</title>
+  <meta name="description" content="NJ Cafe: kopi pilihan dan comfort food, pemesanan email yang rapi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
-
   <nav>
     <div class="container navbar">
-      <a href="index.html" class="brand">
-        <span class="brand-badge"></span>
-        <strong>NJ Cafe</strong>
-      </a>
+      <a href="index.html" class="brand"><span class="brand-badge" aria-hidden="true"></span><strong>NJ Cafe</strong></a>
       <div class="navlinks">
         <a href="#menu">Menu</a>
         <a href="#owner">Owner</a>
         <a href="#bahan">Bahan</a>
-        <a href="order.html" class="cta ripple">Pesan</a>
+        <a href="order.html" class="cta">Pesan Sekarang</a>
       </div>
-      <button class="burger" id="burger">☰</button>
+      <button id="burger" class="burger" aria-expanded="false" aria-controls="mobile">☰</button>
     </div>
     <div class="container mobilemenu" id="mobile">
       <a href="#menu">Menu</a>
       <a href="#owner">Owner</a>
       <a href="#bahan">Bahan</a>
-      <a href="order.html" class="cta ripple">Pesan</a>
+      <a href="order.html" class="cta">Pesan Sekarang</a>
     </div>
   </nav>
 
-  <section class="hero">
+  <header class="hero">
     <div class="container hero-grid">
       <div>
         <h1>NJ Cafe</h1>
-        <p>Kopi pilihan dan hidangan comfort dibuat fresh setiap hari. Santai di tempat atau pesan untuk dibawa pulang.</p>
+        <p>Tempat hangout yang menyajikan kopi pilihan dan comfort food. Pesan online, ambil di gerai, atau nikmati di tempat.</p>
         <div class="buttons">
-          <a class="cta ripple" href="order.html">Pesan Sekarang</a>
-          <a class="button ripple" href="#menu">Lihat Menu</a>
+          <a class="cta" href="order.html">Pesan Sekarang</a>
+          <a class="button" href="#menu">Lihat Menu</a>
+        </div>
+        <div class="tiles">
+          <div class="tile"><strong>Alamat</strong><div>Jl. Siliwangi No.62</div></div>
+          <div class="tile"><strong>Jam Buka</strong><div>09.00–22.00</div></div>
+          <div class="tile"><strong>Kontak</strong><div>0812-8246-0257</div></div>
         </div>
       </div>
-      <div class="card-hero"><img src="assets/menu-03.svg" alt="Cappuccino"></div>
+      <div class="card-hero"><img src="assets/menu-12.svg" alt="Strawberry Smoothie"></div>
     </div>
-  </section>
+  </header>
 
   <section id="menu" class="section">
     <div class="container">
-      <h2>Menu Favorit</h2>
-      <p class="lead">Cuplikan pilihan pengunjung. Menu lengkap ada di halaman Order.</p>
-      <div class="grid menu" style="margin-top:18px">
+      <h2>Menu Signature</h2>
+      <p class="muted">Racikan kopi dan hidangan favorit pelanggan.</p>
+      <div class="grid menu" style="margin-top:12px">
         <article class="card"><div style="position:relative"><img src="assets/menu-03.svg" alt="Cappuccino"><span class="pill">Minuman</span></div><div class="pad"><strong>Cappuccino</strong><div class="price">Rp 28.000</div></div></article>
-        <article class="card"><div style="position:relative"><img src="assets/menu-18.svg" alt="Spaghetti Bolognese"><span class="pill">Makanan</span></div><div class="pad"><strong>Spaghetti Bolognese</strong><div class="price">Rp 38.000</div></div></article>
+        <article class="card"><div style="position:relative"><img src="assets/menu-05.svg" alt="Caramel Macchiato"><span class="pill">Minuman</span></div><div class="pad"><strong>Caramel Macchiato</strong><div class="price">Rp 32.000</div></div></article>
+        <article class="card"><div style="position:relative"><img src="assets/menu-18.svg" alt="Bolognese"><span class="pill">Makanan</span></div><div class="pad"><strong>Spaghetti Bolognese</strong><div class="price">Rp 38.000</div></div></article>
         <article class="card"><div style="position:relative"><img src="assets/menu-23.svg" alt="Club Sandwich"><span class="pill">Makanan</span></div><div class="pad"><strong>Club Sandwich</strong><div class="price">Rp 34.000</div></div></article>
-        <article class="card"><div style="position:relative"><img src="assets/menu-21.svg" alt="Beef Teriyaki Rice Bowl"><span class="pill">Makanan</span></div><div class="pad"><strong>Beef Teriyaki Rice Bowl</strong><div class="price">Rp 42.000</div></div></article>
       </div>
+      <div style="margin-top:14px"><a class="cta" href="order.html">Lihat Semua & Pesan</a></div>
     </div>
   </section>
 
   <section id="owner" class="section">
-    <div class="container" style="display:grid; grid-template-columns:1fr 1fr; gap:24px">
-      <div class="kv"><img src="assets/owner.svg" alt="Owner Narendra" style="width:100%; height:auto; border-radius:20px"></div>
+    <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:14px">
+      <div class="card-hero"><img src="assets/owner.svg" alt="Owner Narendra" style="border-radius:12px"></div>
       <div>
         <h2>Owner: Narendra</h2>
-        <p class="lead">Narendra memperhatikan rasa, tekstur, dan konsistensi di setiap menu—dari espresso yang seimbang hingga pasta beraroma.</p>
-        <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:10px; margin-top:16px; color:var(--muted)">
-          <div><div>Alamat</div><strong style="color:var(--text)">Jl. Siliwangi No.62</strong></div>
-          <div><div>Jam Buka</div><strong style="color:var(--text)">09.00–22.00</strong></div>
-          <div><div>Kontak</div><strong style="color:var(--text)">WA 0812-8246-0257</strong></div>
+        <p class="muted">Narendra meracik menu dengan perhatian pada rasa, tekstur, dan konsistensi—dari espresso seimbang hingga pasta beraroma.</p>
+        <div class="tiles">
+          <div class="tile"><strong>Filosofi</strong><div>Good coffee, good mood.</div></div>
+          <div class="tile"><strong>Spesialis</strong><div>Kopi & comfort food.</div></div>
+          <div class="tile"><strong>Pelayanan</strong><div>Cepat & ramah.</div></div>
         </div>
-        <div style="margin-top:16px"><a class="cta ripple" href="order.html">Mulai Pesan</a></div>
+        <div style="margin-top:12px"><a class="cta" href="order.html">Pesan Sekarang</a></div>
       </div>
     </div>
   </section>
@@ -81,9 +82,22 @@
   <section id="bahan" class="section">
     <div class="container">
       <h2>Bahan & Kualitas</h2>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:12px">
-        <div class="kv"><strong>Kopi</strong><p class="lead">Arabika medium roast; susu segar dan opsi plant-based sesuai permintaan.</p><ul style="margin:8px 0 0; color:var(--muted)"><li>Espresso base untuk cappuccino & latte</li><li>Saus karamel racikan sendiri</li><li>Cokelat bubuk premium untuk mocha & chocolate</li></ul></div>
-        <div class="kv"><strong>Dapur</strong><p class="lead">Bahan segar harian: ayam fillet, daging sapi, sayuran renyah, roti panggang, saus buatan sendiri.</p><ul style="margin:8px 0 0; color:var(--muted)"><li>Tomato base untuk bolognese</li><li>Bawang putih & olive oil untuk aglio e olio</li><li>Dressing caesar dengan parmesan</li></ul></div>
+      <div class="tiles" style="grid-template-columns: repeat(4,1fr)">
+        <div class="tile"><strong>Kopi</strong><p class="muted">Arabika medium roast.</p><ul><li>Espresso base</li><li>Latte & cappuccino</li><li>Mocha premium cocoa</li></ul></div>
+        <div class="tile"><strong>Dapur</strong><p class="muted">Bahan segar harian.</p><ul><li>Saus bolognese tomat</li><li>Aglio e olio</li><li>Teriyaki sapi</li></ul></div>
+        <div class="tile"><strong>Bakery</strong><p class="muted">Dipanggang harian.</p><ul><li>Croissant butter</li><li>Waffle maple</li><li>Brownies cokelat</li></ul></div>
+        <div class="tile"><strong>Kebersihan</strong><p class="muted">Standar higienis.</p><ul><li>Dapur bersih</li><li>Sayur segar</li><li>Susu dingin</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="tiles">
+        <div class="tile"><strong>Apakah bisa catatan khusus?</strong><p class="muted">Bisa. Tulis catatan di setiap item, contoh: “tidak pedas ya”.</p></div>
+        <div class="tile"><strong>Pengiriman bagaimana?</strong><p class="muted">Saat ini fokus ambil di gerai atau delivery by request.</p></div>
+        <div class="tile"><strong>Pembayaran?</strong><p class="muted">Tunai & nontunai di kasir.</p></div>
       </div>
     </div>
   </section>
@@ -92,13 +106,8 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-    const burger = document.getElementById('burger'); const mob = document.getElementById('mobile');
-    burger?.addEventListener('click', ()=> { mob.style.display = mob.style.display==='block'?'none':'block'; });
-    document.body.addEventListener('click', e => {
-      const btn = e.target.closest('.ripple'); if(!btn) return;
-      const r = btn.getBoundingClientRect(); btn.style.setProperty('--x', (e.clientX-r.left)+'px'); btn.style.setProperty('--y', (e.clientY-r.top)+'px');
-      btn.classList.remove('rippling'); void btn.offsetWidth; btn.classList.add('rippling');
-    }, {capture:true});
+    const burger = document.getElementById('burger'); const mobile = document.getElementById('mobile');
+    burger?.addEventListener('click', ()=> { const open = mobile.style.display==='block'; mobile.style.display=open?'none':'block'; burger.setAttribute('aria-expanded', (!open).toString()); });
   </script>
 </body>
 </html>

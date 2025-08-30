@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Order • NJ Cafe — Orion UI</title>
-  <meta name="description" content="Pemesanan online NJ Cafe: 25 menu, catatan per item, email serverless (Pesan Sekarang).">
+  <title>Order • NJ Cafe — NOVA UX</title>
+  <meta name="description" content="Pemesanan online NJ Cafe lewat email rapi: 25 menu, catatan item, keranjang, dan checkout.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
       </div>
       <button id="burger" class="burger" aria-expanded="false" aria-controls="mobile">☰</button>
     </div>
-    <div class="container mobilemenu" id="mobile" role="navigation" aria-label="Menu mobile">
+    <div class="container mobilemenu" id="mobile">
       <a href="index.html#menu">Menu</a>
       <a href="index.html#owner">Owner</a>
       <a href="index.html#bahan">Bahan</a>
@@ -30,103 +30,133 @@
     </div>
   </nav>
 
-  <main class="container" style="padding:20px 0">
-    <section class="toolbar">
+  <main class="container" style="padding:18px 0">
+    <section class="toolbar" aria-label="Kontrol pencarian dan filter">
       <div class="row">
         <input id="q" class="input" placeholder="Cari menu...">
-        <select id="sort" class="select">
+        <select id="sort" class="select" aria-label="Urutkan">
           <option value="name-asc">A → Z</option>
           <option value="name-desc">Z → A</option>
           <option value="price-asc">Harga Terendah</option>
           <option value="price-desc">Harga Tertinggi</option>
         </select>
-        <div class="filters" id="cats" role="tablist" aria-label="Kategori">
+        <div class="tags" id="cats" role="tablist" aria-label="Kategori">
           <button data-cat="" class="tag active" role="tab" aria-selected="true">Semua</button>
           <button data-cat="Minuman" class="tag" role="tab" aria-selected="false">Minuman</button>
           <button data-cat="Makanan" class="tag" role="tab" aria-selected="false">Makanan</button>
         </div>
-        <button class="cta" onclick="openDrawer()">Keranjang</button>
+        <button class="cta" onclick="openDrawer()">Buka Keranjang</button>
       </div>
-      <p class="muted" style="margin-top:8px">Tambahkan catatan per item (contoh: “tidak pedas ya”).</p>
+      <p class="muted" style="margin-top:8px">Catatan per item didukung, contoh: “tidak pedas ya”.</p>
     </section>
 
     <div class="layout" style="margin-top:16px">
+      <!-- LEFT FILTER PANE -->
+      <aside class="sidepane" aria-label="Filter tambahan">
+        <div class="group">
+          <strong>Rentang Harga</strong>
+          <div class="tags" style="margin-top:8px" id="priceTags">
+            <button class="tag" data-min="0" data-max="20000">≤ 20k</button>
+            <button class="tag" data-min="20001" data-max="30000">20k–30k</button>
+            <button class="tag" data-min="30001" data-max="999999">≥ 30k</button>
+            <button class="tag active" data-min="0" data-max="999999">Semua</button>
+          </div>
+        </div>
+        <div class="group">
+          <strong>Rekomendasi</strong>
+          <ul style="margin:8px 0 0; padding-left:16px" class="muted">
+            <li>Cappuccino • Karakter seimbang</li>
+            <li>Caramel Macchiato • Manis gurih</li>
+            <li>Caesar Salad • Segar & ringan</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- MENU GRID -->
       <section>
         <div id="grid" class="grid menu"></div>
       </section>
 
+      <!-- CART (desktop) -->
       <aside class="cart" id="cartSide" aria-label="Keranjang">
-        <h3 style="margin:0 0 8px; font-weight:900">Keranjang <span id="countSide" class="tag" aria-live="polite">0</span></h3>
+        <h3 style="margin:0 0 6px; font-weight:900">Keranjang <span id="countSide" class="tag">0</span></h3>
         <div id="listSide" class="list"></div>
 
-        <div style="border-top:1px solid var(--line); padding-top:10px; margin-top:10px">
+        <div style="border-top:1px solid var(--line); padding-top:8px; margin-top:8px">
           <div class="row"><span>Subtotal</span><strong id="subSide">Rp 0</strong></div>
           <div class="row"><span>Pajak (10%)</span><strong id="taxSide">Rp 0</strong></div>
           <div class="row" style="border:none"><span style="font-weight:900">Total</span><strong id="totSide">Rp 0</strong></div>
         </div>
 
-        <div class="tile" style="margin-top:12px">
-          <div class="filters" style="gap:8px; margin-bottom:8px">
+        <div class="tile" style="margin-top:10px">
+          <div class="tags" style="gap:8px; margin-bottom:8px">
             <input id="nameSide" class="input" placeholder="Nama lengkap" aria-label="Nama">
             <input id="phoneSide" class="input" placeholder="No. HP" aria-label="Nomor HP">
           </div>
-          <div class="filters" style="gap:8px; margin-bottom:8px">
+          <div class="tags" style="gap:8px; margin-bottom:8px">
             <select id="typeSide" class="select" aria-label="Tipe Pesanan">
               <option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option><option value="Delivery">Delivery</option>
             </select>
             <input id="addrSide" class="input" placeholder="Meja/Alamat (opsional)" aria-label="Alamat">
           </div>
-          <textarea id="noteSide" class="textarea" rows="2" placeholder="Catatan umum pesanan (opsional)" aria-label="Catatan"></textarea>
+          <textarea id="noteSide" class="textarea" rows="2" placeholder="Catatan umum (opsional)" aria-label="Catatan"></textarea>
         </div>
 
-        <button class="cta" style="width:100%; margin-top:12px" onclick="sendEmailServerless(this)">Pesan Sekarang</button>
-        <div style="color:var(--muted); font-size:12px; margin-top:6px">Email dikirim ke NJ Cafe via serverless.</div>
+        <button class="cta" style="width:100%; margin-top:10px" onclick="sendEmailServerless(this)">Pesan Sekarang</button>
+        <div class="muted" style="font-size:12px; margin-top:6px">Email terkirim via serverless ke NJ Cafe.</div>
       </aside>
     </div>
   </main>
 
-  <button class="fab" onclick="openDrawer()">Keranjang <span id="badge" class="tag" style="margin-left:6px">0</span></button>
-
-  <div id="drawer" class="drawer" role="dialog" aria-modal="true" aria-hidden="true">
-    <div style="display:flex; align-items:center; justify-content:space-between">
-      <strong style="font-size:18px">Keranjang <span id="countDrawer" class="tag">0</span></strong>
-      <button class="button" onclick="closeDrawer()" aria-label="Tutup keranjang">Tutup</button>
-    </div>
-
-    <div id="listDrawer" class="list" style="margin-top:10px"></div>
-
-    <div style="border-top:1px solid var(--line); padding-top:10px; margin-top:10px">
-      <div class="row"><span>Subtotal</span><strong id="subDrawer">Rp 0</strong></div>
-      <div class="row"><span>Pajak (10%)</span><strong id="taxDrawer">Rp 0</strong></div>
-      <div class="row" style="border:none"><span style="font-weight:900">Total</span><strong id="totDrawer">Rp 0</strong></div>
-    </div>
-
-    <div class="tile" style="margin-top:12px">
-      <div class="filters" style="gap:8px; margin-bottom:8px">
-        <input id="nameDrawer" class="input" placeholder="Nama lengkap" aria-label="Nama">
-        <input id="phoneDrawer" class="input" placeholder="No. HP" aria-label="Nomor HP">
-      </div>
-      <div class="filters" style="gap:8px; margin-bottom:8px">
-        <select id="typeDrawer" class="select" aria-label="Tipe Pesanan">
-          <option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option><option value="Delivery">Delivery</option>
-        </select>
-        <input id="addrDrawer" class="input" placeholder="Meja/Alamat (opsional)" aria-label="Alamat">
-      </div>
-      <textarea id="noteDrawer" class="textarea" rows="2" placeholder="Catatan umum pesanan (opsional)" aria-label="Catatan"></textarea>
-    </div>
-
-    <button class="cta" style="width:100%; margin-top:12px" onclick="sendEmailServerless(this)">Pesan Sekarang</button>
+  <!-- MINI BAR (mobile) -->
+  <div class="minibar" id="minibar" aria-live="polite">
+    <div>Keranjang: <strong id="miniCount">0</strong></div>
+    <div class="sum" id="miniTotal">Rp 0</div>
+    <button class="cta" onclick="openDrawer()">Buka</button>
   </div>
-  <div id="mask" class="drawer-mask" onclick="closeDrawer()" aria-hidden="true"></div>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"><div class="inner">Ditambahkan ke keranjang</div></div>
+  <!-- DRAWER (mobile/desktop overlay) -->
+  <aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-hidden="true">
+    <header>
+      <strong>Keranjang</strong>
+      <button class="button" onclick="closeDrawer()" aria-label="Tutup keranjang">Tutup</button>
+    </header>
+    <div class="content">
+      <div id="listDrawer"></div>
+      <div style="border-top:1px solid var(--line); padding-top:8px; margin-top:8px">
+        <div class="row"><span>Subtotal</span><strong id="subDrawer">Rp 0</strong></div>
+        <div class="row"><span>Pajak (10%)</span><strong id="taxDrawer">Rp 0</strong></div>
+        <div class="row" style="border:none"><span style="font-weight:900">Total</span><strong id="totDrawer">Rp 0</strong></div>
+      </div>
+
+      <div class="tile" style="margin-top:10px">
+        <div class="tags" style="gap:8px; margin-bottom:8px">
+          <input id="nameDrawer" class="input" placeholder="Nama lengkap" aria-label="Nama">
+          <input id="phoneDrawer" class="input" placeholder="No. HP" aria-label="Nomor HP">
+        </div>
+        <div class="tags" style="gap:8px; margin-bottom:8px">
+          <select id="typeDrawer" class="select" aria-label="Tipe Pesanan">
+            <option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option><option value="Delivery">Delivery</option>
+          </select>
+          <input id="addrDrawer" class="input" placeholder="Meja/Alamat (opsional)" aria-label="Alamat">
+        </div>
+        <textarea id="noteDrawer" class="textarea" rows="2" placeholder="Catatan umum (opsional)" aria-label="Catatan"></textarea>
+      </div>
+    </div>
+    <footer>
+      <button class="cta" style="width:100%" onclick="sendEmailServerless(this)">Pesan Sekarang</button>
+    </footer>
+  </aside>
+  <div id="mask" class="mask" onclick="closeDrawer()"></div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">Ditambahkan ke keranjang</div>
 
   <script>
-    // Mobile nav
+    // NAV
     const burger = document.getElementById('burger'); const mobile = document.getElementById('mobile');
-    burger?.addEventListener('click', ()=> { const open = mobile.style.display==='block'; mobile.style.display=open?'none':'block'; burger.setAttribute('aria-expanded',(!open).toString()); });
+    burger?.addEventListener('click', ()=> { const o = mobile.style.display==='block'; mobile.style.display=o?'none':'block'; burger.setAttribute('aria-expanded', (!o).toString()); });
 
-    // Menu data
+    // DATA
     const MENU = [
       {id:1,name:"Espresso",price:18000,cat:"Minuman",img:"assets/menu-01.svg",ing:["Arabika single shot"]},
       {id:2,name:"Americano",price:22000,cat:"Minuman",img:"assets/menu-02.svg",ing:["Espresso","Air panas"]},
@@ -147,32 +177,54 @@
       {id:17,name:"Chicken Wings (6pcs)",price:38000,cat:"Makanan",img:"assets/menu-17.svg",ing:["Sayap ayam","Marinade pedas"]},
       {id:18,name:"Spaghetti Bolognese",price:38000,cat:"Makanan",img:"assets/menu-18.svg",ing:["Tomat","Daging sapi cincang","Herbs"]},
       {id:19,name:"Spaghetti Aglio e Olio",price:34000,cat:"Makanan",img:"assets/menu-19.svg",ing:["Bawang putih","Cabai","Olive oil","Peterseli"]},
-      {id:20,name:"Chicken Katsu Rice Bowl",price:38000,cat:"Makanan",img:"assets/menu-20.svg",ing:["Ayam fillet","Tepung roti","Nasi","Saus"]},
-      {id:21,name:"Beef Teriyaki Rice Bowl",price:42000,cat:"Makanan",img:"assets/menu-21.svg",ing:["Daging sapi","Saus teriyaki","Nasi","Bawang bombay"]},
+      {id:20,name:"Chicken Katsu Bowl",price:38000,cat:"Makanan",img:"assets/menu-20.svg",ing:["Ayam fillet","Tepung roti","Nasi","Saus"]},
+      {id:21,name:"Beef Teriyaki Bowl",price:42000,cat:"Makanan",img:"assets/menu-21.svg",ing:["Daging sapi","Saus teriyaki","Nasi","Bawang bombay"]},
       {id:22,name:"Caesar Salad",price:32000,cat:"Makanan",img:"assets/menu-22.svg",ing:["Lettuce","Crouton","Parmesan","Dressing"]},
       {id:23,name:"Club Sandwich",price:34000,cat:"Makanan",img:"assets/menu-23.svg",ing:["Roti panggang","Dada ayam","Telur","Lettuce","Tomat"]},
       {id:24,name:"Waffle Maple",price:28000,cat:"Makanan",img:"assets/menu-24.svg",ing:["Adonan waffle","Maple syrup"]},
       {id:25,name:"Brownies",price:22000,cat:"Makanan",img:"assets/menu-25.svg",ing:["Cokelat","Mentega","Telur","Tepung"]},
     ];
-    const TAX = 0.10;
+    const TAX = .10;
     const fmt = n => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n).replace(",00","");
 
+    // STATE
+    let cart = JSON.parse(localStorage.getItem('njcafe_cart') || '[]');
+    const save = ()=> localStorage.setItem('njcafe_cart', JSON.stringify(cart));
+    const keyOf = (id, note)=> id+'|'+(note||'');
+
+    // UI REFS
     const grid = document.getElementById('grid');
     const q = document.getElementById('q');
     const sort = document.getElementById('sort');
     const cats = document.getElementById('cats');
-    let currentCat = "";
+    const priceTags = document.getElementById('priceTags');
+    const minibar = document.getElementById('minibar');
+    const miniCount = document.getElementById('miniCount');
+    const miniTotal = document.getElementById('miniTotal');
 
+    // CART REFS
+    const side = { list:document.getElementById('listSide'), sub:document.getElementById('subSide'), tax:document.getElementById('taxSide'), tot:document.getElementById('totSide'), count:document.getElementById('countSide') };
+    const draw = { list:document.getElementById('listDrawer'), sub:document.getElementById('subDrawer'), tax:document.getElementById('taxDrawer'), tot:document.getElementById('totDrawer'), count:document.getElementById('countDrawer') };
+
+    // FILTER STATE
+    let currentCat = "";
+    let priceMin = 0, priceMax = 999999;
+
+    // RENDER ITEMS
     function renderItems(){
       const query = (q.value||'').toLowerCase();
-      const arr = MENU.filter(m => (!query || m.name.toLowerCase().includes(query)) && (!currentCat || m.cat===currentCat));
+      const arr = MENU.filter(m =>
+        (!query || m.name.toLowerCase().includes(query)) &&
+        (!currentCat || m.cat === currentCat) &&
+        (m.price >= priceMin && m.price <= priceMax)
+      );
       switch(sort.value){
         case 'price-asc': arr.sort((a,b)=>a.price-b.price); break;
         case 'price-desc': arr.sort((a,b)=>b.price-a.price); break;
         case 'name-asc': arr.sort((a,b)=>a.name.localeCompare(b.name)); break;
         case 'name-desc': arr.sort((a,b)=>b.name.localeCompare(a.name)); break;
       }
-      grid.innerHTML='';
+      grid.innerHTML = '';
       arr.forEach(it => {
         const el = document.createElement('article');
         el.className = 'card';
@@ -182,15 +234,15 @@
             <span class="pill">${it.cat}</span>
           </div>
           <div class="pad">
-            <div style="display:flex; justify-content:space-between; gap:12px">
+            <div style="display:flex; justify-content:space-between; gap:10px">
               <div>
                 <strong style="font-size:18px">${it.name}</strong>
-                <div style="color:var(--muted); font-size:13px">Bahan: ${it.ing.join(', ')}</div>
+                <div class="muted" style="font-size:13px">Bahan: ${it.ing.join(', ')}</div>
               </div>
               <div class="price">${fmt(it.price)}</div>
             </div>
             <textarea rows="2" class="textarea" placeholder='contoh: "tidak pedas ya"'></textarea>
-            <div style="display:grid; grid-template-columns: auto 1fr auto; gap:8px; align-items:center; margin-top:10px">
+            <div style="display:grid; grid-template-columns:auto 1fr auto; gap:8px; align-items:center; margin-top:8px">
               <button class="button" data-act="minus">−</button>
               <input type="number" value="1" min="1" class="input" style="text-align:center">
               <button class="button" data-act="plus">+</button>
@@ -204,48 +256,46 @@
         el.querySelector('[data-act="add"]').addEventListener('click', ()=> {
           const n = Math.max(1, parseInt(qty.value||'1',10));
           const note = el.querySelector('textarea').value.trim();
-          addToCart(it, n, note);
-          showToast('Ditambahkan ke keranjang');
+          addToCart(it, n, note); toast('Ditambahkan ke keranjang');
         });
       });
     }
 
-    // Cart state
-    let cart = [];
-    const keyOf = (id,note)=> id+'|'+(note||'');
-    const side = { list:document.getElementById('listSide'), sub:document.getElementById('subSide'), tax:document.getElementById('taxSide'), tot:document.getElementById('totSide'), count:document.getElementById('countSide') };
-    const draw = { list:document.getElementById('listDrawer'), sub:document.getElementById('subDrawer'), tax:document.getElementById('taxDrawer'), tot:document.getElementById('totDrawer'), count:document.getElementById('countDrawer') };
-    const badge = document.getElementById('badge');
-
+    // CART OPS
     function addToCart(it, qty, note){
-      const k = keyOf(it.id, note); const f = cart.find(x=>x.key===k);
+      const k = keyOf(it.id, note);
+      const f = cart.find(x=>x.key===k);
       if(f) f.qty += qty; else cart.push({key:k,id:it.id,name:it.name,price:it.price,qty,note});
-      renderCart();
+      save(); renderCart();
     }
-    function rm(k){ cart = cart.filter(x=>x.key!==k); renderCart(); }
-    function qd(k,d){ const f = cart.find(x=>x.key===k); if(!f) return; f.qty = Math.max(1, f.qty+d); renderCart(); }
+    function rm(k){ cart = cart.filter(x=>x.key!==k); save(); renderCart(); }
+    function qd(k,d){ const f = cart.find(x=>x.key===k); if(!f) return; f.qty = Math.max(1, f.qty+d); save(); renderCart(); }
     function count(){ return cart.reduce((a,c)=>a+c.qty,0); }
+    function subtotal(){ return cart.reduce((a,c)=>a+c.price*c.qty,0); }
 
     function renderCart(){
-      let sub=0;
-      const rows = cart.map(c=>{ sub+=c.price*c.qty; return `
-        <div class="row">
-          <div style="min-width:0">
-            <div style="font-weight:800">${c.name} × ${c.qty} <span style="font-size:12px; color:var(--muted)">• ${fmt(c.price)}</span></div>
-            ${c.note?'<div style="color:var(--muted); font-size:13px; margin-top:4px">Catatan: '+c.note+'</div>':''}
-          </div>
-          <div style="display:flex; gap:6px">
-            <button class="button" onclick='qd("${c.key}",-1)'>−</button>
-            <button class="button" onclick='qd("${c.key}",1)'>+</button>
-            <button class="button" onclick='rm("${c.key}")'>✕</button>
-          </div>
-        </div>`; }).join('');
-      const tax = Math.round(sub*TAX); const tot = sub+tax;
-      side.list.innerHTML = rows || `<div class="muted">Belum ada item.</div>`;
-      draw.list.innerHTML = rows || `<div class="muted">Belum ada item.</div>`;
-      side.sub.textContent = fmt(sub); side.tax.textContent = fmt(tax); side.tot.textContent = fmt(tot); side.count.textContent = count();
-      draw.sub.textContent = fmt(sub); draw.tax.textContent = fmt(tax); draw.tot.textContent = fmt(tot); draw.count.textContent = count();
-      badge.textContent = count();
+      let sub = subtotal();
+      const tax = Math.round(sub*TAX), tot = sub + tax;
+      const row = (c)=>`<div class="row">
+        <div style="min-width:0">
+          <div style="font-weight:800">${c.name} × ${c.qty} <span class="muted" style="font-size:12px">• ${fmt(c.price)}</span></div>
+          ${c.note ? `<div class="muted" style="font-size:13px; margin-top:4px">Catatan: ${c.note}</div>` : ``}
+        </div>
+        <div style="display:flex; gap:6px">
+          <button class="button" onclick='qd("${c.key}",-1)'>−</button>
+          <button class="button" onclick='qd("${c.key}",1)'>+</button>
+          <button class="button" onclick='rm("${c.key}")'>✕</button>
+        </div>
+      </div>`;
+      const rows = cart.map(row).join('') || `<div class="muted">Belum ada item.</div>`;
+
+      // Side
+      const s = side; s.list.innerHTML = rows; s.sub.textContent = fmt(sub); s.tax.textContent = fmt(tax); s.tot.textContent = fmt(tot); s.count.textContent = count();
+      // Drawer
+      const d = draw; d.list.innerHTML = rows; d.sub.textContent = fmt(sub); d.tax.textContent = fmt(tax); d.tot.textContent = fmt(tot); d.count.textContent = count();
+      // Mini
+      miniCount.textContent = count(); miniTotal.textContent = fmt(tot);
+      minibar.style.display = count() ? 'flex' : 'none';
     }
     window.rm = rm; window.qd = qd;
 
@@ -256,24 +306,19 @@
     window.openDrawer = openDrawer; window.closeDrawer = closeDrawer;
 
     // Toast
-    const toast = document.getElementById('toast');
-    function showToast(msg){ toast.querySelector('.inner').textContent = msg; toast.classList.add('show'); setTimeout(()=> toast.classList.remove('show'), 1400); }
+    const toastEl = document.getElementById('toast');
+    function toast(msg){ toastEl.textContent = msg; toastEl.classList.add('show'); setTimeout(()=> toastEl.classList.remove('show'), 1200); }
 
     // Filters
     q.addEventListener('input', renderItems);
     sort.addEventListener('change', renderItems);
-    cats.addEventListener('click', e=> {
-      const btn = e.target.closest('button[data-cat]'); if(!btn) return;
-      cats.querySelectorAll('button').forEach(b=> b.classList.remove('active'));
-      btn.classList.add('active');
-      currentCat = btn.dataset.cat || '';
-      renderItems();
-    });
+    cats.addEventListener('click', e=>{ const b=e.target.closest('button[data-cat]'); if(!b) return; cats.querySelectorAll('button').forEach(x=>x.classList.remove('active')); b.classList.add('active'); currentCat=b.dataset.cat||''; renderItems(); });
+    priceTags.addEventListener('click', e=>{ const b=e.target.closest('button.tag'); if(!b) return; priceTags.querySelectorAll('button').forEach(x=>x.classList.remove('active')); b.classList.add('active'); priceMin=parseInt(b.dataset.min); priceMax=parseInt(b.dataset.max); renderItems(); });
 
     // Helpers
-    const rf = id => (document.getElementById(id+'Drawer')?.value?.trim?.() || document.getElementById(id+'Side')?.value?.trim?.() || '');
+    function rf(id){ return (document.getElementById(id+'Drawer')?.value?.trim?.() || document.getElementById(id+'Side')?.value?.trim?.() || ''); }
     function requireOrder(){
-      if(cart.length===0){ alert('Keranjang masih kosong.'); return false; }
+      if(!cart.length){ alert('Keranjang masih kosong.'); return false; }
       if(!rf('name') || !rf('phone')){ alert('Isi nama & nomor HP terlebih dahulu.'); return false; }
       return true;
     }
@@ -284,17 +329,16 @@
       lines.push('Tipe      : '+(rf('type')||'Dine-in')); if(rf('addr')) lines.push('Alamat/Meja: '+rf('addr')); if(rf('note')) lines.push('Catatan   : '+rf('note'));
       lines.push(''); lines.push('Item:');
       cart.forEach((c,i)=>{ lines.push((i+1)+'. '+c.name+' × '+c.qty+' — '+fmt(c.price*c.qty)); if(c.note) lines.push('   • Catatan: '+c.note); });
-      lines.push(''); lines.push('Subtotal : '+document.getElementById('subSide').textContent); lines.push('Pajak 10%: '+document.getElementById('taxSide').textContent); lines.push('TOTAL    : '+document.getElementById('totSide').textContent);
+      lines.push(''); lines.push('Subtotal : '+side.sub.textContent); lines.push('Pajak 10%: '+side.tax.textContent); lines.push('TOTAL    : '+side.tot.textContent);
       lines.push(''); lines.push('Waktu    : '+new Date().toLocaleString('id-ID')); lines.push('========================');
       return lines.join('\n');
     }
 
     async function sendEmailServerless(btn){
       if(!requireOrder()) return;
-      const original = btn.textContent; btn.textContent='Mengirim...'; btn.disabled = true;
+      const original = btn.textContent; btn.textContent='Mengirim...'; btn.disabled = True = true;
       try{
-        const subject = 'Pesanan NJ Cafe — '+rf('name');
-        const text = buildMessage();
+        const subject = 'Pesanan NJ Cafe — '+rf('name'); const text = buildMessage();
         const res = await fetch('/api/send-email', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ to:'narenskii@gmail.com', subject, text }) });
         if(!res.ok){ throw new Error(await res.text() || ('HTTP '+res.status)); }
         alert('Pesanan terkirim ke email. Terima kasih!');
@@ -303,7 +347,7 @@
     }
     window.sendEmailServerless = sendEmailServerless;
 
-    // Init
+    // INIT
     renderItems(); renderCart();
   </script>
 </body>
