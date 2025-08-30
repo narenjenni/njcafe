@@ -3,37 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Order • NJ Cafe — Aurora UI</title>
-  <meta name="description" content="Pemesanan online NJ Cafe: 25 menu, catatan per item, WhatsApp & Email serverless." />
+  <title>Order • NJ Cafe — Orion UI</title>
+  <meta name="description" content="Pemesanan online NJ Cafe: 25 menu, catatan per item, email serverless (Pesan Sekarang).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
-
   <nav>
     <div class="container navbar">
-      <a href="index.html" class="brand"><span class="brand-badge"></span><strong>NJ Cafe</strong></a>
+      <a href="index.html" class="brand"><span class="brand-badge" aria-hidden="true"></span><strong>NJ Cafe</strong></a>
       <div class="navlinks">
         <a href="index.html#menu">Menu</a>
         <a href="index.html#owner">Owner</a>
         <a href="index.html#bahan">Bahan</a>
-        <a href="order.html" class="cta ripple">Order</a>
+        <a href="order.html" class="cta">Order</a>
       </div>
-      <button class="burger" id="burger">☰</button>
+      <button id="burger" class="burger" aria-expanded="false" aria-controls="mobile">☰</button>
     </div>
-    <div class="container mobilemenu" id="mobile">
+    <div class="container mobilemenu" id="mobile" role="navigation" aria-label="Menu mobile">
       <a href="index.html#menu">Menu</a>
       <a href="index.html#owner">Owner</a>
       <a href="index.html#bahan">Bahan</a>
-      <a href="order.html" class="cta ripple">Order</a>
+      <a href="order.html" class="cta">Order</a>
     </div>
   </nav>
 
-  <main class="container" style="padding:24px 0">
-    <div class="toolbar">
+  <main class="container" style="padding:20px 0">
+    <section class="toolbar">
       <div class="row">
         <input id="q" class="input" placeholder="Cari menu...">
         <select id="sort" class="select">
@@ -42,57 +40,57 @@
           <option value="price-asc">Harga Terendah</option>
           <option value="price-desc">Harga Tertinggi</option>
         </select>
-        <div class="chips" id="cats">
-          <button data-cat="" class="button ghost ripple">Semua</button>
-          <button data-cat="Minuman" class="button ghost ripple">Minuman</button>
-          <button data-cat="Makanan" class="button ghost ripple">Makanan</button>
+        <div class="filters" id="cats" role="tablist" aria-label="Kategori">
+          <button data-cat="" class="tag active" role="tab" aria-selected="true">Semua</button>
+          <button data-cat="Minuman" class="tag" role="tab" aria-selected="false">Minuman</button>
+          <button data-cat="Makanan" class="tag" role="tab" aria-selected="false">Makanan</button>
         </div>
-        <button class="button primary ripple" onclick="openDrawer()">Keranjang</button>
+        <button class="cta" onclick="openDrawer()">Keranjang</button>
       </div>
-      <p class="lead" style="margin-top:10px">Tambahkan catatan per item (contoh: “tidak pedas ya”).</p>
-    </div>
+      <p class="muted" style="margin-top:8px">Tambahkan catatan per item (contoh: “tidak pedas ya”).</p>
+    </section>
 
-    <div class="layout" style="margin-top:20px">
-      <section><div id="grid" class="grid menu"></div></section>
+    <div class="layout" style="margin-top:16px">
+      <section>
+        <div id="grid" class="grid menu"></div>
+      </section>
 
-      <aside class="cart" id="cartSide">
-        <h3 style="margin:0 0 8px; font-weight:900">Keranjang <span id="countSide" class="chip">0</span></h3>
+      <aside class="cart" id="cartSide" aria-label="Keranjang">
+        <h3 style="margin:0 0 8px; font-weight:900">Keranjang <span id="countSide" class="tag" aria-live="polite">0</span></h3>
         <div id="listSide" class="list"></div>
+
         <div style="border-top:1px solid var(--line); padding-top:10px; margin-top:10px">
           <div class="row"><span>Subtotal</span><strong id="subSide">Rp 0</strong></div>
           <div class="row"><span>Pajak (10%)</span><strong id="taxSide">Rp 0</strong></div>
           <div class="row" style="border:none"><span style="font-weight:900">Total</span><strong id="totSide">Rp 0</strong></div>
         </div>
 
-        <div class="kv" style="margin-top:12px">
-          <div class="flex" style="gap:8px; margin-bottom:8px">
-            <input id="nameSide" class="input" placeholder="Nama lengkap">
-            <input id="phoneSide" class="input" placeholder="No. HP">
+        <div class="tile" style="margin-top:12px">
+          <div class="filters" style="gap:8px; margin-bottom:8px">
+            <input id="nameSide" class="input" placeholder="Nama lengkap" aria-label="Nama">
+            <input id="phoneSide" class="input" placeholder="No. HP" aria-label="Nomor HP">
           </div>
-          <div class="flex" style="gap:8px; margin-bottom:8px">
-            <select id="typeSide" class="select">
+          <div class="filters" style="gap:8px; margin-bottom:8px">
+            <select id="typeSide" class="select" aria-label="Tipe Pesanan">
               <option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option><option value="Delivery">Delivery</option>
             </select>
-            <input id="addrSide" class="input" placeholder="Meja/Alamat (opsional)">
+            <input id="addrSide" class="input" placeholder="Meja/Alamat (opsional)" aria-label="Alamat">
           </div>
-          <textarea id="noteSide" class="textarea" rows="2" placeholder="Catatan umum pesanan (opsional)"></textarea>
+          <textarea id="noteSide" class="textarea" rows="2" placeholder="Catatan umum pesanan (opsional)" aria-label="Catatan"></textarea>
         </div>
 
-        <div class="flex" style="margin-top:12px">
-          <button class="button primary ripple" style="flex:1" onclick="sendWhatsApp()">Kirim WhatsApp</button>
-          <button class="button ripple" style="flex:1" onclick="sendEmailServerless(this)">Kirim Email</button>
-        </div>
-        <div style="color:var(--muted); font-size:12px; margin-top:6px">Email dikirim via serverless function.</div>
+        <button class="cta" style="width:100%; margin-top:12px" onclick="sendEmailServerless(this)">Pesan Sekarang</button>
+        <div style="color:var(--muted); font-size:12px; margin-top:6px">Email dikirim ke NJ Cafe via serverless.</div>
       </aside>
     </div>
   </main>
 
-  <button class="fab ripple" onclick="openDrawer()">Keranjang <span id="badge" class="chip" style="margin-left:6px">0</span></button>
+  <button class="fab" onclick="openDrawer()">Keranjang <span id="badge" class="tag" style="margin-left:6px">0</span></button>
 
-  <div id="drawer" class="drawer" role="dialog" aria-hidden="true">
+  <div id="drawer" class="drawer" role="dialog" aria-modal="true" aria-hidden="true">
     <div style="display:flex; align-items:center; justify-content:space-between">
-      <strong style="font-size:18px">Keranjang <span id="countDrawer" class="chip">0</span></strong>
-      <button class="button ripple" onclick="closeDrawer()">Tutup</button>
+      <strong style="font-size:18px">Keranjang <span id="countDrawer" class="tag">0</span></strong>
+      <button class="button" onclick="closeDrawer()" aria-label="Tutup keranjang">Tutup</button>
     </div>
 
     <div id="listDrawer" class="list" style="margin-top:10px"></div>
@@ -103,42 +101,32 @@
       <div class="row" style="border:none"><span style="font-weight:900">Total</span><strong id="totDrawer">Rp 0</strong></div>
     </div>
 
-    <div class="kv" style="margin-top:12px">
-      <div class="flex" style="gap:8px; margin-bottom:8px">
-        <input id="nameDrawer" class="input" placeholder="Nama lengkap">
-        <input id="phoneDrawer" class="input" placeholder="No. HP">
+    <div class="tile" style="margin-top:12px">
+      <div class="filters" style="gap:8px; margin-bottom:8px">
+        <input id="nameDrawer" class="input" placeholder="Nama lengkap" aria-label="Nama">
+        <input id="phoneDrawer" class="input" placeholder="No. HP" aria-label="Nomor HP">
       </div>
-      <div class="flex" style="gap:8px; margin-bottom:8px">
-        <select id="typeDrawer" class="select">
+      <div class="filters" style="gap:8px; margin-bottom:8px">
+        <select id="typeDrawer" class="select" aria-label="Tipe Pesanan">
           <option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option><option value="Delivery">Delivery</option>
         </select>
-        <input id="addrDrawer" class="input" placeholder="Meja/Alamat (opsional)">
+        <input id="addrDrawer" class="input" placeholder="Meja/Alamat (opsional)" aria-label="Alamat">
       </div>
-      <textarea id="noteDrawer" class="textarea" rows="2" placeholder="Catatan umum pesanan (opsional)"></textarea>
+      <textarea id="noteDrawer" class="textarea" rows="2" placeholder="Catatan umum pesanan (opsional)" aria-label="Catatan"></textarea>
     </div>
 
-    <div class="flex" style="margin-top:12px">
-      <button class="button primary ripple" style="flex:1" onclick="sendWhatsApp()">Kirim WhatsApp</button>
-      <button class="button ripple" style="flex:1" onclick="sendEmailServerless(this)">Kirim Email</button>
-    </div>
+    <button class="cta" style="width:100%; margin-top:12px" onclick="sendEmailServerless(this)">Pesan Sekarang</button>
   </div>
-  <div id="mask" class="drawer-mask" onclick="closeDrawer()"></div>
+  <div id="mask" class="drawer-mask" onclick="closeDrawer()" aria-hidden="true"></div>
 
-  <div id="toast" class="toast"><div class="inner">Ditambahkan ke keranjang</div></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"><div class="inner">Ditambahkan ke keranjang</div></div>
 
   <script>
-    // NAV
-    document.getElementById('burger').addEventListener('click', ()=> {
-      const mob = document.getElementById('mobile');
-      mob.style.display = mob.style.display==='block'?'none':'block';
-    });
-    document.body.addEventListener('click', e => {
-      const btn = e.target.closest('.ripple'); if(!btn) return;
-      const r = btn.getBoundingClientRect(); btn.style.setProperty('--x', (e.clientX-r.left)+'px'); btn.style.setProperty('--y', (e.clientY-r.top)+'px');
-      btn.classList.remove('rippling'); void btn.offsetWidth; btn.classList.add('rippling');
-    }, {capture:true});
+    // Mobile nav
+    const burger = document.getElementById('burger'); const mobile = document.getElementById('mobile');
+    burger?.addEventListener('click', ()=> { const open = mobile.style.display==='block'; mobile.style.display=open?'none':'block'; burger.setAttribute('aria-expanded',(!open).toString()); });
 
-    // MENU DATA
+    // Menu data
     const MENU = [
       {id:1,name:"Espresso",price:18000,cat:"Minuman",img:"assets/menu-01.svg",ing:["Arabika single shot"]},
       {id:2,name:"Americano",price:22000,cat:"Minuman",img:"assets/menu-02.svg",ing:["Espresso","Air panas"]},
@@ -166,7 +154,7 @@
       {id:24,name:"Waffle Maple",price:28000,cat:"Makanan",img:"assets/menu-24.svg",ing:["Adonan waffle","Maple syrup"]},
       {id:25,name:"Brownies",price:22000,cat:"Makanan",img:"assets/menu-25.svg",ing:["Cokelat","Mentega","Telur","Tepung"]},
     ];
-    const TAX = .10;
+    const TAX = 0.10;
     const fmt = n => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n).replace(",00","");
 
     const grid = document.getElementById('grid');
@@ -184,11 +172,11 @@
         case 'name-asc': arr.sort((a,b)=>a.name.localeCompare(b.name)); break;
         case 'name-desc': arr.sort((a,b)=>b.name.localeCompare(a.name)); break;
       }
-      grid.innerHTML = '';
+      grid.innerHTML='';
       arr.forEach(it => {
-        const art = document.createElement('article');
-        art.className = 'card';
-        art.innerHTML = `
+        const el = document.createElement('article');
+        el.className = 'card';
+        el.innerHTML = `
           <div style="position:relative">
             <img src="${it.img}" alt="${it.name}">
             <span class="pill">${it.cat}</span>
@@ -203,25 +191,26 @@
             </div>
             <textarea rows="2" class="textarea" placeholder='contoh: "tidak pedas ya"'></textarea>
             <div style="display:grid; grid-template-columns: auto 1fr auto; gap:8px; align-items:center; margin-top:10px">
-              <button class="button ripple" data-act="minus">−</button>
+              <button class="button" data-act="minus">−</button>
               <input type="number" value="1" min="1" class="input" style="text-align:center">
-              <button class="button ripple" data-act="plus">+</button>
-              <button class="button primary ripple" style="grid-column: 1 / -1" data-act="add">Tambah</button>
+              <button class="button" data-act="plus">+</button>
+              <button class="cta" style="grid-column: 1 / -1" data-act="add">Tambah</button>
             </div>
           </div>`;
-        grid.appendChild(art);
-        const qtyInput = art.querySelector('input[type="number"]');
-        art.querySelector('[data-act="minus"]').addEventListener('click', ()=> qtyInput.value = Math.max(1, parseInt(qtyInput.value||'1',10)-1));
-        art.querySelector('[data-act="plus"]').addEventListener('click',  ()=> qtyInput.value = Math.max(1, parseInt(qtyInput.value||'1',10)+1));
-        art.querySelector('[data-act="add"]').addEventListener('click',  ()=> {
-          const n = Math.max(1, parseInt(qtyInput.value||'1',10));
-          const note = art.querySelector('textarea').value.trim();
-          addToCart(it, n, note); showToast('Ditambahkan ke keranjang');
+        grid.appendChild(el);
+        const qty = el.querySelector('input[type="number"]');
+        el.querySelector('[data-act="minus"]').addEventListener('click', ()=> qty.value = Math.max(1, parseInt(qty.value||'1',10)-1));
+        el.querySelector('[data-act="plus"]').addEventListener('click',  ()=> qty.value = Math.max(1, parseInt(qty.value||'1',10)+1));
+        el.querySelector('[data-act="add"]').addEventListener('click', ()=> {
+          const n = Math.max(1, parseInt(qty.value||'1',10));
+          const note = el.querySelector('textarea').value.trim();
+          addToCart(it, n, note);
+          showToast('Ditambahkan ke keranjang');
         });
       });
     }
 
-    // Cart
+    // Cart state
     let cart = [];
     const keyOf = (id,note)=> id+'|'+(note||'');
     const side = { list:document.getElementById('listSide'), sub:document.getElementById('subSide'), tax:document.getElementById('taxSide'), tot:document.getElementById('totSide'), count:document.getElementById('countSide') };
@@ -239,22 +228,21 @@
 
     function renderCart(){
       let sub=0;
-      const rowHtml = (c)=>`<div class="row">
+      const rows = cart.map(c=>{ sub+=c.price*c.qty; return `
+        <div class="row">
           <div style="min-width:0">
             <div style="font-weight:800">${c.name} × ${c.qty} <span style="font-size:12px; color:var(--muted)">• ${fmt(c.price)}</span></div>
-            ${c.note ? `<div style="color:var(--muted); font-size:13px; margin-top:4px">Catatan: ${c.note}</div>` : ``}
+            ${c.note?'<div style="color:var(--muted); font-size:13px; margin-top:4px">Catatan: '+c.note+'</div>':''}
           </div>
           <div style="display:flex; gap:6px">
-            <button class="button ripple" onclick='qd("${c.key}",-1)'>−</button>
-            <button class="button ripple" onclick='qd("${c.key}",1)'>+</button>
-            <button class="button ripple" onclick='rm("${c.key}")'>✕</button>
+            <button class="button" onclick='qd("${c.key}",-1)'>−</button>
+            <button class="button" onclick='qd("${c.key}",1)'>+</button>
+            <button class="button" onclick='rm("${c.key}")'>✕</button>
           </div>
-        </div>`;
-      const rows = cart.map(c=>{ sub+=c.price*c.qty; return rowHtml(c); }).join('');
-      const tax = Math.round(sub*TAX); const tot=sub+tax;
-
-      side.list.innerHTML = rows || `<div style="color:var(--muted)">Belum ada item.</div>`;
-      draw.list.innerHTML = rows || `<div style="color:var(--muted)">Belum ada item.</div>`;
+        </div>`; }).join('');
+      const tax = Math.round(sub*TAX); const tot = sub+tax;
+      side.list.innerHTML = rows || `<div class="muted">Belum ada item.</div>`;
+      draw.list.innerHTML = rows || `<div class="muted">Belum ada item.</div>`;
       side.sub.textContent = fmt(sub); side.tax.textContent = fmt(tax); side.tot.textContent = fmt(tot); side.count.textContent = count();
       draw.sub.textContent = fmt(sub); draw.tax.textContent = fmt(tax); draw.tot.textContent = fmt(tot); draw.count.textContent = count();
       badge.textContent = count();
@@ -267,57 +255,55 @@
     function closeDrawer(){ drawer.classList.remove('open'); mask.style.display='none'; }
     window.openDrawer = openDrawer; window.closeDrawer = closeDrawer;
 
-    // Toast & Ripple
+    // Toast
     const toast = document.getElementById('toast');
-    function showToast(msg){ toast.querySelector('.inner').textContent = msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 1400); }
-    document.body.addEventListener('click', e => {
-      const btn = e.target.closest('.ripple'); if(!btn) return;
-      const r = btn.getBoundingClientRect(); btn.style.setProperty('--x', (e.clientX-r.left)+'px'); btn.style.setProperty('--y', (e.clientY-r.top)+'px');
-      btn.classList.remove('rippling'); void btn.offsetWidth; btn.classList.add('rippling');
-    }, {capture:true});
+    function showToast(msg){ toast.querySelector('.inner').textContent = msg; toast.classList.add('show'); setTimeout(()=> toast.classList.remove('show'), 1400); }
 
     // Filters
     q.addEventListener('input', renderItems);
     sort.addEventListener('change', renderItems);
-    cats.addEventListener('click', e=> { const b = e.target.closest('button[data-cat]'); if(!b) return; currentCat = b.dataset.cat||''; renderItems(); });
+    cats.addEventListener('click', e=> {
+      const btn = e.target.closest('button[data-cat]'); if(!btn) return;
+      cats.querySelectorAll('button').forEach(b=> b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCat = btn.dataset.cat || '';
+      renderItems();
+    });
 
-    // Fields
-    function rf(id){ return (document.getElementById(id+'Drawer')?.value?.trim?.() || document.getElementById(id+'Side')?.value?.trim?.() || ''); }
+    // Helpers
+    const rf = id => (document.getElementById(id+'Drawer')?.value?.trim?.() || document.getElementById(id+'Side')?.value?.trim?.() || '');
     function requireOrder(){
-      if(cart.length===0){ alert("Keranjang masih kosong."); return false; }
-      const name = rf('name'), phone = rf('phone'); if(!name || !phone){ alert("Isi nama & nomor HP terlebih dahulu."); return false; }
+      if(cart.length===0){ alert('Keranjang masih kosong.'); return false; }
+      if(!rf('name') || !rf('phone')){ alert('Isi nama & nomor HP terlebih dahulu.'); return false; }
       return true;
     }
     function buildMessage(){
-      const lines=[];
+      const lines = [];
       lines.push('NJ Cafe — Pesanan Baru'); lines.push('========================');
       lines.push('Pelanggan : '+rf('name')); lines.push('No. HP    : '+rf('phone'));
       lines.push('Tipe      : '+(rf('type')||'Dine-in')); if(rf('addr')) lines.push('Alamat/Meja: '+rf('addr')); if(rf('note')) lines.push('Catatan   : '+rf('note'));
-      lines.push(''); lines.push('Item:'); cart.forEach((c,i)=>{ lines.push((i+1)+'. '+c.name+' × '+c.qty+' — '+fmt(c.price*c.qty)); if(c.note) lines.push('   • Catatan: '+c.note); });
+      lines.push(''); lines.push('Item:');
+      cart.forEach((c,i)=>{ lines.push((i+1)+'. '+c.name+' × '+c.qty+' — '+fmt(c.price*c.qty)); if(c.note) lines.push('   • Catatan: '+c.note); });
       lines.push(''); lines.push('Subtotal : '+document.getElementById('subSide').textContent); lines.push('Pajak 10%: '+document.getElementById('taxSide').textContent); lines.push('TOTAL    : '+document.getElementById('totSide').textContent);
-      lines.push(''); lines.push('Waktu    : '+new Date().toLocaleString('id-ID')); lines.push('========================'); return lines.join('\n');
+      lines.push(''); lines.push('Waktu    : '+new Date().toLocaleString('id-ID')); lines.push('========================');
+      return lines.join('\n');
     }
 
-    function sendWhatsApp(){
-      if(!requireOrder()) return;
-      const msg = buildMessage(); const phoneCafe = '6281282460257';
-      const url = 'https://wa.me/'+phoneCafe+'?text='+encodeURIComponent(msg); const alt = 'https://api.whatsapp.com/send?phone='+phoneCafe+'&text='+encodeURIComponent(msg);
-      window.open(url,'_blank') || window.open(alt,'_blank');
-    }
     async function sendEmailServerless(btn){
       if(!requireOrder()) return;
       const original = btn.textContent; btn.textContent='Mengirim...'; btn.disabled = true;
       try{
-        const subject = 'Pesanan NJ Cafe — '+rf('name'); const text = buildMessage();
+        const subject = 'Pesanan NJ Cafe — '+rf('name');
+        const text = buildMessage();
         const res = await fetch('/api/send-email', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ to:'narenskii@gmail.com', subject, text }) });
-        if(!res.ok) throw new Error(await res.text() || ('HTTP '+res.status));
-        showToast('Pesanan terkirim via email');
+        if(!res.ok){ throw new Error(await res.text() || ('HTTP '+res.status)); }
+        alert('Pesanan terkirim ke email. Terima kasih!');
       }catch(e){ alert('Gagal mengirim email: '+(e && e.message ? e.message : e)); }
-      finally{ btn.textContent = original; btn.disabled = false; }
+      finally{ btn.textContent = 'Pesan Sekarang'; btn.disabled = false; }
     }
-    window.sendWhatsApp = sendWhatsApp; window.sendEmailServerless = sendEmailServerless;
+    window.sendEmailServerless = sendEmailServerless;
 
-    // Initial
+    // Init
     renderItems(); renderCart();
   </script>
 </body>
