@@ -3,156 +3,142 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Order • NJ Cafe</title>
-  <meta name="description" content="Pesan menu NJ Cafe: pilih item, catatan per item, kirim via WhatsApp atau Email." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            coffee: { 50:'#f6f5f4', 100:'#edeae8', 200:'#d9d2cd', 300:'#c3b7af', 400:'#b08968', 500:'#9c6f55', 600:'#6b4f4f', 700:'#4a3a38', 800:'#2a2422', 900:'#161312' },
-          },
-          boxShadow: { soft:'0 12px 28px rgba(0,0,0,.35)' }
-        }
-      }
-    }
-  </script>
+  <title>Order • NJ Cafe — Aurora UI</title>
+  <meta name="description" content="Pemesanan online NJ Cafe: 25 menu, catatan per item, WhatsApp & Email serverless." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-coffee-900 text-coffee-50 selection:bg-coffee-400 selection:text-black">
-  <nav class="sticky top-0 z-50 backdrop-blur bg-coffee-900/70 border-b border-white/10">
-    <div class="max-w-screen-xl mx-auto px-4">
-      <div class="h-16 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2">
-          <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-coffee-600 to-coffee-400 ring-1 ring-white/10"></span>
-          <span class="font-extrabold tracking-wide">NJ Cafe</span>
-        </a>
-        <ul class="hidden md:flex items-center gap-4">
-          <li><a href="index.html#menu" class="hover:text-white/90">Menu</a></li>
-          <li><a href="index.html#owner" class="hover:text-white/90">Owner</a></li>
-          <li><a href="index.html#bahan" class="hover:text-white/90">Bahan</a></li>
-          <li><a href="order.html" class="inline-flex items-center px-4 py-2 rounded-xl bg-coffee-400 text-black font-bold shadow-soft active:scale-95 transition">Order</a></li>
-        </ul>
-        <button id="burger" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 ring-1 ring-white/10">
-          <span class="sr-only">Buka navigasi</span>
-          <div class="w-5 h-0.5 bg-white relative">
-            <span class="absolute -top-1.5 left-0 w-5 h-0.5 bg-white"></span>
-            <span class="absolute top-1.5 left-0 w-5 h-0.5 bg-white"></span>
-          </div>
-        </button>
+<body>
+  <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
+
+  <nav>
+    <div class="container navbar">
+      <a href="index.html" class="brand"><span class="brand-badge"></span><strong>NJ Cafe</strong></a>
+      <div class="navlinks">
+        <a href="index.html#menu">Menu</a>
+        <a href="index.html#owner">Owner</a>
+        <a href="index.html#bahan">Bahan</a>
+        <a href="order.html" class="cta ripple">Order</a>
       </div>
-      <div id="mobileMenu" class="md:hidden hidden pb-3">
-        <a href="index.html#menu" class="block px-3 py-2 rounded-lg hover:bg-white/5">Menu</a>
-        <a href="index.html#owner" class="block px-3 py-2 rounded-lg hover:bg-white/5">Owner</a>
-        <a href="index.html#bahan" class="block px-3 py-2 rounded-lg hover:bg-white/5">Bahan</a>
-        <a href="order.html" class="mt-2 block text-center px-4 py-2 rounded-xl bg-coffee-400 text-black font-bold shadow-soft active:scale-95 transition">Order</a>
-      </div>
+      <button class="burger" id="burger">☰</button>
+    </div>
+    <div class="container mobilemenu" id="mobile">
+      <a href="index.html#menu">Menu</a>
+      <a href="index.html#owner">Owner</a>
+      <a href="index.html#bahan">Bahan</a>
+      <a href="order.html" class="cta ripple">Order</a>
     </div>
   </nav>
 
-  <main class="max-w-screen-xl mx-auto px-4 py-8 grid lg:grid-cols-[1fr_380px] gap-6">
-    <section>
-      <header class="bg-white/5 ring-1 ring-white/10 rounded-2xl p-5">
-        <h2 class="text-xl font-bold">Pilih Menu</h2>
-        <p class="text-white/80">Cari, filter, urutkan; tambahkan catatan per item (contoh: “tidak pedas ya”).</p>
-        <div class="mt-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          <input id="search" class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none" placeholder="Cari menu..." />
-          <select id="filterCat" class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none">
-            <option value="">Semua Kategori</option>
-            <option value="Minuman">Minuman</option>
-            <option value="Makanan">Makanan</option>
-          </select>
-          <select id="sort" class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none">
-            <option value="name-asc">A → Z</option>
-            <option value="name-desc">Z → A</option>
-            <option value="price-asc">Harga Terendah</option>
-            <option value="price-desc">Harga Tertinggi</option>
-          </select>
-          <a href="#cart" class="lg:hidden inline-flex items-center justify-center px-3 py-2 rounded-xl bg-coffee-400 text-black font-bold active:scale-95 transition" onclick="openDrawer()">Buka Keranjang</a>
+  <main class="container" style="padding:24px 0">
+    <div class="toolbar">
+      <div class="row">
+        <input id="q" class="input" placeholder="Cari menu...">
+        <select id="sort" class="select">
+          <option value="name-asc">A → Z</option>
+          <option value="name-desc">Z → A</option>
+          <option value="price-asc">Harga Terendah</option>
+          <option value="price-desc">Harga Tertinggi</option>
+        </select>
+        <div class="chips" id="cats">
+          <button data-cat="" class="button ghost ripple">Semua</button>
+          <button data-cat="Minuman" class="button ghost ripple">Minuman</button>
+          <button data-cat="Makanan" class="button ghost ripple">Makanan</button>
         </div>
-      </header>
-
-      <div id="itemsGrid" class="mt-4 grid sm:grid-cols-2 xl:grid-cols-3 gap-4"></div>
-    </section>
-
-    <aside id="cart" class="bg-white/5 ring-1 ring-white/10 rounded-2xl p-5 h-max sticky top-24 hidden lg:block">
-      <h3 class="text-lg font-bold">Keranjang <span id="cartCountSide" class="ml-2 inline-block px-2 py-0.5 rounded-full bg-white/10">0</span></h3>
-      <div id="cartItemsSide" class="mt-3 space-y-3 max-h-[42vh] overflow-auto pr-1"></div>
-
-      <div class="mt-4 border-t border-white/10 pt-3 space-y-1">
-        <div class="flex justify-between"><span>Subtotal</span><span id="subtotalSide">Rp 0</span></div>
-        <div class="flex justify-between"><span>Pajak (10%)</span><span id="taxSide">Rp 0</span></div>
-        <div class="flex justify-between font-extrabold"><span>Total</span><span id="totalSide">Rp 0</span></div>
+        <button class="button primary ripple" onclick="openDrawer()">Keranjang</button>
       </div>
+      <p class="lead" style="margin-top:10px">Tambahkan catatan per item (contoh: “tidak pedas ya”).</p>
+    </div>
 
-      <div class="mt-4 bg-black/20 rounded-xl p-3 space-y-2">
-        <div class="grid grid-cols-2 gap-2">
-          <input id="custNameSide" class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none" placeholder="Nama lengkap" />
-          <input id="custPhoneSide" class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none" placeholder="No. HP" />
+    <div class="layout" style="margin-top:20px">
+      <section><div id="grid" class="grid menu"></div></section>
+
+      <aside class="cart" id="cartSide">
+        <h3 style="margin:0 0 8px; font-weight:900">Keranjang <span id="countSide" class="chip">0</span></h3>
+        <div id="listSide" class="list"></div>
+        <div style="border-top:1px solid var(--line); padding-top:10px; margin-top:10px">
+          <div class="row"><span>Subtotal</span><strong id="subSide">Rp 0</strong></div>
+          <div class="row"><span>Pajak (10%)</span><strong id="taxSide">Rp 0</strong></div>
+          <div class="row" style="border:none"><span style="font-weight:900">Total</span><strong id="totSide">Rp 0</strong></div>
         </div>
-        <div class="grid grid-cols-2 gap-2">
-          <select id="orderTypeSide" class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none">
-            <option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option><option value="Delivery">Delivery</option>
-          </select>
-          <input class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none" placeholder="Meja/Alamat (opsional)" />
-        </div>
-        <textarea id="orderNoteSide" rows="2" class="w-full px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none" placeholder="Catatan umum pesanan (opsional)"></textarea>
-      </div>
 
-      <div class="mt-3 space-y-2">
-        <button class="w-full inline-flex justify-center px-4 py-3 rounded-xl bg-coffee-400 text-black font-bold active:scale-95 transition" onclick="sendWhatsApp()">Kirim via WhatsApp</button>
-        <button id="emailBtnSide" class="w-full inline-flex justify-center px-4 py-3 rounded-xl ring-1 ring-white/15 hover:bg-white/5 active:scale-95 transition" onclick="sendEmailServerless(this)">Kirim via Email</button>
-        <p class="text-xs text-white/70">Email dikirim via serverless function (tanpa membuka aplikasi email).</p>
-      </div>
-    </aside>
+        <div class="kv" style="margin-top:12px">
+          <div class="flex" style="gap:8px; margin-bottom:8px">
+            <input id="nameSide" class="input" placeholder="Nama lengkap">
+            <input id="phoneSide" class="input" placeholder="No. HP">
+          </div>
+          <div class="flex" style="gap:8px; margin-bottom:8px">
+            <select id="typeSide" class="select">
+              <option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option><option value="Delivery">Delivery</option>
+            </select>
+            <input id="addrSide" class="input" placeholder="Meja/Alamat (opsional)">
+          </div>
+          <textarea id="noteSide" class="textarea" rows="2" placeholder="Catatan umum pesanan (opsional)"></textarea>
+        </div>
+
+        <div class="flex" style="margin-top:12px">
+          <button class="button primary ripple" style="flex:1" onclick="sendWhatsApp()">Kirim WhatsApp</button>
+          <button class="button ripple" style="flex:1" onclick="sendEmailServerless(this)">Kirim Email</button>
+        </div>
+        <div style="color:var(--muted); font-size:12px; margin-top:6px">Email dikirim via serverless function.</div>
+      </aside>
+    </div>
   </main>
 
-  <button class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 lg:hidden inline-flex items-center gap-2 px-5 py-3 rounded-full bg-coffee-400 text-black font-bold shadow-soft active:scale-95 transition" onclick="openDrawer()">
-    Buka Keranjang <span id="cartCountBadge" class="inline-block px-2 py-0.5 rounded-full bg-black/20">0</span>
-  </button>
+  <button class="fab ripple" onclick="openDrawer()">Keranjang <span id="badge" class="chip" style="margin-left:6px">0</span></button>
 
-  <div id="drawer" class="fixed inset-0 z-50 hidden bg-black/60" onclick="closeDrawer()">
-    <div class="absolute bottom-0 left-0 right-0 bg-coffee-900 rounded-t-2xl ring-1 ring-white/10 p-5 max-h-[85vh] overflow-auto" onclick="event.stopPropagation()">
-      <div class="flex items-center justify-between">
-        <h3 class="text-lg font-bold">Keranjang <span id="cartCountDrawer" class="ml-2 inline-block px-2 py-0.5 rounded-full bg-white/10">0</span></h3>
-        <button class="px-3 py-2 rounded-xl ring-1 ring-white/15 hover:bg-white/5 active:scale-95 transition" onclick="closeDrawer()">Tutup</button>
-      </div>
-      <div id="cartItemsDrawer" class="mt-3 space-y-3"></div>
-      <div class="mt-4 border-t border-white/10 pt-3 space-y-1">
-        <div class="flex justify-between"><span>Subtotal</span><span id="subtotalDrawer">Rp 0</span></div>
-        <div class="flex justify-between"><span>Pajak (10%)</span><span id="taxDrawer">Rp 0</span></div>
-        <div class="flex justify-between font-extrabold"><span>Total</span><span id="totalDrawer">Rp 0</span></div>
-      </div>
+  <div id="drawer" class="drawer" role="dialog" aria-hidden="true">
+    <div style="display:flex; align-items:center; justify-content:space-between">
+      <strong style="font-size:18px">Keranjang <span id="countDrawer" class="chip">0</span></strong>
+      <button class="button ripple" onclick="closeDrawer()">Tutup</button>
+    </div>
 
-      <div class="mt-4 bg-black/20 rounded-xl p-3 space-y-2">
-        <div class="grid grid-cols-2 gap-2">
-          <input id="custNameDrawer" class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none" placeholder="Nama lengkap" />
-          <input id="custPhoneDrawer" class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none" placeholder="No. HP" />
-        </div>
-        <div class="grid grid-cols-2 gap-2">
-          <select id="orderTypeDrawer" class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none">
-            <option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option><option value="Delivery">Delivery</option>
-          </select>
-          <input class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none" placeholder="Meja/Alamat (opsional)" />
-        </div>
-        <textarea id="orderNoteDrawer" rows="2" class="w-full px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none" placeholder="Catatan umum pesanan (opsional)"></textarea>
-      </div>
+    <div id="listDrawer" class="list" style="margin-top:10px"></div>
 
-      <div class="mt-3 space-y-2">
-        <button class="w-full inline-flex justify-center px-4 py-3 rounded-xl bg-coffee-400 text-black font-bold active:scale-95 transition" onclick="sendWhatsApp()">Kirim via WhatsApp</button>
-        <button id="emailBtnDrawer" class="w-full inline-flex justify-center px-4 py-3 rounded-xl ring-1 ring-white/15 hover:bg-white/5 active:scale-95 transition" onclick="sendEmailServerless(this)">Kirim via Email</button>
-        <p class="text-xs text-white/70 text-center">Email dikirim via serverless function.</p>
+    <div style="border-top:1px solid var(--line); padding-top:10px; margin-top:10px">
+      <div class="row"><span>Subtotal</span><strong id="subDrawer">Rp 0</strong></div>
+      <div class="row"><span>Pajak (10%)</span><strong id="taxDrawer">Rp 0</strong></div>
+      <div class="row" style="border:none"><span style="font-weight:900">Total</span><strong id="totDrawer">Rp 0</strong></div>
+    </div>
+
+    <div class="kv" style="margin-top:12px">
+      <div class="flex" style="gap:8px; margin-bottom:8px">
+        <input id="nameDrawer" class="input" placeholder="Nama lengkap">
+        <input id="phoneDrawer" class="input" placeholder="No. HP">
       </div>
+      <div class="flex" style="gap:8px; margin-bottom:8px">
+        <select id="typeDrawer" class="select">
+          <option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option><option value="Delivery">Delivery</option>
+        </select>
+        <input id="addrDrawer" class="input" placeholder="Meja/Alamat (opsional)">
+      </div>
+      <textarea id="noteDrawer" class="textarea" rows="2" placeholder="Catatan umum pesanan (opsional)"></textarea>
+    </div>
+
+    <div class="flex" style="margin-top:12px">
+      <button class="button primary ripple" style="flex:1" onclick="sendWhatsApp()">Kirim WhatsApp</button>
+      <button class="button ripple" style="flex:1" onclick="sendEmailServerless(this)">Kirim Email</button>
     </div>
   </div>
+  <div id="mask" class="drawer-mask" onclick="closeDrawer()"></div>
+
+  <div id="toast" class="toast"><div class="inner">Ditambahkan ke keranjang</div></div>
 
   <script>
     // NAV
-    const burger = document.getElementById('burger');
-    const mobile = document.getElementById('mobileMenu');
-    burger?.addEventListener('click', ()=> mobile.classList.toggle('hidden'));
+    document.getElementById('burger').addEventListener('click', ()=> {
+      const mob = document.getElementById('mobile');
+      mob.style.display = mob.style.display==='block'?'none':'block';
+    });
+    document.body.addEventListener('click', e => {
+      const btn = e.target.closest('.ripple'); if(!btn) return;
+      const r = btn.getBoundingClientRect(); btn.style.setProperty('--x', (e.clientX-r.left)+'px'); btn.style.setProperty('--y', (e.clientY-r.top)+'px');
+      btn.classList.remove('rippling'); void btn.offsetWidth; btn.classList.add('rippling');
+    }, {capture:true});
 
-    // MENU
+    // MENU DATA
     const MENU = [
       {id:1,name:"Espresso",price:18000,cat:"Minuman",img:"assets/menu-01.svg",ing:["Arabika single shot"]},
       {id:2,name:"Americano",price:22000,cat:"Minuman",img:"assets/menu-02.svg",ing:["Espresso","Air panas"]},
@@ -180,181 +166,159 @@
       {id:24,name:"Waffle Maple",price:28000,cat:"Makanan",img:"assets/menu-24.svg",ing:["Adonan waffle","Maple syrup"]},
       {id:25,name:"Brownies",price:22000,cat:"Makanan",img:"assets/menu-25.svg",ing:["Cokelat","Mentega","Telur","Tepung"]},
     ];
+    const TAX = .10;
     const fmt = n => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n).replace(",00","");
-    const TAX = 0.10;
-    const elGrid = document.getElementById('itemsGrid');
-    const elSearch = document.getElementById('search');
-    const elCat = document.getElementById('filterCat');
-    const elSort = document.getElementById('sort');
 
-    const slots = {
-      side:{ items:document.getElementById('cartItemsSide'), sub:document.getElementById('subtotalSide'), tax:document.getElementById('taxSide'), tot:document.getElementById('totalSide'), count:document.getElementById('cartCountSide'), name:document.getElementById('custNameSide'), phone:document.getElementById('custPhoneSide'), type:document.getElementById('orderTypeSide'), note:document.getElementById('orderNoteSide') },
-      drawer:{ items:document.getElementById('cartItemsDrawer'), sub:document.getElementById('subtotalDrawer'), tax:document.getElementById('taxDrawer'), tot:document.getElementById('totalDrawer'), count:document.getElementById('cartCountDrawer'), name:document.getElementById('custNameDrawer'), phone:document.getElementById('custPhoneDrawer'), type:document.getElementById('orderTypeDrawer'), note:document.getElementById('orderNoteDrawer') }
-    };
-    const badge = document.getElementById('cartCountBadge');
-
-    let cart = [];
-    const keyOf = (id,note)=> id+'|'+(note||'');
+    const grid = document.getElementById('grid');
+    const q = document.getElementById('q');
+    const sort = document.getElementById('sort');
+    const cats = document.getElementById('cats');
+    let currentCat = "";
 
     function renderItems(){
-      const q = (elSearch.value||'').toLowerCase();
-      const cat = elCat.value;
-      const arr = MENU.filter(m => (!q || m.name.toLowerCase().includes(q)) && (!cat || m.cat===cat));
-      switch(elSort.value){
+      const query = (q.value||'').toLowerCase();
+      const arr = MENU.filter(m => (!query || m.name.toLowerCase().includes(query)) && (!currentCat || m.cat===currentCat));
+      switch(sort.value){
         case 'price-asc': arr.sort((a,b)=>a.price-b.price); break;
         case 'price-desc': arr.sort((a,b)=>b.price-a.price); break;
         case 'name-asc': arr.sort((a,b)=>a.name.localeCompare(b.name)); break;
         case 'name-desc': arr.sort((a,b)=>b.name.localeCompare(a.name)); break;
       }
-      elGrid.innerHTML='';
-      for(const it of arr){
-        const el = document.createElement('article');
-        el.className = "bg-white/5 ring-1 ring-white/10 rounded-2xl overflow-hidden flex flex-col";
-        el.innerHTML = \`
-          <img src="\${it.img}" alt="\${it.name}" class="w-full h-40 object-cover">
-          <div class="p-4 space-y-2 flex-1 flex flex-col">
-            <div class="flex items-start justify-between gap-3">
+      grid.innerHTML = '';
+      arr.forEach(it => {
+        const art = document.createElement('article');
+        art.className = 'card';
+        art.innerHTML = `
+          <div style="position:relative">
+            <img src="${it.img}" alt="${it.name}">
+            <span class="pill">${it.cat}</span>
+          </div>
+          <div class="pad">
+            <div style="display:flex; justify-content:space-between; gap:12px">
               <div>
-                <h3 class="font-semibold">\${it.name}</h3>
-                <div class="text-xs text-white/70">\${it.cat}</div>
+                <strong style="font-size:18px">${it.name}</strong>
+                <div style="color:var(--muted); font-size:13px">Bahan: ${it.ing.join(', ')}</div>
               </div>
-              <div class="text-coffee-400 font-bold">\${fmt(it.price)}</div>
+              <div class="price">${fmt(it.price)}</div>
             </div>
-            <div class="text-sm text-white/80">Bahan: \${it.ing.join(', ')}</div>
-            <textarea rows="2" class="mt-1 w-full px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none" placeholder='contoh: "tidak pedas ya"'></textarea>
-            <div class="mt-2 grid grid-cols-[auto_1fr_auto] gap-2 items-center">
-              <button type="button" class="px-3 py-2 rounded-xl ring-1 ring-white/15 hover:bg-white/5 active:scale-95 transition minus">−</button>
-              <input type="number" value="1" min="1" class="px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10 outline-none text-center qty">
-              <button type="button" class="px-3 py-2 rounded-xl ring-1 ring-white/15 hover:bg-white/5 active:scale-95 transition plus">+</button>
-              <div class="col-span-3">
-                <button type="button" class="w-full mt-2 inline-flex justify-center px-4 py-2 rounded-xl bg-coffee-400 text-black font-bold active:scale-95 transition add">Tambah</button>
-              </div>
+            <textarea rows="2" class="textarea" placeholder='contoh: "tidak pedas ya"'></textarea>
+            <div style="display:grid; grid-template-columns: auto 1fr auto; gap:8px; align-items:center; margin-top:10px">
+              <button class="button ripple" data-act="minus">−</button>
+              <input type="number" value="1" min="1" class="input" style="text-align:center">
+              <button class="button ripple" data-act="plus">+</button>
+              <button class="button primary ripple" style="grid-column: 1 / -1" data-act="add">Tambah</button>
             </div>
-          </div>\`;
-        elGrid.appendChild(el);
-        const qty = el.querySelector('.qty');
-        el.querySelector('.minus').addEventListener('click', ()=> qty.value = Math.max(1,(parseInt(qty.value||'1',10)-1)));
-        el.querySelector('.plus').addEventListener('click', ()=> qty.value = Math.max(1,(parseInt(qty.value||'1',10)+1)));
-        el.querySelector('.add').addEventListener('click', ()=> {
-          const n = Math.max(1, parseInt(qty.value||'1',10));
-          const note = el.querySelector('textarea').value.trim();
-          addToCart(it, n, note);
+          </div>`;
+        grid.appendChild(art);
+        const qtyInput = art.querySelector('input[type="number"]');
+        art.querySelector('[data-act="minus"]').addEventListener('click', ()=> qtyInput.value = Math.max(1, parseInt(qtyInput.value||'1',10)-1));
+        art.querySelector('[data-act="plus"]').addEventListener('click',  ()=> qtyInput.value = Math.max(1, parseInt(qtyInput.value||'1',10)+1));
+        art.querySelector('[data-act="add"]').addEventListener('click',  ()=> {
+          const n = Math.max(1, parseInt(qtyInput.value||'1',10));
+          const note = art.querySelector('textarea').value.trim();
+          addToCart(it, n, note); showToast('Ditambahkan ke keranjang');
         });
-      }
+      });
     }
 
+    // Cart
+    let cart = [];
+    const keyOf = (id,note)=> id+'|'+(note||'');
+    const side = { list:document.getElementById('listSide'), sub:document.getElementById('subSide'), tax:document.getElementById('taxSide'), tot:document.getElementById('totSide'), count:document.getElementById('countSide') };
+    const draw = { list:document.getElementById('listDrawer'), sub:document.getElementById('subDrawer'), tax:document.getElementById('taxDrawer'), tot:document.getElementById('totDrawer'), count:document.getElementById('countDrawer') };
+    const badge = document.getElementById('badge');
+
     function addToCart(it, qty, note){
-      const k = keyOf(it.id, note);
-      const f = cart.find(c=>c.key===k);
+      const k = keyOf(it.id, note); const f = cart.find(x=>x.key===k);
       if(f) f.qty += qty; else cart.push({key:k,id:it.id,name:it.name,price:it.price,qty,note});
       renderCart();
-      if(badge) badge.textContent = totalCount();
     }
-    function removeFromCart(k){ cart = cart.filter(c=>c.key!==k); renderCart(); if(badge) badge.textContent = totalCount(); }
-    function changeQty(k,d){ const f = cart.find(c=>c.key===k); if(!f) return; f.qty=Math.max(1,f.qty+d); renderCart(); if(badge) badge.textContent = totalCount(); }
-    function totalCount(){ return cart.reduce((a,c)=>a+c.qty,0); }
+    function rm(k){ cart = cart.filter(x=>x.key!==k); renderCart(); }
+    function qd(k,d){ const f = cart.find(x=>x.key===k); if(!f) return; f.qty = Math.max(1, f.qty+d); renderCart(); }
+    function count(){ return cart.reduce((a,c)=>a+c.qty,0); }
 
     function renderCart(){
       let sub=0;
-      const rows = cart.map(c=>{ sub+=c.price*c.qty; return \`
-        <div class="flex items-start justify-between gap-3 border-b border-white/10 pb-2">
-          <div class="min-w-0">
-            <div class="font-semibold">\${c.name} × \${c.qty} <span class="text-xs text-white/60">• \${fmt(c.price)}</span></div>
-            \${c.note?'<div class="text-sm text-white/80 mt-1">Catatan: '+c.note+'</div>':''}
+      const rowHtml = (c)=>`<div class="row">
+          <div style="min-width:0">
+            <div style="font-weight:800">${c.name} × ${c.qty} <span style="font-size:12px; color:var(--muted)">• ${fmt(c.price)}</span></div>
+            ${c.note ? `<div style="color:var(--muted); font-size:13px; margin-top:4px">Catatan: ${c.note}</div>` : ``}
           </div>
-          <div class="flex gap-1">
-            <button class="px-2 py-1 rounded-lg ring-1 ring-white/15 hover:bg-white/5 active:scale-95 transition" onclick='changeQty("\${c.key}",-1)'>−</button>
-            <button class="px-2 py-1 rounded-lg ring-1 ring-white/15 hover:bg-white/5 active:scale-95 transition" onclick='changeQty("\${c.key}",1)'>+</button>
-            <button class="px-2 py-1 rounded-lg ring-1 ring-white/15 hover:bg-white/5 active:scale-95 transition" onclick='removeFromCart("\${c.key}")'>✕</button>
+          <div style="display:flex; gap:6px">
+            <button class="button ripple" onclick='qd("${c.key}",-1)'>−</button>
+            <button class="button ripple" onclick='qd("${c.key}",1)'>+</button>
+            <button class="button ripple" onclick='rm("${c.key}")'>✕</button>
           </div>
-        </div>\`; }).join('');
+        </div>`;
+      const rows = cart.map(c=>{ sub+=c.price*c.qty; return rowHtml(c); }).join('');
       const tax = Math.round(sub*TAX); const tot=sub+tax;
-      // side
-      slots.side.items.innerHTML = rows || '<div class="text-white/70">Belum ada item.</div>';
-      slots.side.sub.textContent = fmt(sub); slots.side.tax.textContent = fmt(tax); slots.side.tot.textContent = fmt(tot); slots.side.count.textContent = totalCount();
-      // drawer
-      if(slots.drawer.items){
-        slots.drawer.items.innerHTML = rows || '<div class="text-white/70">Belum ada item.</div>';
-        slots.drawer.sub.textContent = fmt(sub); slots.drawer.tax.textContent = fmt(tax); slots.drawer.tot.textContent = fmt(tot); slots.drawer.count.textContent = totalCount();
-      }
-    }
 
-    const drawer = document.getElementById('drawer');
-    function openDrawer(){ drawer.classList.remove('hidden'); }
-    function closeDrawer(){ drawer.classList.add('hidden'); }
+      side.list.innerHTML = rows || `<div style="color:var(--muted)">Belum ada item.</div>`;
+      draw.list.innerHTML = rows || `<div style="color:var(--muted)">Belum ada item.</div>`;
+      side.sub.textContent = fmt(sub); side.tax.textContent = fmt(tax); side.tot.textContent = fmt(tot); side.count.textContent = count();
+      draw.sub.textContent = fmt(sub); draw.tax.textContent = fmt(tax); draw.tot.textContent = fmt(tot); draw.count.textContent = count();
+      badge.textContent = count();
+    }
+    window.rm = rm; window.qd = qd;
+
+    // Drawer
+    const drawer = document.getElementById('drawer'); const mask = document.getElementById('mask');
+    function openDrawer(){ drawer.classList.add('open'); mask.style.display='block'; }
+    function closeDrawer(){ drawer.classList.remove('open'); mask.style.display='none'; }
     window.openDrawer = openDrawer; window.closeDrawer = closeDrawer;
-    window.changeQty = changeQty; window.removeFromCart = removeFromCart;
 
-    function readField(which){
-      const a = slots.side[which]?.value?.trim?.() || '';
-      const b = slots.drawer[which]?.value?.trim?.() || '';
-      return b || a;
-    }
+    // Toast & Ripple
+    const toast = document.getElementById('toast');
+    function showToast(msg){ toast.querySelector('.inner').textContent = msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 1400); }
+    document.body.addEventListener('click', e => {
+      const btn = e.target.closest('.ripple'); if(!btn) return;
+      const r = btn.getBoundingClientRect(); btn.style.setProperty('--x', (e.clientX-r.left)+'px'); btn.style.setProperty('--y', (e.clientY-r.top)+'px');
+      btn.classList.remove('rippling'); void btn.offsetWidth; btn.classList.add('rippling');
+    }, {capture:true});
+
+    // Filters
+    q.addEventListener('input', renderItems);
+    sort.addEventListener('change', renderItems);
+    cats.addEventListener('click', e=> { const b = e.target.closest('button[data-cat]'); if(!b) return; currentCat = b.dataset.cat||''; renderItems(); });
+
+    // Fields
+    function rf(id){ return (document.getElementById(id+'Drawer')?.value?.trim?.() || document.getElementById(id+'Side')?.value?.trim?.() || ''); }
     function requireOrder(){
       if(cart.length===0){ alert("Keranjang masih kosong."); return false; }
-      const name = readField('name'); const phone = readField('phone');
-      if(!name || !phone){ alert("Isi nama & nomor HP terlebih dahulu."); return false; }
+      const name = rf('name'), phone = rf('phone'); if(!name || !phone){ alert("Isi nama & nomor HP terlebih dahulu."); return false; }
       return true;
     }
     function buildMessage(){
-      const name = readField('name'); const phone = readField('phone');
-      const type = readField('type') || 'Dine-in'; const note = readField('note');
-      const lines = [];
-      lines.push('NJ Cafe — Pesanan Baru');
-      lines.push('========================');
-      lines.push('Pelanggan : '+name);
-      lines.push('No. HP    : '+phone);
-      lines.push('Tipe      : '+type);
-      if(note) lines.push('Catatan   : '+note);
-      lines.push('');
-      lines.push('Item:');
-      cart.forEach((c,i)=>{ lines.push((i+1)+'. '+c.name+' × '+c.qty+' — '+fmt(c.price*c.qty)); if(c.note) lines.push('   • Catatan: '+c.note); });
-      lines.push('');
-      lines.push('Subtotal : '+slots.side.sub.textContent);
-      lines.push('Pajak 10%: '+slots.side.tax.textContent);
-      lines.push('TOTAL    : '+slots.side.tot.textContent);
-      lines.push('');
-      lines.push('Waktu    : '+new Date().toLocaleString('id-ID'));
-      lines.push('========================');
-      return lines.join('\n');
+      const lines=[];
+      lines.push('NJ Cafe — Pesanan Baru'); lines.push('========================');
+      lines.push('Pelanggan : '+rf('name')); lines.push('No. HP    : '+rf('phone'));
+      lines.push('Tipe      : '+(rf('type')||'Dine-in')); if(rf('addr')) lines.push('Alamat/Meja: '+rf('addr')); if(rf('note')) lines.push('Catatan   : '+rf('note'));
+      lines.push(''); lines.push('Item:'); cart.forEach((c,i)=>{ lines.push((i+1)+'. '+c.name+' × '+c.qty+' — '+fmt(c.price*c.qty)); if(c.note) lines.push('   • Catatan: '+c.note); });
+      lines.push(''); lines.push('Subtotal : '+document.getElementById('subSide').textContent); lines.push('Pajak 10%: '+document.getElementById('taxSide').textContent); lines.push('TOTAL    : '+document.getElementById('totSide').textContent);
+      lines.push(''); lines.push('Waktu    : '+new Date().toLocaleString('id-ID')); lines.push('========================'); return lines.join('\n');
     }
 
     function sendWhatsApp(){
       if(!requireOrder()) return;
-      const msg = buildMessage();
-      const phoneCafe = '6281282460257';
-      const url = 'https://wa.me/'+phoneCafe+'?text='+encodeURIComponent(msg);
-      const alt = 'https://api.whatsapp.com/send?phone='+phoneCafe+'&text='+encodeURIComponent(msg);
+      const msg = buildMessage(); const phoneCafe = '6281282460257';
+      const url = 'https://wa.me/'+phoneCafe+'?text='+encodeURIComponent(msg); const alt = 'https://api.whatsapp.com/send?phone='+phoneCafe+'&text='+encodeURIComponent(msg);
       window.open(url,'_blank') || window.open(alt,'_blank');
     }
-
     async function sendEmailServerless(btn){
       if(!requireOrder()) return;
-      const original = btn.textContent;
-      btn.textContent = 'Mengirim...'; btn.disabled = true;
+      const original = btn.textContent; btn.textContent='Mengirim...'; btn.disabled = true;
       try{
-        const subject = 'Pesanan NJ Cafe — '+readField('name');
-        const text = buildMessage();
-        const res = await fetch('/api/send-email', {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ to:'narenskii@gmail.com', subject, text })
-        });
-        if(!res.ok){ const t = await res.text(); throw new Error(t||('HTTP '+res.status)); }
-        alert('Pesanan terkirim via email!');
-      }catch(e){
-        alert('Gagal mengirim email: '+(e && e.message ? e.message : e));
-      }finally{
-        btn.textContent = original; btn.disabled = false;
-      }
+        const subject = 'Pesanan NJ Cafe — '+rf('name'); const text = buildMessage();
+        const res = await fetch('/api/send-email', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ to:'narenskii@gmail.com', subject, text }) });
+        if(!res.ok) throw new Error(await res.text() || ('HTTP '+res.status));
+        showToast('Pesanan terkirim via email');
+      }catch(e){ alert('Gagal mengirim email: '+(e && e.message ? e.message : e)); }
+      finally{ btn.textContent = original; btn.disabled = false; }
     }
-    window.sendEmailServerless = sendEmailServerless;
+    window.sendWhatsApp = sendWhatsApp; window.sendEmailServerless = sendEmailServerless;
 
-    // Init
+    // Initial
     renderItems(); renderCart();
-    elSearch.addEventListener('input', renderItems);
-    elCat.addEventListener('change', renderItems);
-    elSort.addEventListener('change', renderItems);
   </script>
 </body>
 </html>
