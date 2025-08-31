@@ -11,7 +11,8 @@
       theme: {
         extend: {
           colors: { brand: {"DEFAULT":"#7f1d1d","soft":"#fecaca"} },
-          boxShadow: { glow: "0 20px 35px rgba(0,0,0,.35)" }
+          boxShadow: { glow: "0 20px 35px rgba(0,0,0,.35)" },
+          dropShadow: { neon: "0 10px 25px rgba(127,29,29,.6)" }
         }
       }
     };
@@ -21,8 +22,10 @@
     .btn-secondary { @apply border border-white/10 text-white/90 rounded-xl px-4 py-2 hover:bg-white/5 active:translate-y-0.5; }
     .btn-ghost { @apply text-white/80 rounded-xl px-3 py-2 hover:bg-white/5; }
     .chip { @apply px-2 py-1 text-xs rounded-full border border-white/10 text-white/80; }
-    .card { @apply rounded-2xl border border-white/10 bg-slate-950/60 p-4; }
+    .card { @apply rounded-2xl border border-white/10 bg-slate-950/60 p-4 transition; }
     .shine { background-image: linear-gradient(110deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,0) 40%), radial-gradient(600px 120px at 80% -20%, rgba(255,255,255,.10), transparent 60%), linear-gradient(120deg,#0b1220,#050a14); }
+    .cta-card { @apply relative overflow-hidden rounded-3xl border border-white/10 p-6 bg-gradient-to-b from-slate-900 to-slate-950 hover:-translate-y-1 hover:shadow-2xl; }
+    .cta-card::after { content: ""; position: absolute; inset: -1px; background: conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,.08), transparent 30%, rgba(255,255,255,.08)); mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000); padding: 1px; -webkit-mask-composite: xor; mask-composite: exclude; border-radius: 1.5rem; }
   </style>
 </head>
 <body class="bg-slate-950 text-white/90 antialiased">
@@ -30,7 +33,7 @@
 <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-white/10">
   <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand to-rose-500 grid place-content-center font-extrabold">NJ</div>
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand to-rose-500 grid place-content-center font-extrabold drop-shadow-neon">NJ</div>
       <span class="font-extrabold tracking-tight">NJ Cafe</span>
     </a>
     <nav class="hidden md:flex items-center gap-2">
@@ -42,15 +45,30 @@
       <a class="px-3 py-2 rounded-lg hover:bg-white/5 " href="faq.html">FAQ</a>
     </nav>
     <button id="openMenu" class="md:hidden btn-secondary flex items-center gap-2 px-3 py-2">
-      <span class="inline-block w-5 h-5">
-        <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </span>
+      <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       <span>Menu</span>
     </button>
   </div>
 </header>
+
+<div id="drawer" class="fixed inset-0 z-50 hidden">
+  <div id="backdrop" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"></div>
+  <aside id="panel" class="absolute right-0 top-0 h-full w-80 bg-slate-950 border-l border-white/10 p-4 translate-x-full transition-transform duration-300">
+    <div class="flex items-center justify-between mb-4">
+      <div class="font-extrabold">Navigasi</div>
+      <button id="closeMenu" class="btn-secondary px-3 py-1">✕</button>
+    </div>
+    <nav class="grid gap-1">
+      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="index.html">Home</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="order.html">Order</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="outlets.html">Outlets</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="academy.html">Academy</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="news.html">News</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="faq.html">FAQ</a>
+    </nav>
+  </aside>
+</div>
+
 
 <!-- Mobile navmenu (drawer) with slide animation -->
 <div id="drawer" class="fixed inset-0 z-50 hidden">
