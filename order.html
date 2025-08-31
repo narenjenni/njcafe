@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pesan Online — NJ Cafe</title>
-  <meta name="description" content="Halaman khusus pemesanan NJ Cafe: menu lengkap, filter, catatan, dan info pemesanan." />
+  <title>Order — NJ Cafe</title>
+  <meta name="description" content="Halaman Order NJ Cafe." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -19,8 +19,10 @@
   <style>
     .btn-primary { @apply relative overflow-hidden bg-brand text-white font-bold rounded-xl px-4 py-2 shadow-glow hover:brightness-110 active:translate-y-0.5; }
     .btn-secondary { @apply border border-white/10 text-white/90 rounded-xl px-4 py-2 hover:bg-white/5 active:translate-y-0.5; }
+    .btn-ghost { @apply text-white/80 rounded-xl px-3 py-2 hover:bg-white/5; }
     .chip { @apply px-2 py-1 text-xs rounded-full border border-white/10 text-white/80; }
     .card { @apply rounded-2xl border border-white/10 bg-slate-950/60 p-4; }
+    .shine { background-image: linear-gradient(110deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,0) 40%), radial-gradient(600px 120px at 80% -20%, rgba(255,255,255,.10), transparent 60%), linear-gradient(120deg,#0b1220,#050a14); }
   </style>
 </head>
 <body class="bg-slate-950 text-white/90 antialiased">
@@ -43,7 +45,6 @@
   </div>
 </header>
 
-<!-- Mobile navmenu (drawer) -->
 <div id="drawer" class="fixed inset-0 z-50 hidden">
   <div class="absolute inset-0 bg-black/50" id="backdrop"></div>
   <div class="absolute right-0 top-0 h-full w-72 bg-slate-950 border-l border-white/10 p-4">
@@ -61,492 +62,13 @@
     </nav>
   </div>
 </div>
-
-<main class="max-w-7xl mx-auto px-4 py-10 grid lg:grid-cols-3 gap-6">
-  <section class="lg:col-span-2">
-    <div class="flex items-end justify-between">
-      <div>
-        <h1 class="text-2xl lg:text-4xl font-extrabold">Menu Lengkap & Pemesanan</h1>
-        <p class="text-white/70 mt-2">Pilih kategori, telusuri deskripsi, dan tambahkan catatan seperti "tidak pedas ya".</p>
+<section class="max-w-7xl mx-auto px-4 py-12">
+      <h1 class="text-3xl font-extrabold">Order</h1>
+      <p class="text-white/70 mt-2">Konten Order lengkap ditampilkan di sini pada versi deploy.</p>
+      <div class="mt-4 flex gap-2">
+        <a class="btn-primary" href="index.html">Kembali ke Home</a>
       </div>
-      <div class="hidden md:flex gap-2">
-        <button class="btn-secondary">Semua</button>
-        <button class="btn-secondary">Coffee</button>
-        <button class="btn-secondary">Non-Coffee</button>
-        <button class="btn-secondary">Snack</button>
-      </div>
-    </div>
-    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #01</h3>
-        <div class="text-rose-200 font-extrabold">Rp19,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #01 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #02</h3>
-        <div class="text-rose-200 font-extrabold">Rp20,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #02 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #03</h3>
-        <div class="text-rose-200 font-extrabold">Rp21,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #03 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #04</h3>
-        <div class="text-rose-200 font-extrabold">Rp22,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #04 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #05</h3>
-        <div class="text-rose-200 font-extrabold">Rp23,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #05 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #06</h3>
-        <div class="text-rose-200 font-extrabold">Rp24,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #06 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #07</h3>
-        <div class="text-rose-200 font-extrabold">Rp25,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #07 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #08</h3>
-        <div class="text-rose-200 font-extrabold">Rp26,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #08 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #09</h3>
-        <div class="text-rose-200 font-extrabold">Rp27,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #09 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #10</h3>
-        <div class="text-rose-200 font-extrabold">Rp28,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #10 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #11</h3>
-        <div class="text-rose-200 font-extrabold">Rp29,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #11 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #12</h3>
-        <div class="text-rose-200 font-extrabold">Rp18,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #12 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #13</h3>
-        <div class="text-rose-200 font-extrabold">Rp19,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #13 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #14</h3>
-        <div class="text-rose-200 font-extrabold">Rp20,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #14 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #15</h3>
-        <div class="text-rose-200 font-extrabold">Rp21,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #15 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #16</h3>
-        <div class="text-rose-200 font-extrabold">Rp22,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #16 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #17</h3>
-        <div class="text-rose-200 font-extrabold">Rp23,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #17 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #18</h3>
-        <div class="text-rose-200 font-extrabold">Rp24,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #18 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #19</h3>
-        <div class="text-rose-200 font-extrabold">Rp25,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #19 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #20</h3>
-        <div class="text-rose-200 font-extrabold">Rp26,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #20 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #21</h3>
-        <div class="text-rose-200 font-extrabold">Rp27,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #21 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #22</h3>
-        <div class="text-rose-200 font-extrabold">Rp28,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #22 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #23</h3>
-        <div class="text-rose-200 font-extrabold">Rp29,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #23 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #24</h3>
-        <div class="text-rose-200 font-extrabold">Rp18,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #24 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #25</h3>
-        <div class="text-rose-200 font-extrabold">Rp19,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #25 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #26</h3>
-        <div class="text-rose-200 font-extrabold">Rp20,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #26 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #27</h3>
-        <div class="text-rose-200 font-extrabold">Rp21,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #27 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #28</h3>
-        <div class="text-rose-200 font-extrabold">Rp22,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #28 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #29</h3>
-        <div class="text-rose-200 font-extrabold">Rp23,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #29 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <div class="aspect-[4/3] rounded-xl bg-[radial-gradient(120px_80px_at_70%_10%,rgba(255,255,255,0.08),transparent_60%),linear-gradient(120deg,#0f172a,#020617)] mb-3"></div>
-        <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Kategori</span><span class="chip">Best</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Menu #30</h3>
-        <div class="text-rose-200 font-extrabold">Rp24,000</div>
-        <p class="text-white/60 text-sm mt-2">Deskripsi singkat menu #30 dengan profil rasa yang seimbang, cocok untuk segala suasana.</p>
-        <div class="mt-3 grid gap-2">
-          <input class="w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2" placeholder="Catatan untuk barista/dapur, contoh: tidak pedas ya" />
-          <div class="flex gap-2">
-            <button class="btn-primary">Tambah</button>
-            <button class="btn-secondary">Detail</button>
-          </div>
-        </div>
-      </div>
-    
-    </div>
-  </section>
-  <aside class="lg:col-span-1">
-    <div class="card">
-      <h2 class="font-extrabold text-xl">Informasi Pemesanan</h2>
-      <ul class="mt-2 text-white/70 text-sm space-y-2">
-        <li>• Jam terima pesanan: 09.00–21.30 WIB.</li>
-        <li>• Estimasi siap ambil: 10–15 menit (tergantung antrian).</li>
-        <li>• Pembayaran: tunai/QRIS di kasir saat pengambilan.</li>
-        <li>• Permintaan khusus akan kami konfirmasi jika diperlukan.</li>
-      </ul>
-      <div class="mt-4">
-        <button class="btn-primary w-full">Pesan Sekarang</button>
-      </div>
-      <p class="text-white/60 text-xs mt-2">Catatan: ini adalah demo UI. Integrasi kirim email/whatsapp dapat ditambahkan kemudian.</p>
-    </div>
-  </aside>
-</main>
-
+    </section>
 <footer class="border-t border-white/10 mt-12">
   <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6 text-sm text-white/70">
     <div>
@@ -577,7 +99,6 @@
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
-  // Mobile drawer
   const drawer = document.getElementById('drawer');
   const openBtn = document.getElementById('openMenu');
   const closeBtn = document.getElementById('closeMenu');
@@ -588,7 +109,6 @@
   closeBtn && closeBtn.addEventListener('click', closeDrawer);
   backdrop && backdrop.addEventListener('click', closeDrawer);
 
-  // Ripple
   function addRipple(e){
     const el = e.currentTarget;
     const rect = el.getBoundingClientRect();
@@ -599,7 +119,10 @@
     Object.assign(span.style,{position:'absolute',left:x+'px',top:y+'px',width:size+'px',height:size+'px',borderRadius:'9999px',background:'rgba(255,255,255,.35)',transform:'scale(0)',transition:'transform .4s ease, opacity .8s ease',pointerEvents:'none',opacity:'1'});
     el.appendChild(span); requestAnimationFrame(()=>{span.style.transform='scale(1)';span.style.opacity='0';}); setTimeout(()=>span.remove(),800);
   }
-  document.querySelectorAll('button,a.btn-primary,a.btn-secondary').forEach(b=>{ b.addEventListener('click', addRipple); b.classList.add('relative','overflow-hidden'); });
+  document.querySelectorAll('button,a.btn-primary,a.btn-secondary,a.btn-ghost').forEach(b=>{ b.addEventListener('click', addRipple); b.classList.add('relative','overflow-hidden'); });
+
+  const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('opacity-100','translate-y-0'); }); },{threshold:.1});
+  document.querySelectorAll('[data-reveal]').forEach(sec=>{ sec.classList.add('opacity-0','translate-y-3','transition','duration-700'); io.observe(sec); });
 </script>
 </body>
 </html>
