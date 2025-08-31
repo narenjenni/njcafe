@@ -3,157 +3,169 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NJ Cafe — Kafe Modern & Informasi Lengkap</title>
-  <meta name="description" content="NJ Cafe — kopi nikmat, makanan hangat, informasi lengkap. UI/UX modern dengan Tailwind." />
+  <title>NJ Cafe — Redesign v4</title>
+  <meta name="description" content="Redesign total NJ Cafe: UI premium, informatif, warna tetap." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: { brand: {"DEFAULT":"#7f1d1d","soft":"#fecaca"} },
-          boxShadow: { glow: "0 20px 35px rgba(0,0,0,.35)" },
-          dropShadow: { neon: "0 10px 25px rgba(127,29,29,.6)" }
+          boxShadow: { glow: "0 25px 60px rgba(0,0,0,.45)", soft: "0 12px 30px rgba(127,29,29,.25)" },
+          borderRadius: { '3xl':'1.75rem' }
         }
       }
     };
   </script>
   <style>
-    .btn-primary { @apply relative overflow-hidden bg-brand text-white font-bold rounded-xl px-4 py-2 shadow-glow hover:brightness-110 active:translate-y-0.5; }
+    .btn-primary { @apply relative overflow-hidden bg-brand text-white font-bold rounded-xl px-4 py-2 shadow-soft hover:brightness-110 active:translate-y-0.5; }
     .btn-secondary { @apply border border-white/10 text-white/90 rounded-xl px-4 py-2 hover:bg-white/5 active:translate-y-0.5; }
     .btn-ghost { @apply text-white/80 rounded-xl px-3 py-2 hover:bg-white/5; }
     .chip { @apply px-2 py-1 text-xs rounded-full border border-white/10 text-white/80; }
-    .card { @apply rounded-2xl border border-white/10 bg-slate-950/60 p-4 transition; }
-    .shine { background-image: linear-gradient(110deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,0) 40%), radial-gradient(600px 120px at 80% -20%, rgba(255,255,255,.10), transparent 60%), linear-gradient(120deg,#0b1220,#050a14); }
-    .cta-card { @apply relative overflow-hidden rounded-3xl border border-white/10 p-6 bg-gradient-to-b from-slate-900 to-slate-950 hover:-translate-y-1 hover:shadow-2xl; }
-    .cta-card::after { content: ""; position: absolute; inset: -1px; background: conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,.08), transparent 30%, rgba(255,255,255,.08)); mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000); padding: 1px; -webkit-mask-composite: xor; mask-composite: exclude; border-radius: 1.5rem; }
+    .glass { @apply bg-white/5 backdrop-blur border border-white/10; }
+    .card { @apply rounded-3xl glass p-5 transition; }
+    .hero-bg { background: radial-gradient(60rem 40rem at 10% -10%, rgba(254,202,202,.18), transparent 60%), radial-gradient(50rem 30rem at 90% -10%, rgba(248,113,113,.16), transparent 60%), linear-gradient(180deg,#0b1220,#020617); }
+    .divider { background: radial-gradient(800px 120px at 50% 0, rgba(254,202,202,.15), transparent 70%); }
   </style>
 </head>
 <body class="bg-slate-950 text-white/90 antialiased">
 
-<header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-white/10">
+<header class="sticky top-0 z-50 backdrop-blur hero-bg/20 border-b border-white/10">
   <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand to-rose-500 grid place-content-center font-extrabold drop-shadow-neon">NJ</div>
+      <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-brand to-rose-500 grid place-content-center font-extrabold">NJ</div>
       <span class="font-extrabold tracking-tight">NJ Cafe</span>
     </a>
     <nav class="hidden md:flex items-center gap-2">
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5 bg-white/5" href="index.html">Home</a>
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5 " href="order.html">Order</a>
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5 " href="outlets.html">Outlets</a>
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5 " href="academy.html">Academy</a>
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5 " href="news.html">News</a>
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5 " href="faq.html">FAQ</a>
+      <a class="px-4 py-2 rounded-xl hover:bg-white/5 bg-white/5" href="index.html">Home</a>
+      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="order.html">Order</a>
+      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="outlets.html">Outlets</a>
+      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="academy.html">Academy</a>
+      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="news.html">News</a>
+      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="faq.html">FAQ</a>
     </nav>
-    <button id="openMenu" class="md:hidden btn-secondary flex items-center gap-2 px-3 py-2">
+    <button id="openMenu" class="md:hidden btn-secondary flex items-center gap-2 px-4 py-2">
       <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       <span>Menu</span>
     </button>
   </div>
 </header>
 
+<!-- Mobile drawer -->
 <div id="drawer" class="fixed inset-0 z-50 hidden">
   <div id="backdrop" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"></div>
-  <aside id="panel" class="absolute right-0 top-0 h-full w-80 bg-slate-950 border-l border-white/10 p-4 translate-x-full transition-transform duration-300">
+  <aside id="panel" class="absolute right-0 top-0 h-full w-80 glass p-5 translate-x-full transition-transform duration-300 rounded-l-3xl">
     <div class="flex items-center justify-between mb-4">
       <div class="font-extrabold">Navigasi</div>
       <button id="closeMenu" class="btn-secondary px-3 py-1">✕</button>
     </div>
     <nav class="grid gap-1">
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="index.html">Home</a>
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="order.html">Order</a>
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="outlets.html">Outlets</a>
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="academy.html">Academy</a>
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="news.html">News</a>
-      <a class="px-3 py-2 rounded-lg hover:bg-white/5" href="faq.html">FAQ</a>
+      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="index.html">Home</a>
+      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="order.html">Order</a>
+      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="outlets.html">Outlets</a>
+      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="academy.html">Academy</a>
+      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="news.html">News</a>
+      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="faq.html">FAQ</a>
     </nav>
   </aside>
 </div>
 
-<section data-reveal class="relative overflow-hidden">
-  <div class="absolute inset-0 bg-[radial-gradient(40rem_40rem_at_20%_-10%,rgba(248,113,113,.15),transparent),radial-gradient(30rem_30rem_at_80%_-10%,rgba(244,63,94,.12),transparent)]"></div>
-  <div class="max-w-7xl mx-auto px-4 py-12 lg:py-20 relative">
-    <div class="grid lg:grid-cols-2 gap-10 items-center">
+<!-- Mobile bottom bar -->
+<nav class="md:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-40 glass rounded-full px-3 py-2 shadow-glow">
+  <ul class="flex items-center gap-1 text-xs">
+    <li><a href="order.html" class="btn-ghost px-3 py-2">Order</a></li>
+    <li><a href="outlets.html" class="btn-ghost px-3 py-2">Outlets</a></li>
+    <li><a href="index.html#favorite" class="btn-ghost px-3 py-2">Favorit</a></li>
+    <li><a href="faq.html" class="btn-ghost px-3 py-2">Bantuan</a></li>
+  </ul>
+</nav>
+
+<section data-reveal class="hero-bg">
+  <div class="max-w-7xl mx-auto px-4 pt-14 pb-16 lg:pb-24">
+    <div class="grid lg:grid-cols-2 gap-8 items-center">
       <div>
-        <span class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 px-3 py-1 text-xs font-bold">☕ Freshly Brewed • Since 2025</span>
-        <h1 class="mt-4 text-3xl lg:text-5xl font-extrabold leading-tight">Kopi, Makanan, dan Cerita — Diracik Untukmu</h1>
-        <p class="mt-4 text-white/70 leading-7">Beranda dibuat padat, tombol CTA jelas, dan tiap konten punya kartu pintasan ke halaman khusus agar informasinya fokus dan rapi.</p>
+        <span class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs font-bold">☕ NJ Cafe • Since 2025</span>
+        <h1 class="mt-4 text-4xl lg:text-6xl font-extrabold leading-[1.1]">Kopi & Makanan<br/><span class="text-brand-soft">dengan pengalaman</span><br/>UI/UX terbaik</h1>
+        <p class="mt-4 text-white/70 leading-7">Beranda dirancang ulang dari nol. Informasi ringkas, CTA jelas, dan tombol card menuju halaman khusus agar konten tetap fokus.</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a class="btn-primary" href="order.html">Pesan Sekarang</a>
-          <a class="btn-secondary" href="#quick">Jelajah Cepat</a>
+          <a class="btn-secondary" href="#cards">Lihat Sekilas</a>
         </div>
+        <dl class="mt-8 grid grid-cols-3 gap-4">
+          <div class="card text-center"><dt class="text-xs text-white/60">Cabang</dt><dd class="text-2xl font-extrabold">6</dd></div>
+          <div class="card text-center"><dt class="text-xs text-white/60">Menu</dt><dd class="text-2xl font-extrabold">30+</dd></div>
+          <div class="card text-center"><dt class="text-xs text-white/60">Rating</dt><dd class="text-2xl font-extrabold">4.8★</dd></div>
+        </dl>
       </div>
-      <div class="rounded-3xl border border-white/10 shadow-glow p-2 shine">
-        <div class="aspect-[4/3] rounded-2xl"></div>
-        <div class="p-4">
-          <p class="text-sm text-white/60">UI konsisten, animasi halus, tombol ripple; warna maroon NJ tetap menjadi aksen utama.</p>
-        </div>
+      <div class="rounded-3xl card p-3">
+        <div class="aspect-[4/3] rounded-2xl shine"></div>
+        <p class="text-sm text-white/60 p-3">Warna maroon tetap dipertahankan untuk identitas brand.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Quick nav cards directing to special pages -->
-<section id="quick" data-reveal class="py-8">
-  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-4">
-    <a href="order.html" class="cta-card">
+<section id="cards" data-reveal class="py-12 divider">
+  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-6">
+    <a href="order.html" class="card">
       <div class="text-xs tracking-wide uppercase text-white/60">Halaman Khusus</div>
       <h3 class="text-2xl font-extrabold mt-1">Order Online</h3>
-      <p class="text-white/70 mt-1">Katalog lengkap, filter, catatan, dan keranjang.</p>
+      <p class="text-white/70 mt-1">Katalog lengkap, filter, catatan, keranjang, dan total otomatis.</p>
       <div class="mt-4"><span class="btn-primary inline-block">Buka Order</span></div>
     </a>
-    <a href="news.html" class="cta-card">
+    <a href="news.html" class="card">
       <div class="text-xs tracking-wide uppercase text-white/60">Halaman Khusus</div>
       <h3 class="text-2xl font-extrabold mt-1">Berita & Promo</h3>
-      <p class="text-white/70 mt-1">Promo terbaru, rilis kolaborasi, cerita komunitas.</p>
+      <p class="text-white/70 mt-1">Promo terkini, kolaborasi, dan cerita komunitas.</p>
       <div class="mt-4"><span class="btn-secondary inline-block">Buka Berita</span></div>
     </a>
-    <a href="outlets.html" class="cta-card">
+    <a href="outlets.html" class="card">
       <div class="text-xs tracking-wide uppercase text-white/60">Halaman Khusus</div>
       <h3 class="text-2xl font-extrabold mt-1">Outlets</h3>
-      <p class="text-white/70 mt-1">Daftar 6 cabang dengan alamat & jam buka.</p>
+      <p class="text-white/70 mt-1">6 cabang — alamat & jam operasional.</p>
       <div class="mt-4"><span class="btn-secondary inline-block">Lihat Outlets</span></div>
     </a>
   </div>
 </section>
 
-<section id="favorite" data-reveal class="py-10 border-y border-white/10 bg-slate-900/40">
+<section data-reveal class="py-10">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex items-end justify-between">
       <div>
         <h2 class="text-2xl lg:text-4xl font-extrabold">Menu Favorit</h2>
         <p class="text-white/70 mt-2">Tiga pilihan paling diburu minggu ini.</p>
       </div>
-      <a class="btn-secondary" href="order.html">Lihat Semua Menu & Order</a>
+      <a class="btn-secondary" href="order.html">Lihat Semua Menu</a>
     </div>
     <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
       <div class="card hover:-translate-y-1 hover:shadow-2xl">
-        <div class="aspect-[4/3] rounded-xl shine mb-3"></div>
+        <div class="aspect-[4/3] rounded-2xl shine mb-3"></div>
         <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Signature</span><span class="chip">Favorite</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Kopi Susu NJ</h3>
+        <h3 class="font-extrabold text-lg">Kopi Susu NJ</h3>
         <div class="text-rose-200 font-extrabold">Rp28.000</div>
-        <p class="text-white/60 text-sm mt-2">House blend lembut dengan gula aren — seimbang dan nyaman di lidah.</p>
+        <p class="text-white/60 text-sm mt-2">House blend lembut dengan gula aren.</p>
         <div class="mt-3 flex gap-2">
           <a class="btn-primary" href="order.html">Tambah</a>
           <a class="btn-secondary" href="order.html">Detail</a>
         </div>
       </div>
       <div class="card hover:-translate-y-1 hover:shadow-2xl">
-        <div class="aspect-[4/3] rounded-xl shine mb-3"></div>
+        <div class="aspect-[4/3] rounded-2xl shine mb-3"></div>
         <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Coffee</span><span class="chip">Classic</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Cappuccino</h3>
+        <h3 class="font-extrabold text-lg">Cappuccino</h3>
         <div class="text-rose-200 font-extrabold">Rp26.000</div>
-        <p class="text-white/60 text-sm mt-2">Espresso, susu, dan foam seimbang — klasik yang selalu tepat.</p>
+        <p class="text-white/60 text-sm mt-2">Espresso, susu, dan foam seimbang.</p>
         <div class="mt-3 flex gap-2">
           <a class="btn-primary" href="order.html">Tambah</a>
           <a class="btn-secondary" href="order.html">Detail</a>
         </div>
       </div>
       <div class="card hover:-translate-y-1 hover:shadow-2xl">
-        <div class="aspect-[4/3] rounded-xl shine mb-3"></div>
+        <div class="aspect-[4/3] rounded-2xl shine mb-3"></div>
         <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">Rice & Pasta</span><span class="chip">Savory</span></div>
-        <h3 class="font-extrabold text-white/90 text-lg">Nasi Goreng Jawa</h3>
+        <h3 class="font-extrabold text-lg">Nasi Goreng Jawa</h3>
         <div class="text-rose-200 font-extrabold">Rp32.000</div>
-        <p class="text-white/60 text-sm mt-2">Gurih wangi, bisa request level pedas — pas untuk makan siang.</p>
+        <p class="text-white/60 text-sm mt-2">Gurih wangi; bisa request level pedas.</p>
         <div class="mt-3 flex gap-2">
           <a class="btn-primary" href="order.html">Tambah</a>
           <a class="btn-secondary" href="order.html">Detail</a>
@@ -163,60 +175,61 @@
   </div>
 </section>
 
-<section data-reveal class="py-10">
-  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-6">
-    <a href="news.html" class="cta-card lg:col-span-2">
-      <div class="flex items-center justify-between gap-4">
-        <div>
-          <h3 class="font-extrabold text-xl">Berita & Promo Terbaru</h3>
-          <p class="text-white/70 mt-1">Cuplikan singkat. Klik untuk ke halaman khusus.</p>
-          <ul class="mt-3 space-y-2 text-white/80 text-sm">
-            <li>• Promo Payday: Diskon 20% Signature.</li>
-            <li>• Kolaborasi roastery Depok — single-origin baru.</li>
-          </ul>
-        </div>
-        <span class="btn-primary shrink-0">Buka Halaman</span>
-      </div>
-    </a>
-    <a href="academy.html" class="cta-card">
+<section data-reveal class="py-12 divider">
+  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-6">
+    <a href="academy.html" class="card">
       <h3 class="font-extrabold text-xl">Edukasi Kopi</h3>
-      <p class="text-white/70 mt-1">V60 vs French Press, rasio kopi:air, grind size & suhu.</p>
+      <p class="text-white/70 mt-1">V60 vs French Press, rasio, suhu, dan grind size.</p>
       <div class="mt-3"><span class="btn-secondary inline-block">Buka Academy</span></div>
     </a>
-  </div>
-</section>
-
-<section data-reveal class="py-10 border-y border-white/10 bg-slate-900/40">
-  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-6">
-    <a href="outlets.html" class="cta-card">
-      <h3 class="font-extrabold text-xl">Outlets — 6 Cabang</h3>
-      <p class="text-white/70 mt-1">Alamat, jam buka, dan tombol petunjuk arah.</p>
-      <div class="mt-3"><span class="btn-secondary inline-block">Lihat Outlets</span></div>
+    <a href="news.html" class="card">
+      <h3 class="font-extrabold text-xl">Berita & Promo</h3>
+      <p class="text-white/70 mt-1">Promo Payday, kolaborasi roastery lokal.</p>
+      <div class="mt-3"><span class="btn-primary inline-block">Buka Berita</span></div>
     </a>
-    <a href="faq.html" class="cta-card">
+    <a href="faq.html" class="card">
       <h3 class="font-extrabold text-xl">FAQ</h3>
-      <p class="text-white/70 mt-1">Jawaban cepat tentang layanan & pemesanan.</p>
+      <p class="text-white/70 mt-1">Jawaban cepat seputar layanan & pemesanan.</p>
       <div class="mt-3"><span class="btn-secondary inline-block">Buka FAQ</span></div>
     </a>
   </div>
 </section>
 
-<section data-reveal class="py-12">
-  <div class="max-w-7xl mx-auto px-4 text-center">
-    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-slate-900/60">Owner: <b class="ml-1">Narendra</b></div>
-    <h2 class="text-2xl lg:text-4xl font-extrabold mt-4">Siap pesan hari ini?</h2>
-    <p class="text-white/70 mt-2">Klik tombol di bawah — pilih menu, tulis catatan, dan selesaikan.</p>
-    <div class="mt-5 flex items-center justify-center gap-3">
-      <a class="btn-primary" href="order.html">Pesan Sekarang</a>
-      <a class="btn-secondary" href="faq.html">Butuh Bantuan?</a>
+<section data-reveal class="py-10">
+  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-6">
+    <div class="card">
+      <h3 class="font-extrabold text-xl">Cerita Kami</h3>
+      <ol class="mt-3 space-y-2 text-white/80 text-sm">
+        <li>• 2025 — NJ Cafe dibuka oleh <b>Narendra</b> dengan visi hospitality & rasa konsisten.</li>
+        <li>• 2026 — Meluncurkan signature Kopi Susu NJ.</li>
+        <li>• 2027 — Bertumbuh jadi 6 cabang.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3 class="font-extrabold text-xl">Apa Kata Pelanggan</h3>
+      <div class="mt-3 space-y-3 text-sm">
+        <blockquote class="p-3 rounded-xl glass">“Pelayanan cepat, catatan pesanan diikuti. Recomended!”</blockquote>
+        <blockquote class="p-3 rounded-xl glass">“Rasa konsisten. Website gampang dipakai.”</blockquote>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="border-t border-white/10 mt-12">
-  <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6 text-sm text-white/70">
+<section data-reveal class="py-12">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass">Owner: <b class="ml-1">Narendra</b></div>
+    <h2 class="text-2xl lg:text-4xl font-extrabold mt-4">Siap pesan hari ini?</h2>
+    <div class="mt-5 flex items-center justify-center gap-3">
+      <a class="btn-primary" href="order.html">Pesan Sekarang</a>
+      <a class="btn-secondary" href="outlets.html">Lihat Outlets</a>
+    </div>
+  </div>
+</section>
+
+<footer class="divider border-t border-white/10 mt-16">
+  <div class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-6 text-sm text-white/70">
     <div>
-      <div class="font-extrabold text-white">NJ Cafe</div>
+      <div class="font-extrabold text-white text-lg">NJ Cafe</div>
       <p class="mt-2">Jl. Siliwangi No.62, Pancoran Mas, Depok</p>
       <p>© <span id="y"></span> NJ Cafe — All rights reserved.</p>
     </div>
@@ -274,10 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {{
     Object.assign(span.style,{{position:'absolute',left:x+'px',top:y+'px',width:size+'px',height:size+'px',borderRadius:'9999px',background:'rgba(255,255,255,.35)',transform:'scale(0)',transition:'transform .4s ease, opacity .8s ease',pointerEvents:'none',opacity:'1'}});
     el.appendChild(span); requestAnimationFrame(()=>{{span.style.transform='scale(1)'; span.style.opacity='0';}}); setTimeout(()=>span.remove(),800);
   }}
-  document.querySelectorAll('button,a.btn-primary,a.btn-secondary,a.btn-ghost').forEach(b=>{{
-    b.addEventListener('click', addRipple);
-    b.classList.add('relative','overflow-hidden');
-  }});
+  document.querySelectorAll('button,a.btn-primary,a.btn-secondary,a.btn-ghost').forEach(b=>{{ b.addEventListener('click', addRipple); b.classList.add('relative','overflow-hidden'); }});
 
   const io = new IntersectionObserver((entries)=>{{ entries.forEach(e=>{{ if(e.isIntersecting) e.target.classList.add('opacity-100','translate-y-0'); }}); }},{{threshold:.1}});
   document.querySelectorAll('[data-reveal]').forEach(sec=>{{ sec.classList.add('opacity-0','translate-y-3','transition','duration-700'); io.observe(sec); }});
