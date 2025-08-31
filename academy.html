@@ -1,184 +1,181 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Academy — NJ Cafe v5</title>
-  <meta name="description" content="NJ Cafe Academy">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Academy — NJ Cafe</title>
+  <meta name="description" content="NJ Cafe Academy" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { brand: {"DEFAULT":"#7f1d1d","soft":"#fecaca"} },
-          boxShadow: { glow: "0 30px 70px rgba(0,0,0,.5)", soft:"0 12px 30px rgba(127,29,29,.25)" },
-          borderRadius: { 'pill': '9999px', '3xl':'1.75rem' }
+          colors: { brand: {"DEFAULT":"#7f1d1d", "soft":"#fecaca"}, sand: "#fff7ed" },
+          fontFamily: { display: ["Inter","ui-sans-serif","system-ui"] },
+          boxShadow: { glow: "0 20px 40px rgba(0,0,0,.25)" }
         }
       }
     };
   </script>
   <style>
-    .btn { @apply relative overflow-hidden rounded-pill px-5 py-3 font-bold; }
-    .btn-primary { @apply btn bg-brand text-white shadow-soft hover:brightness-110 active:translate-y-0.5; }
-    .btn-outline { @apply btn border border-white/15 text-white/90 hover:bg-white/5; }
-    .btn-ghost { @apply btn text-white/80 hover:bg-white/5; }
-    .chip { @apply px-2 py-1 text-xs rounded-pill border border-white/10 text-white/80; }
-    .card { @apply rounded-3xl bg-white/5 backdrop-blur border border-white/10 p-5 transition; }
-    .hero-bg { background: radial-gradient(60rem 40rem at 10% -10%, rgba(254,202,202,.18), transparent 60%), radial-gradient(50rem 30rem at 90% -10%, rgba(248,113,113,.16), transparent 60%), linear-gradient(180deg,#0b1220,#020617); }
-    .blob { position:absolute; width:28rem; height:28rem; background:radial-gradient(circle at 30% 30%, rgba(254,202,202,.35), transparent 40%), radial-gradient(circle at 70% 70%, rgba(244,63,94,.25), transparent 40%); filter: blur(50px); border-radius: 40% 60% 70% 30% / 40% 30% 70% 60%; animation: blob 14s infinite alternate ease-in-out; }
-    @keyframes blob { 0% { transform: translate(-10%, -20%) scale(1); } 100% { transform: translate(10%, -10%) scale(1.1); } }
-    .divider-wave { position:relative; }
-    .divider-wave::after { content:""; position:absolute; left:0; right:0; bottom:-1px; height:60px; background: radial-gradient(800px 60px at 50% 0, rgba(254,202,202,.15), transparent 70%); }
+    .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 font-semibold; }
+    .btn-primary { @apply btn bg-brand text-white hover:brightness-110 active:translate-y-0.5; }
+    .btn-secondary { @apply btn border border-black/10 text-black hover:bg-black/[.03] active:translate-y-0.5; }
+    .btn-dark { @apply btn bg-black text-white hover:brightness-110 active:translate-y-0.5; }
+    .chip { @apply px-2 py-1 text-xs rounded-full bg-black/5; }
+    .card { @apply rounded-2xl border border-black/10 bg-white; }
+    .muted { @apply text-black/60; }
+    .hero { background: radial-gradient(65rem 35rem at 10% -10%, rgba(127,29,29,.08), transparent 60%), radial-gradient(50rem 30rem at 90% -10%, rgba(127,29,29,.06), transparent 60%), linear-gradient(180deg,#fafafa,#ffffff); }
+    .ph-img { @apply rounded-xl border border-black/10; background-image: linear-gradient(135deg, #f5f5f5, #f0f0f0); }
+    body { @apply bg-[#fafafa] text-black; }
   </style>
 </head>
-<body class="bg-slate-950 text-white/90 antialiased">
+<body class="font-display">
 
-<header class="sticky top-0 z-50 backdrop-blur hero-bg/20 border-b border-white/10">
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-black/10">
   <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-3">
-      <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand to-rose-500 grid place-content-center font-extrabold">NJ</div>
+      <div class="w-10 h-10 rounded-xl bg-brand text-white grid place-content-center font-extrabold">NJ</div>
       <span class="font-extrabold tracking-tight">NJ Cafe</span>
     </a>
-    <nav class="hidden md:flex items-center gap-2">
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="index.html">Home</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="order.html">Order</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="order.html#catalog">Menu</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="outlets.html">Outlets</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 bg-white/5" href="academy.html">Academy</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="news.html">News</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="faq.html">FAQ</a>
+    <nav class="hidden md:flex items-center gap-2 text-sm">
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 " href="index.html">Home</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 " href="order.html">Order</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 " href="outlets.html">Outlets</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 bg-black/5" href="academy.html">Academy</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 " href="news.html">News</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 " href="faq.html">FAQ</a>
+      <a class="btn-primary ml-2" href="order.html">Pesan</a>
     </nav>
-    <button id="openMenu" class="md:hidden btn-outline flex items-center gap-2">
-      <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      <span>Menu</span>
+    <button id="openMenu" class="md:hidden btn-dark">
+      <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Menu
     </button>
   </div>
 </header>
 
-<!-- Mobile drawer -->
+<!-- Drawer Mobile -->
 <div id="drawer" class="fixed inset-0 z-50 hidden">
   <div id="backdrop" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"></div>
-  <aside id="panel" class="absolute right-0 top-0 h-full w-80 card translate-x-full transition-transform duration-300 rounded-l-3xl">
+  <aside id="panel" class="absolute right-0 top-0 h-full w-80 bg-white border-l border-black/10 p-5 translate-x-full transition-transform duration-300">
     <div class="flex items-center justify-between mb-2">
       <div class="font-extrabold">Navigasi</div>
-      <button id="closeMenu" class="btn-outline px-3 py-1">✕</button>
+      <button id="closeMenu" class="btn-secondary">Tutup</button>
     </div>
-    <nav class="grid gap-1 text-lg">
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="index.html">Home</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="order.html">Order</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="order.html#catalog">Menu</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="outlets.html">Outlets</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="academy.html">Academy</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="news.html">News</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="faq.html">FAQ</a>
+    <nav class="grid gap-1 text-base">
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="index.html">Home</a>
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="order.html">Order</a>
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="outlets.html">Outlets</a>
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="academy.html">Academy</a>
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="news.html">News</a>
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="faq.html">FAQ</a>
     </nav>
   </aside>
 </div>
-
-<!-- Mobile bottom bar -->
-<nav class="md:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-40 card rounded-pill px-2 py-2 shadow-glow">
-  <ul class="flex items-center gap-1 text-xs">
-    <li><a href="order.html" class="btn-ghost">Order</a></li>
-    <li><a href="order.html#catalog" class="btn-ghost">Menu</a></li>
-    <li><a href="outlets.html" class="btn-ghost">Outlets</a></li>
-    <li><a href="faq.html" class="btn-ghost">Bantuan</a></li>
-  </ul>
-</nav>
 <section class='max-w-7xl mx-auto px-4 py-12'>
 <h1 class="text-3xl font-extrabold">Coffee Academy</h1>
-<p class="text-white/70 mt-2">Belajar kopi bersama NJ Cafe.</p>
+<p class="muted mt-2">Belajar kopi yang praktis & menyenangkan.</p>
 <div class="mt-6 grid md:grid-cols-3 gap-5">
 
-  <article class="card hover:-translate-y-1 hover:shadow-2xl">
+  <article class="card p-5 hover:shadow-glow">
+    <div class="ph-img aspect-[3/2] mb-3"></div>
     <h3 class="font-extrabold text-lg">Panduan #1: Topik Kopi & Teknik Seduh</h3>
-    <p class="text-white/70 text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
+    <p class="muted text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
     <div class="mt-3">
-      <button class="btn-outline">Baca</button>
+      <button class="btn-secondary">Baca</button>
     </div>
   </article>
 
 
-  <article class="card hover:-translate-y-1 hover:shadow-2xl">
+  <article class="card p-5 hover:shadow-glow">
+    <div class="ph-img aspect-[3/2] mb-3"></div>
     <h3 class="font-extrabold text-lg">Panduan #2: Topik Kopi & Teknik Seduh</h3>
-    <p class="text-white/70 text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
+    <p class="muted text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
     <div class="mt-3">
-      <button class="btn-outline">Baca</button>
+      <button class="btn-secondary">Baca</button>
     </div>
   </article>
 
 
-  <article class="card hover:-translate-y-1 hover:shadow-2xl">
+  <article class="card p-5 hover:shadow-glow">
+    <div class="ph-img aspect-[3/2] mb-3"></div>
     <h3 class="font-extrabold text-lg">Panduan #3: Topik Kopi & Teknik Seduh</h3>
-    <p class="text-white/70 text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
+    <p class="muted text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
     <div class="mt-3">
-      <button class="btn-outline">Baca</button>
+      <button class="btn-secondary">Baca</button>
     </div>
   </article>
 
 
-  <article class="card hover:-translate-y-1 hover:shadow-2xl">
+  <article class="card p-5 hover:shadow-glow">
+    <div class="ph-img aspect-[3/2] mb-3"></div>
     <h3 class="font-extrabold text-lg">Panduan #4: Topik Kopi & Teknik Seduh</h3>
-    <p class="text-white/70 text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
+    <p class="muted text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
     <div class="mt-3">
-      <button class="btn-outline">Baca</button>
+      <button class="btn-secondary">Baca</button>
     </div>
   </article>
 
 
-  <article class="card hover:-translate-y-1 hover:shadow-2xl">
+  <article class="card p-5 hover:shadow-glow">
+    <div class="ph-img aspect-[3/2] mb-3"></div>
     <h3 class="font-extrabold text-lg">Panduan #5: Topik Kopi & Teknik Seduh</h3>
-    <p class="text-white/70 text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
+    <p class="muted text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
     <div class="mt-3">
-      <button class="btn-outline">Baca</button>
+      <button class="btn-secondary">Baca</button>
     </div>
   </article>
 
 
-  <article class="card hover:-translate-y-1 hover:shadow-2xl">
+  <article class="card p-5 hover:shadow-glow">
+    <div class="ph-img aspect-[3/2] mb-3"></div>
     <h3 class="font-extrabold text-lg">Panduan #6: Topik Kopi & Teknik Seduh</h3>
-    <p class="text-white/70 text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
+    <p class="muted text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
     <div class="mt-3">
-      <button class="btn-outline">Baca</button>
+      <button class="btn-secondary">Baca</button>
     </div>
   </article>
 
 
-  <article class="card hover:-translate-y-1 hover:shadow-2xl">
+  <article class="card p-5 hover:shadow-glow">
+    <div class="ph-img aspect-[3/2] mb-3"></div>
     <h3 class="font-extrabold text-lg">Panduan #7: Topik Kopi & Teknik Seduh</h3>
-    <p class="text-white/70 text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
+    <p class="muted text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
     <div class="mt-3">
-      <button class="btn-outline">Baca</button>
+      <button class="btn-secondary">Baca</button>
     </div>
   </article>
 
 
-  <article class="card hover:-translate-y-1 hover:shadow-2xl">
+  <article class="card p-5 hover:shadow-glow">
+    <div class="ph-img aspect-[3/2] mb-3"></div>
     <h3 class="font-extrabold text-lg">Panduan #8: Topik Kopi & Teknik Seduh</h3>
-    <p class="text-white/70 text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
+    <p class="muted text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
     <div class="mt-3">
-      <button class="btn-outline">Baca</button>
+      <button class="btn-secondary">Baca</button>
     </div>
   </article>
 
 
-  <article class="card hover:-translate-y-1 hover:shadow-2xl">
+  <article class="card p-5 hover:shadow-glow">
+    <div class="ph-img aspect-[3/2] mb-3"></div>
     <h3 class="font-extrabold text-lg">Panduan #9: Topik Kopi & Teknik Seduh</h3>
-    <p class="text-white/70 text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
+    <p class="muted text-sm mt-2">Perbedaan metode seduh, rasio, grind size, suhu.</p>
     <div class="mt-3">
-      <button class="btn-outline">Baca</button>
+      <button class="btn-secondary">Baca</button>
     </div>
   </article>
 
 </div></section>
-<footer class="border-t border-white/10 mt-16">
-  <div class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-6 text-sm text-white/70">
+<footer class="border-t border-black/10 mt-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 text-sm">
     <div>
-      <div class="font-extrabold text-white text-lg">NJ Cafe</div>
-      <p class="mt-2">Jl. Siliwangi No.62, Pancoran Mas, Depok</p>
-      <p>© <span id="y"></span> NJ Cafe — All rights reserved.</p>
+      <div class="font-extrabold text-lg">NJ Cafe</div>
+      <p class="mt-2 muted">Jl. Siliwangi No.62, Pancoran Mas, Depok</p>
+      <p class="muted">© <span id="y"></span> NJ Cafe — All rights reserved.</p>
     </div>
     <div>
-      <div class="font-bold text-white">Navigasi</div>
+      <div class="font-bold">Navigasi</div>
       <ul class="mt-2 space-y-1">
         <li><a href="order.html" class="hover:underline">Order</a></li>
         <li><a href="outlets.html" class="hover:underline">Outlets</a></li>
@@ -188,7 +185,7 @@
       </ul>
     </div>
     <div>
-      <div class="font-bold text-white">Ikuti Kami</div>
+      <div class="font-bold">Ikuti Kami</div>
       <ul class="mt-2 space-y-1">
         <li><a class="hover:underline" href="#">Instagram</a></li>
         <li><a class="hover:underline" href="#">YouTube</a></li>
@@ -199,21 +196,33 @@
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded',()=>{{
-  document.getElementById('y').textContent=new Date().getFullYear();
-  const drawer=document.getElementById('drawer'),panel=document.getElementById('panel'),openBtn=document.getElementById('openMenu'),closeBtn=document.getElementById('closeMenu'),backdrop=document.getElementById('backdrop');
-  function openDrawer(){{drawer.classList.remove('hidden');requestAnimationFrame(()=>{{panel.classList.remove('translate-x-full');backdrop.classList.remove('opacity-0');backdrop.classList.add('opacity-100');}});}}
-  function closeDrawer(){{panel.classList.add('translate-x-full');backdrop.classList.add('opacity-0');backdrop.classList.remove('opacity-100');setTimeout(()=>drawer.classList.add('hidden'),280);}}
-  if(openBtn)openBtn.addEventListener('click',openDrawer);
-  if(closeBtn)closeBtn.addEventListener('click',closeDrawer);
-  if(backdrop)backdrop.addEventListener('click',closeDrawer);
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-  function addRipple(e){{const el=e.currentTarget;const rect=el.getBoundingClientRect();const span=document.createElement('span');const size=Math.max(rect.width,rect.height);const x=e.clientX-rect.left-size/2;const y=e.clientY-rect.top-size/2;Object.assign(span.style,{{position:'absolute',left:x+'px',top:y+'px',width:size+'px',height:size+'px',borderRadius:'9999px',background:'rgba(255,255,255,.35)',transform:'scale(0)',transition:'transform .4s ease, opacity .8s ease',pointerEvents:'none',opacity:'1'}});el.appendChild(span);requestAnimationFrame(()=>{{span.style.transform='scale(1)';span.style.opacity='0';}});setTimeout(()=>span.remove(),800);}}
-  document.querySelectorAll('button,a.btn-primary,a.btn-outline,a.btn-ghost').forEach(b=>{{b.addEventListener('click',addRipple);b.classList.add('relative','overflow-hidden');}});
+  const drawer = document.getElementById('drawer');
+  const panel = document.getElementById('panel');
+  const openBtn = document.getElementById('openMenu');
+  const closeBtn = document.getElementById('closeMenu');
+  const backdrop = document.getElementById('backdrop');
 
-  const io=new IntersectionObserver((entries)=>{{entries.forEach(e=>{{if(e.isIntersecting)e.target.classList.add('opacity-100','translate-y-0');}});}},{{threshold:.12}});
-  document.querySelectorAll('[data-reveal]').forEach(sec=>{{sec.classList.add('opacity-0','translate-y-3','transition','duration-700');io.observe(sec);}});
-}});
+  function openDrawer(){
+    drawer.classList.remove('hidden');
+    requestAnimationFrame(()=>{
+      panel.classList.remove('translate-x-full');
+      backdrop.classList.remove('opacity-0');
+      backdrop.classList.add('opacity-100');
+    });
+  }
+  function closeDrawer(){
+    panel.classList.add('translate-x-full');
+    backdrop.classList.add('opacity-0');
+    backdrop.classList.remove('opacity-100');
+    setTimeout(()=>drawer.classList.add('hidden'), 280);
+  }
+  openBtn && openBtn.addEventListener('click', openDrawer);
+  closeBtn && closeBtn.addEventListener('click', closeDrawer);
+  backdrop && backdrop.addEventListener('click', closeDrawer);
+});
 </script>
 </body>
 </html>

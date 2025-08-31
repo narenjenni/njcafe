@@ -1,98 +1,87 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Order — NJ Cafe (v5)</title>
-  <meta name="description" content="Katalog + keranjang + catatan. Desain ulang total.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order — NJ Cafe</title>
+  <meta name="description" content="CoffeeToffee-style: order dengan catatan, keranjang, mailto." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { brand: {"DEFAULT":"#7f1d1d","soft":"#fecaca"} },
-          boxShadow: { glow: "0 30px 70px rgba(0,0,0,.5)", soft:"0 12px 30px rgba(127,29,29,.25)" },
-          borderRadius: { 'pill': '9999px', '3xl':'1.75rem' }
+          colors: { brand: {"DEFAULT":"#7f1d1d", "soft":"#fecaca"}, sand: "#fff7ed" },
+          fontFamily: { display: ["Inter","ui-sans-serif","system-ui"] },
+          boxShadow: { glow: "0 20px 40px rgba(0,0,0,.25)" }
         }
       }
     };
   </script>
   <style>
-    .btn { @apply relative overflow-hidden rounded-pill px-5 py-3 font-bold; }
-    .btn-primary { @apply btn bg-brand text-white shadow-soft hover:brightness-110 active:translate-y-0.5; }
-    .btn-outline { @apply btn border border-white/15 text-white/90 hover:bg-white/5; }
-    .btn-ghost { @apply btn text-white/80 hover:bg-white/5; }
-    .chip { @apply px-2 py-1 text-xs rounded-pill border border-white/10 text-white/80; }
-    .card { @apply rounded-3xl bg-white/5 backdrop-blur border border-white/10 p-5 transition; }
-    .hero-bg { background: radial-gradient(60rem 40rem at 10% -10%, rgba(254,202,202,.18), transparent 60%), radial-gradient(50rem 30rem at 90% -10%, rgba(248,113,113,.16), transparent 60%), linear-gradient(180deg,#0b1220,#020617); }
-    .blob { position:absolute; width:28rem; height:28rem; background:radial-gradient(circle at 30% 30%, rgba(254,202,202,.35), transparent 40%), radial-gradient(circle at 70% 70%, rgba(244,63,94,.25), transparent 40%); filter: blur(50px); border-radius: 40% 60% 70% 30% / 40% 30% 70% 60%; animation: blob 14s infinite alternate ease-in-out; }
-    @keyframes blob { 0% { transform: translate(-10%, -20%) scale(1); } 100% { transform: translate(10%, -10%) scale(1.1); } }
-    .divider-wave { position:relative; }
-    .divider-wave::after { content:""; position:absolute; left:0; right:0; bottom:-1px; height:60px; background: radial-gradient(800px 60px at 50% 0, rgba(254,202,202,.15), transparent 70%); }
+    .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 font-semibold; }
+    .btn-primary { @apply btn bg-brand text-white hover:brightness-110 active:translate-y-0.5; }
+    .btn-secondary { @apply btn border border-black/10 text-black hover:bg-black/[.03] active:translate-y-0.5; }
+    .btn-dark { @apply btn bg-black text-white hover:brightness-110 active:translate-y-0.5; }
+    .chip { @apply px-2 py-1 text-xs rounded-full bg-black/5; }
+    .card { @apply rounded-2xl border border-black/10 bg-white; }
+    .muted { @apply text-black/60; }
+    .hero { background: radial-gradient(65rem 35rem at 10% -10%, rgba(127,29,29,.08), transparent 60%), radial-gradient(50rem 30rem at 90% -10%, rgba(127,29,29,.06), transparent 60%), linear-gradient(180deg,#fafafa,#ffffff); }
+    .ph-img { @apply rounded-xl border border-black/10; background-image: linear-gradient(135deg, #f5f5f5, #f0f0f0); }
+    body { @apply bg-[#fafafa] text-black; }
   </style>
 </head>
-<body class="bg-slate-950 text-white/90 antialiased">
+<body class="font-display">
 
-<header class="sticky top-0 z-50 backdrop-blur hero-bg/20 border-b border-white/10">
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-black/10">
   <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-3">
-      <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand to-rose-500 grid place-content-center font-extrabold">NJ</div>
+      <div class="w-10 h-10 rounded-xl bg-brand text-white grid place-content-center font-extrabold">NJ</div>
       <span class="font-extrabold tracking-tight">NJ Cafe</span>
     </a>
-    <nav class="hidden md:flex items-center gap-2">
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="index.html">Home</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 bg-white/5" href="order.html">Order</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="order.html#catalog">Menu</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="outlets.html">Outlets</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="academy.html">Academy</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="news.html">News</a>
-      <a class="px-4 py-2 rounded-xl hover:bg-white/5 " href="faq.html">FAQ</a>
+    <nav class="hidden md:flex items-center gap-2 text-sm">
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 " href="index.html">Home</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 bg-black/5" href="order.html">Order</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 " href="outlets.html">Outlets</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 " href="academy.html">Academy</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 " href="news.html">News</a>
+      <a class="px-3 py-2 rounded-lg hover:bg-black/5 " href="faq.html">FAQ</a>
+      <a class="btn-primary ml-2" href="order.html">Pesan</a>
     </nav>
-    <button id="openMenu" class="md:hidden btn-outline flex items-center gap-2">
-      <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      <span>Menu</span>
+    <button id="openMenu" class="md:hidden btn-dark">
+      <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Menu
     </button>
   </div>
 </header>
 
-<!-- Mobile drawer -->
+<!-- Drawer Mobile -->
 <div id="drawer" class="fixed inset-0 z-50 hidden">
   <div id="backdrop" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"></div>
-  <aside id="panel" class="absolute right-0 top-0 h-full w-80 card translate-x-full transition-transform duration-300 rounded-l-3xl">
+  <aside id="panel" class="absolute right-0 top-0 h-full w-80 bg-white border-l border-black/10 p-5 translate-x-full transition-transform duration-300">
     <div class="flex items-center justify-between mb-2">
       <div class="font-extrabold">Navigasi</div>
-      <button id="closeMenu" class="btn-outline px-3 py-1">✕</button>
+      <button id="closeMenu" class="btn-secondary">Tutup</button>
     </div>
-    <nav class="grid gap-1 text-lg">
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="index.html">Home</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="order.html">Order</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="order.html#catalog">Menu</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="outlets.html">Outlets</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="academy.html">Academy</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="news.html">News</a>
-      <a class="px-3 py-3 rounded-xl hover:bg-white/5" href="faq.html">FAQ</a>
+    <nav class="grid gap-1 text-base">
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="index.html">Home</a>
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="order.html">Order</a>
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="outlets.html">Outlets</a>
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="academy.html">Academy</a>
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="news.html">News</a>
+      <a class="px-3 py-3 rounded-lg hover:bg-black/5" href="faq.html">FAQ</a>
     </nav>
   </aside>
 </div>
 
-<!-- Mobile bottom bar -->
-<nav class="md:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-40 card rounded-pill px-2 py-2 shadow-glow">
-  <ul class="flex items-center gap-1 text-xs">
-    <li><a href="order.html" class="btn-ghost">Order</a></li>
-    <li><a href="order.html#catalog" class="btn-ghost">Menu</a></li>
-    <li><a href="outlets.html" class="btn-ghost">Outlets</a></li>
-    <li><a href="faq.html" class="btn-ghost">Bantuan</a></li>
-  </ul>
-</nav>
+<main class="max-w-7xl mx-auto px-4 py-10">
+  <h1 class="text-3xl font-extrabold">Order Online</h1>
+  <p class="muted mt-1">Tulis catatan di setiap item (mis. “tidak pedas ya”).</p>
 
-<main class="max-w-7xl mx-auto px-4 py-8">
-  <h1 class="text-3xl font-extrabold mb-4">Order Online</h1>
-  <!-- Sticky filter bar -->
-  <div class="card sticky top-20 z-30">
+  <div class="card p-4 mt-4 sticky top-20 z-30 bg-white">
     <div class="grid sm:grid-cols-3 gap-3">
-      <input id="q" class="w-full rounded-pill bg-slate-900 border border-white/10 px-4 py-3" placeholder="Cari menu / kata kunci">
-      <select id="cat" class="rounded-pill bg-slate-900 border border-white/10 px-4 py-3"></select>
-      <select id="sort" class="rounded-pill bg-slate-900 border border-white/10 px-4 py-3">
+      <input id="q" class="w-full rounded-lg border border-black/10 px-3 py-2" placeholder="Cari menu / kata kunci" />
+      <select id="cat" class="rounded-lg border border-black/10 px-3 py-2"></select>
+      <select id="sort" class="rounded-lg border border-black/10 px-3 py-2">
         <option value="name">Urutkan: Nama</option>
         <option value="price-asc">Harga: Rendah → Tinggi</option>
         <option value="price-desc">Harga: Tinggi → Rendah</option>
@@ -104,47 +93,44 @@
   <div id="catalog" class="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
 </main>
 
-<!-- Floating open cart -->
-<button id="openCart" class="fixed bottom-24 right-4 md:right-6 btn-primary shadow-glow">Lihat Keranjang</button>
+<button id="openCart" class="fixed bottom-24 right-4 md:right-6 btn-dark shadow-glow">Lihat Keranjang</button>
 
-<!-- Cart drawer -->
 <div id="cartWrap" class="fixed inset-0 z-50 hidden">
   <div id="cartBackdrop" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"></div>
-  <aside id="cartPanel" class="absolute right-0 top-0 h-full w-[420px] max-w-full card translate-x-full transition-transform duration-300 rounded-l-3xl">
+  <aside id="cartPanel" class="absolute right-0 top-0 h-full w-[420px] max-w-full bg-white border-l border-black/10 p-5 translate-x-full transition-transform duration-300">
     <div class="flex items-center justify-between">
       <h2 class="font-extrabold text-xl">Keranjang</h2>
-      <button id="cartClose" class="btn-outline px-3 py-1">✕</button>
+      <button id="cartClose" class="btn-secondary">Tutup</button>
     </div>
     <div id="lines" class="mt-3"></div>
     <div class="mt-4 flex items-center justify-between font-extrabold">
       <div>Total</div><div id="total">Rp0</div>
     </div>
     <div class="mt-4 grid gap-2">
-      <button id="btnCopy" class="btn-outline">Salin Rincian</button>
+      <button id="btnCopy" class="btn-secondary">Salin Rincian</button>
       <a id="mailto" class="btn-primary text-center" href="#">Kirim ke Email</a>
       <a id="wa" class="btn-primary text-center" href="#" target="_blank">Kirim via WhatsApp</a>
-      <button id="btnClear" class="btn-ghost">Kosongkan</button>
+      <button id="btnClear" class="btn-secondary">Kosongkan</button>
     </div>
   </aside>
 </div>
 
-<!-- Modal note & qty -->
 <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/60">
-  <div class="card max-w-md w-full">
+  <div class="bg-white rounded-2xl p-5 w-full max-w-md border border-black/10">
     <div class="flex items-center justify-between">
       <div class="font-extrabold" id="mName">Item</div>
-      <button id="mClose" class="btn-outline px-3 py-1">✕</button>
+      <button id="mClose" class="btn-secondary">Tutup</button>
     </div>
-    <div class="mt-3 text-sm text-white/70 flex items-center justify-between">
-      <span>Harga</span><span id="mPrice" class="font-extrabold text-rose-200">Rp0</span>
+    <div class="mt-3 text-sm flex items-center justify-between">
+      <span class="muted">Harga</span><span id="mPrice" class="font-extrabold text-brand">Rp0</span>
     </div>
-    <label class="text-sm text-white/70 mt-3">Catatan (opsional)</label>
-    <textarea id="mNote" class="w-full mt-1 rounded-3xl bg-slate-900 border border-white/10 px-3 py-2" rows="3" placeholder='Contoh: "tidak pedas ya"'></textarea>
-    <label class="text-sm text-white/70 mt-3">Kuantitas</label>
+    <label class="text-sm muted mt-3">Catatan (opsional)</label>
+    <textarea id="mNote" class="w-full mt-1 rounded-lg border border-black/10 px-3 py-2" rows="3" placeholder='Contoh: "tidak pedas ya"'></textarea>
+    <label class="text-sm muted mt-3">Kuantitas</label>
     <div class="mt-1 flex items-center gap-2">
-      <button id="mMinus" class="btn-outline px-3">−</button>
-      <input id="mQty" type="number" min="1" value="1" class="w-20 text-center rounded-3xl bg-slate-900 border border-white/10 px-3 py-2">
-      <button id="mPlus" class="btn-outline px-3">+</button>
+      <button id="mMinus" class="btn-secondary px-3">−</button>
+      <input id="mQty" type="number" min="1" value="1" class="w-20 text-center rounded-lg border border-black/10 px-3 py-2" />
+      <button id="mPlus" class="btn-secondary px-3">+</button>
     </div>
     <div class="mt-4 flex justify-end gap-2">
       <button id="mAdd" class="btn-primary">Tambah ke Keranjang</button>
@@ -187,25 +173,25 @@ const MENU=[
   {{id:'sg3',name:'Es Coklat NJ',cat:'Signature',price:26000,tags:['House']}},
   {{id:'sg4',name:'Teh Tarik NJ',cat:'Signature',price:24000,tags:['Creamy']}}
 ];
-let CART=JSON.parse(localStorage.getItem('nj_cart_v5')||'[]');
+let CART=JSON.parse(localStorage.getItem('nj_cart_v6')||'[]');
 const fmt=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
-function save(){localStorage.setItem('nj_cart_v5',JSON.stringify(CART));}
+function save(){localStorage.setItem('nj_cart_v6',JSON.stringify(CART));}
 function cartTotal(){return CART.reduce((s,l)=>s+l.price*l.qty,0);}
 
-function renderCats(){const cats=['All',...Array.from(new Set(MENU.map(m=>m.cat)))];const sel=document.getElementById('cat');sel.innerHTML=cats.map(c=>`<option>${c}</option>`).join('');const chips=document.getElementById('chips');chips.innerHTML=cats.map(c=>`<button class='btn-ghost chip' data-c='${c}'>${c}</button>`).join('');chips.querySelectorAll('[data-c]').forEach(b=>b.addEventListener('click',e=>{sel.value=e.currentTarget.dataset.c;renderList();}));}
-function renderList(){const q=(document.getElementById('q').value||'').toLowerCase();const c=document.getElementById('cat').value;const sort=document.getElementById('sort').value;let arr=MENU.filter(m=>{const matchQ=m.name.toLowerCase().includes(q)||m.tags.some(t=>t.toLowerCase().includes(q));const matchC=(c==='All'||m.cat===c);return matchQ&&matchC;});if(sort==='name')arr.sort((a,b)=>a.name.localeCompare(b.name));if(sort==='price-asc')arr.sort((a,b)=>a.price-b.price);if(sort==='price-desc')arr.sort((a,b)=>b.price-a.price);const list=document.getElementById('catalog');list.innerHTML='';arr.forEach(item=>{const el=document.createElement('div');el.className='card hover:-translate-y-1 hover:shadow-2xl';el.innerHTML=`
-  <div class="aspect-[4/3] rounded-3xl bg-[radial-gradient(30%_40%_at_30%_30%,rgba(254,202,202,.25),transparent),linear-gradient(120deg,#0b1220,#020617)] mb-3"></div>
+function renderCats(){const cats=['All',...Array.from(new Set(MENU.map(m=>m.cat)))];const sel=document.getElementById('cat');sel.innerHTML=cats.map(c=>`<option>${c}</option>`).join('');const chips=document.getElementById('chips');chips.innerHTML=cats.map(c=>`<button class='chip' data-c='${c}'>${c}</button>`).join('');chips.querySelectorAll('[data-c]').forEach(b=>b.addEventListener('click',e=>{sel.value=e.currentTarget.dataset.c;renderList();}));}
+function renderList(){const q=(document.getElementById('q').value||'').toLowerCase();const c=document.getElementById('cat').value;const sort=document.getElementById('sort').value;let arr=MENU.filter(m=>{const matchQ=m.name.toLowerCase().includes(q)||m.tags.some(t=>t.toLowerCase().includes(q));const matchC=(c==='All'||m.cat===c);return matchQ&&matchC;});if(sort==='name')arr.sort((a,b)=>a.name.localeCompare(b.name));if(sort==='price-asc')arr.sort((a,b)=>a.price-b.price);if(sort==='price-desc')arr.sort((a,b)=>b.price-a.price);const list=document.getElementById('catalog');list.innerHTML='';arr.forEach(item=>{const el=document.createElement('div');el.className='card p-4 hover:shadow-glow';el.innerHTML=`
+  <div class="ph-img aspect-[4/3] mb-3"></div>
   <div class="flex flex-wrap items-center gap-2 mb-2"><span class="chip">${{item.cat}}</span>${{item.tags.map(t=>`<span class="chip">${{t}}</span>`).join('')}} </div>
   <h3 class="font-extrabold text-lg">${{item.name}}</h3>
-  <div class="text-rose-200 font-extrabold">${{fmt(item.price)}}</div>
-  <p class="text-white/60 text-sm mt-2">Deskripsi singkat ${{item.name.toLowerCase()}}.</p>
+  <div class="text-brand font-bold">${{fmt(item.price)}}</div>
+  <p class="muted text-sm mt-2">Deskripsi singkat ${{item.name.toLowerCase()}}.</p>
   <div class="mt-3 flex gap-2">
     <button class="btn-primary" data-add="${{item.id}}">Tambah</button>
-    <button class="btn-outline" data-detail="${{item.id}}">Detail</button>
+    <button class="btn-secondary" data-detail="${{item.id}}">Detail</button>
   </div>`;list.appendChild(el);});document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',e=>openModal(e.currentTarget.getAttribute('data-add'))));document.querySelectorAll('[data-detail]').forEach(b=>b.addEventListener('click',e=>openModal(e.currentTarget.getAttribute('data-detail'))));}
 
-function line(l,i){const note=l.note?`<div class="chip mt-1">${{l.note}}</div>`:'';return `<div class="py-3 border-b border-white/10 flex items-start justify-between gap-3"><div><div class="font-bold">${{l.name}}</div>${{note}}<div class="mt-2 inline-flex items-center rounded-pill border border-white/10 overflow-hidden"><button class="px-3 py-1 btn-ghost" data-dec="${{i}}">−</button><span class="px-3">${{l.qty}}</span><button class="px-3 py-1 btn-ghost" data-inc="${{i}}">+</button></div></div><div class="text-right"><div>${{fmt(l.price*l.qty)}}</div><button class="text-white/60 underline" data-del="${{i}}">Hapus</button></div></div>`;}
-function renderCart(){const lines=document.getElementById('lines');lines.innerHTML=CART.map(line).join('')||'<div class="text-white/60 text-sm mt-2">Belum ada item.</div>';document.getElementById('total').textContent=fmt(cartTotal());lines.querySelectorAll('[data-inc]').forEach(b=>b.addEventListener('click',e=>{const i=+e.currentTarget.dataset.inc;CART[i].qty++;save();renderCart();}));lines.querySelectorAll('[data-dec]').forEach(b=>b.addEventListener('click',e=>{const i=+e.currentTarget.dataset.dec;CART[i].qty=Math.max(1,CART[i].qty-1);save();renderCart();}));lines.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',e=>{const i=+e.currentTarget.dataset.del;CART.splice(i,1);save();renderCart();}));const body=encodeURIComponent(summaryText());document.getElementById('mailto').href=`mailto:narenskii@gmail.com?subject=Pesanan NJ Cafe&body=${{body}}`;document.getElementById('wa').href=`https://wa.me/?text=${{body}}`;}
+function line(l,i){const note=l.note?`<div class="chip mt-1">${{l.note}}</div>`:'';return `<div class="py-3 border-b border-black/10 flex items-start justify-between gap-3"><div><div class="font-bold">${{l.name}}</div>${{note}}<div class="mt-2 inline-flex items-center rounded-lg border border-black/10 overflow-hidden"><button class="px-3 py-1" data-dec="${{i}}">−</button><span class="px-3">${{l.qty}}</span><button class="px-3 py-1" data-inc="${{i}}">+</button></div></div><div class="text-right"><div>${{fmt(l.price*l.qty)}}</div><button class="text-black/60 underline" data-del="${{i}}">Hapus</button></div></div>`;}
+function renderCart(){const lines=document.getElementById('lines');lines.innerHTML=CART.map(line).join('')||'<div class="muted mt-2">Belum ada item.</div>';document.getElementById('total').textContent=fmt(cartTotal());lines.querySelectorAll('[data-inc]').forEach(b=>b.addEventListener('click',e=>{const i=+e.currentTarget.dataset.inc;CART[i].qty++;save();renderCart();}));lines.querySelectorAll('[data-dec]').forEach(b=>b.addEventListener('click',e=>{const i=+e.currentTarget.dataset.dec;CART[i].qty=Math.max(1,CART[i].qty-1);save();renderCart();}));lines.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',e=>{const i=+e.currentTarget.dataset.del;CART.splice(i,1);save();renderCart();}));const body=encodeURIComponent(summaryText());document.getElementById('mailto').href=`mailto:narenskii@gmail.com?subject=Pesanan NJ Cafe&body=${{body}}`;document.getElementById('wa').href=`https://wa.me/?text=${{body}}`;}
 function summaryText(){if(!CART.length)return'Keranjang kosong.';const lines=CART.map((l,i)=>`${{i+1}}. ${{l.name}} x${{l.qty}} @ ${{fmt(l.price)}} = ${{fmt(l.price*l.qty)}}${{l.note?' | Catatan: '+l.note:''}}`).join('\n');return `Pesanan NJ Cafe\nTanggal: ${{new Date().toLocaleString('id-ID')}}\n\n${{lines}}\n\nTotal: ${{fmt(cartTotal())}}\n\nTerima kasih.`;}
 
 let MOD={{}};
@@ -233,15 +219,15 @@ document.getElementById('sort').addEventListener('change',renderList);
 renderCats();renderList();renderCart();
 </script>
 
-<footer class="border-t border-white/10 mt-16">
-  <div class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-6 text-sm text-white/70">
+<footer class="border-t border-black/10 mt-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 text-sm">
     <div>
-      <div class="font-extrabold text-white text-lg">NJ Cafe</div>
-      <p class="mt-2">Jl. Siliwangi No.62, Pancoran Mas, Depok</p>
-      <p>© <span id="y"></span> NJ Cafe — All rights reserved.</p>
+      <div class="font-extrabold text-lg">NJ Cafe</div>
+      <p class="mt-2 muted">Jl. Siliwangi No.62, Pancoran Mas, Depok</p>
+      <p class="muted">© <span id="y"></span> NJ Cafe — All rights reserved.</p>
     </div>
     <div>
-      <div class="font-bold text-white">Navigasi</div>
+      <div class="font-bold">Navigasi</div>
       <ul class="mt-2 space-y-1">
         <li><a href="order.html" class="hover:underline">Order</a></li>
         <li><a href="outlets.html" class="hover:underline">Outlets</a></li>
@@ -251,7 +237,7 @@ renderCats();renderList();renderCart();
       </ul>
     </div>
     <div>
-      <div class="font-bold text-white">Ikuti Kami</div>
+      <div class="font-bold">Ikuti Kami</div>
       <ul class="mt-2 space-y-1">
         <li><a class="hover:underline" href="#">Instagram</a></li>
         <li><a class="hover:underline" href="#">YouTube</a></li>
@@ -262,21 +248,33 @@ renderCats();renderList();renderCart();
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded',()=>{{
-  document.getElementById('y').textContent=new Date().getFullYear();
-  const drawer=document.getElementById('drawer'),panel=document.getElementById('panel'),openBtn=document.getElementById('openMenu'),closeBtn=document.getElementById('closeMenu'),backdrop=document.getElementById('backdrop');
-  function openDrawer(){{drawer.classList.remove('hidden');requestAnimationFrame(()=>{{panel.classList.remove('translate-x-full');backdrop.classList.remove('opacity-0');backdrop.classList.add('opacity-100');}});}}
-  function closeDrawer(){{panel.classList.add('translate-x-full');backdrop.classList.add('opacity-0');backdrop.classList.remove('opacity-100');setTimeout(()=>drawer.classList.add('hidden'),280);}}
-  if(openBtn)openBtn.addEventListener('click',openDrawer);
-  if(closeBtn)closeBtn.addEventListener('click',closeDrawer);
-  if(backdrop)backdrop.addEventListener('click',closeDrawer);
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-  function addRipple(e){{const el=e.currentTarget;const rect=el.getBoundingClientRect();const span=document.createElement('span');const size=Math.max(rect.width,rect.height);const x=e.clientX-rect.left-size/2;const y=e.clientY-rect.top-size/2;Object.assign(span.style,{{position:'absolute',left:x+'px',top:y+'px',width:size+'px',height:size+'px',borderRadius:'9999px',background:'rgba(255,255,255,.35)',transform:'scale(0)',transition:'transform .4s ease, opacity .8s ease',pointerEvents:'none',opacity:'1'}});el.appendChild(span);requestAnimationFrame(()=>{{span.style.transform='scale(1)';span.style.opacity='0';}});setTimeout(()=>span.remove(),800);}}
-  document.querySelectorAll('button,a.btn-primary,a.btn-outline,a.btn-ghost').forEach(b=>{{b.addEventListener('click',addRipple);b.classList.add('relative','overflow-hidden');}});
+  const drawer = document.getElementById('drawer');
+  const panel = document.getElementById('panel');
+  const openBtn = document.getElementById('openMenu');
+  const closeBtn = document.getElementById('closeMenu');
+  const backdrop = document.getElementById('backdrop');
 
-  const io=new IntersectionObserver((entries)=>{{entries.forEach(e=>{{if(e.isIntersecting)e.target.classList.add('opacity-100','translate-y-0');}});}},{{threshold:.12}});
-  document.querySelectorAll('[data-reveal]').forEach(sec=>{{sec.classList.add('opacity-0','translate-y-3','transition','duration-700');io.observe(sec);}});
-}});
+  function openDrawer(){
+    drawer.classList.remove('hidden');
+    requestAnimationFrame(()=>{
+      panel.classList.remove('translate-x-full');
+      backdrop.classList.remove('opacity-0');
+      backdrop.classList.add('opacity-100');
+    });
+  }
+  function closeDrawer(){
+    panel.classList.add('translate-x-full');
+    backdrop.classList.add('opacity-0');
+    backdrop.classList.remove('opacity-100');
+    setTimeout(()=>drawer.classList.add('hidden'), 280);
+  }
+  openBtn && openBtn.addEventListener('click', openDrawer);
+  closeBtn && closeBtn.addEventListener('click', closeDrawer);
+  backdrop && backdrop.addEventListener('click', closeDrawer);
+});
 </script>
 </body>
 </html>
