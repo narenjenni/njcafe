@@ -1,661 +1,486 @@
-<!DOCTYPE html><html xml:lang="en" lang="en" class="bx-integrated-gpu --ui-reset-bg-blur bx-core bx-mac bx-no-touch bx-no-retina bx-chrome"><head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
-	<meta name="HandheldFriendly" content="true">
-	<meta name="MobileOptimized" content="width">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<title>Coffee Toffee - Yes I Drink Indonesian Coffee</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="keywords" content="Coffee Toffee, Kopi Indonesia, Indonesian Coffee, Coffee, Kopi Indonesia Terbaik, Cafe Terbaik, Coffee Shop Surabaya, Coffee Shop Bandung, Coffee Shop Depok, Coffee Shop Bogor, Coffee Shop Sidoarjo">
-<meta name="description" content="Kami adalah perusahaan kopi yang mendedikasikan seluruh gairah, kecintaan, dan antusiasme kami kepada dunia kopi yang menakjubkan. Kami adalah perusahaan lokal dan sebagian besar bahan baku yang kami gunakan adalah lokal. Ya, dan kami mengatakan hal tersebut dengan bangga.">
-<script async="" src="js/call.tracker.js"></script><script data-skip-moving="true">(function() {const ua = navigator.userAgent;if (!/Linux/i.test(ua) || /Android/i.test(ua)){return;}const text = 'QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm';const fonts = {regular: { weight: 400, width: 0 },medium: { weight: 460, width: 0 },semiBold: { weight: 560, width: 0 },bold: { weight: 700, width: 0 }};Object.keys(fonts).forEach(name => {const font = fonts[name];const context = document.createElement('canvas').getContext('2d');context.font = 'normal ' + font.weight + ' 12px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';const textMetrics = context.measureText(text);font.width = Math.round(textMetrics.width);});const html = document.documentElement;if (fonts.medium.width > fonts.regular.width){html.classList.add('bx-font-medium');}if (fonts.semiBold.width < fonts.bold.width && fonts.semiBold.width > fonts.medium.width){html.classList.add('bx-font-semi-bold');}})();</script>
-<script data-skip-moving="true">(function() {const canvas = document.createElement('canvas');let gl;try{gl = canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl');}catch (e){return;}if (!gl){return;}const result = {vendor: gl.getParameter(gl.VENDOR),renderer: gl.getParameter(gl.RENDERER),};const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');if (debugInfo){result.unmaskedVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);result.unmaskedRenderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);}function isLikelyIntegratedGPU(gpuInfo){const renderer = (gpuInfo.unmaskedRenderer || gpuInfo.renderer || '').toLowerCase();const vendor = (gpuInfo.unmaskedVendor || gpuInfo.vendor || '').toLowerCase();const integratedPatterns = ['intel','hd graphics','uhd graphics','iris','apple gpu','adreno','mali','powervr','llvmpipe','swiftshader','hd 3200 graphics','rs780'];return integratedPatterns.some(pattern => renderer.includes(pattern) || vendor.includes(pattern));}const isLikelyIntegrated = isLikelyIntegratedGPU(result);if (isLikelyIntegrated){const html = document.documentElement;html.classList.add('bx-integrated-gpu', '--ui-reset-bg-blur');}})();</script>
-<style type="text/css">
-				:root {
-					--primary: #f7b70b !important;
-					--primary-darken-1: hsl(43.73, 94%, 49%);
-					--primary-darken-2: hsl(43.73, 94%, 46%);
-					--primary-darken-3: hsl(43.73, 94%, 41%);
-					--primary-lighten-1: hsl(43.73, 94%, 61%);
-					--primary-opacity-0: rgba(247, 183, 11, 0);
-					--primary-opacity-0_05: rgba(247, 183, 11, 0.05);
-					--primary-opacity-0_1: rgba(247, 183, 11, 0.1);
-					--primary-opacity-0_15: rgba(247, 183, 11, 0.15);
-					--primary-opacity-0_2: rgba(247, 183, 11, 0.2);
-					--primary-opacity-0_25: rgba(247, 183, 11, 0.25);
-					--primary-opacity-0_3: rgba(247, 183, 11, 0.3);
-					--primary-opacity-0_35: rgba(247, 183, 11, 0.35);
-					--primary-opacity-0_4: rgba(247, 183, 11, 0.4);
-					--primary-opacity-0_45: rgba(247, 183, 11, 0.45);
-					--primary-opacity-0_5: rgba(247, 183, 11, 0.5);
-					--primary-opacity-0_55: rgba(247, 183, 11, 0.55);
-					--primary-opacity-0_6: rgba(247, 183, 11, 0.6);
-					--primary-opacity-0_65: rgba(247, 183, 11, 0.65);
-					--primary-opacity-0_7: rgba(247, 183, 11, 0.7);
-					--primary-opacity-0_75: rgba(247, 183, 11, 0.75);
-					--primary-opacity-0_8: rgba(247, 183, 11, 0.8);
-					--primary-opacity-0_85: rgba(247, 183, 11, 0.85);
-					--primary-opacity-0_9: rgba(247, 183, 11, 0.9);
-					--primary-opacity-0_95: rgba(247, 183, 11, 0.95);
-					--theme-color-main: #a7a7a7;
-					--theme-color-secondary: hsl(43.73, 20%, 80%);
-					--theme-color-title: #a7a7a7;
-					--theme-color-strict-inverse: #ffffff;
-				}
-			</style>
-<script data-skip-moving="true">(function(w, d, n) {var cl = "bx-core";var ht = d.documentElement;var htc = ht ? ht.className : undefined;if (htc === undefined || htc.indexOf(cl) !== -1){return;}var ua = n.userAgent;if (/(iPad;)|(iPhone;)/i.test(ua)){cl += " bx-ios";}else if (/Windows/i.test(ua)){cl += ' bx-win';}else if (/Macintosh/i.test(ua)){cl += " bx-mac";}else if (/Linux/i.test(ua) && !/Android/i.test(ua)){cl += " bx-linux";}else if (/Android/i.test(ua)){cl += " bx-android";}cl += (/(ipad|iphone|android|mobile|touch)/i.test(ua) ? " bx-touch" : " bx-no-touch");cl += w.devicePixelRatio && w.devicePixelRatio >= 2? " bx-retina": " bx-no-retina";if (/AppleWebKit/.test(ua)){cl += " bx-chrome";}else if (/Opera/.test(ua)){cl += " bx-opera";}else if (/Firefox/.test(ua)){cl += " bx-firefox";}ht.className = htc ? htc + " " + cl : cl;})(window, document, navigator);</script>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NJ Cafe — Specialty Coffee & Comfort Food</title>
+  <meta name="description" content="NJ Cafe — kopi specialty, makanan hangat, layanan katering & hampers. Desain interaktif, rapi, dan responsif." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#7b1b2b;           /* Maroon utama */
+      --brand-700:#5f1421;
+      --accent:#f1c232;          /* Emas hangat */
+      --text:#1d1d1f;
+      --muted:#6b7280;
+      --bg:#fffdf8;              /* krem lembut */
+      --card:#ffffff;
+      --ring:rgba(123,27,43,.35);
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto; color:var(--text); background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
 
+    /* Header */
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:60;background:rgba(255,253,248,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #f0e7d9}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px}
+    .brand .logo{width:28px;height:28px;display:grid;place-items:center;border-radius:10px;background:var(--brand);color:#fff}
+    .brand span{font-weight:700}
+    .nav-links{display:flex;gap:20px;align-items:center}
+    .nav-links a{font-weight:500;opacity:.9}
+    .nav-links a:hover{color:var(--brand)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid transparent;font-weight:600;cursor:pointer}
+    .btn.primary{background:var(--brand);color:#fff;box-shadow:0 10px 20px rgba(123,27,43,.18)}
+    .btn.primary:hover{background:var(--brand-700)}
+    .btn.ghost{border-color:#e7e2d6}
 
-<link href="css/intranet-common.min.css" type="text/css" rel="stylesheet">
-<link href="css/ui.design-tokens.min.css" type="text/css" rel="stylesheet">
-<link href="css/air-design-tokens.min.css" type="text/css" rel="stylesheet">
-<link href="css/ui.font.opensans.min.css" type="text/css" rel="stylesheet">
-<link href="css/main.popup.bundle.min.css" type="text/css" rel="stylesheet">
-<link href="css/icon-base.min.css" type="text/css" rel="stylesheet">
-<link href="css/style.min_4.css" type="text/css" rel="stylesheet">
-<link href="css/style.min_9.css" type="text/css" rel="stylesheet">
-<link href="css/side-panel.bundle.min.css" type="text/css" rel="stylesheet">
-<link href="css/core_date.min.css" type="text/css" rel="stylesheet">
-<link href="css/ui.hint.min.css" type="text/css" rel="stylesheet">
-<link href="css/landing_public.min.css" type="text/css" rel="stylesheet">
-<link href="css/style.min_11.css" type="text/css" rel="stylesheet">
-<link href="css/popup.min.css" type="text/css" rel="stylesheet">
-<link href="css/catalog_cond.min.css" type="text/css" rel="stylesheet">
-<link href="css/bootstrap.min.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/theme.min.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/custom.min.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/animate.min.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/hamburgers.min.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/slick.min.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/landing-slick.min.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/style.min.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/style.min_7.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/style.min_3.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/style.min_6.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/style.min_5.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/style.min_8.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/style.min_1.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/jquery.fancybox.min.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/style.min_2.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/style.min_10.css" type="text/css" data-template-style="true" rel="stylesheet">
-<link href="css/template_styles.min.css" type="text/css" data-template-style="true" rel="stylesheet">
+    /* Mobile menu */
+    .hamburger{display:none;gap:6px;flex-direction:column;background:transparent;border:0}
+    .hamburger span{width:24px;height:2px;background:#1f2937;border-radius:2px;transition:.3s}
+    .overlay{position:fixed;inset:0;background:rgba(10,8,6,.6);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:.25s;z-index:50}
+    .drawer{position:fixed;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;transition:.25s;z-index:51}
+    .drawer .panel{background:var(--card);width:min(560px,92%);border-radius:24px;box-shadow:var(--shadow);padding:28px}
+    .drawer nav{display:grid;gap:14px}
+    .drawer a{font-size:22px;font-weight:600;color:#374151}
+    .drawer.open,.overlay.show{opacity:1;pointer-events:auto}
 
+    /* Hero slider */
+    .hero{position:relative}
+    .slides{position:relative;height:68vh;min-height:460px;overflow:hidden;border-bottom:1px solid #f0e7d9}
+    .slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;}
+    .slide.active{opacity:1}
+    .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.2))}
+    .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.1) saturate(1.1) contrast(1.05)}
+    .hero-content{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#fff;padding:0 16px}
+    .hero h1{font-size:clamp(28px,5vw,52px);margin:0 0 8px}
+    .hero p{opacity:.95;margin:0 0 18px}
+    .hero .pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 
+    .hero-controls{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+    .dot{width:8px;height:8px;border-radius:999px;background:#ffffff60;cursor:pointer}
+    .dot.active{background:#fff}
 
+    /* Section shells */
+    section{padding:64px 0}
+    .section-head{display:grid;place-items:center;text-align:center;margin-bottom:28px}
+    .kicker{font-size:12px;letter-spacing:.18em;color:var(--accent);font-weight:700}
+    h2{font-size:clamp(24px,3.2vw,36px);margin:6px 0 0}
 
-<script type="extension/settings" data-extension="main.date">{"formats":{"FORMAT_DATE":"DD\/MM\/YYYY","FORMAT_DATETIME":"DD\/MM\/YYYY HH:MI:SS","SHORT_DATE_FORMAT":"d-m-Y","MEDIUM_DATE_FORMAT":"j M Y","LONG_DATE_FORMAT":"j F Y","DAY_MONTH_FORMAT":"j F","DAY_SHORT_MONTH_FORMAT":"j M","SHORT_DAY_OF_WEEK_MONTH_FORMAT":"D, j F","SHORT_DAY_OF_WEEK_SHORT_MONTH_FORMAT":"D, j M","DAY_OF_WEEK_MONTH_FORMAT":"l, j F","FULL_DATE_FORMAT":"l, j F Y","SHORT_TIME_FORMAT":"H:i","LONG_TIME_FORMAT":"H:i:s"}}</script>
+    /* Cards */
+    .grid{display:grid;gap:18px}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
 
+    .card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;border:1px solid #f3ece2;display:flex;flex-direction:column}
+    .card .media{aspect-ratio:4/3;overflow:hidden}
+    .card .media img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+    .card:hover .media img{transform:scale(1.06)}
+    .card .body{padding:18px}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .muted{color:var(--muted)}
 
+    .icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#fff0;border:1px solid #f0e7d9}
 
-<meta name="robots" content="all">
-<style>
-					@keyframes page-transition {
-						0% {
-							opacity: 1;
-						}
-						100% {
-							opacity: 0;
-						}
-					}
-					body.landing-page-transition::after {
-						opacity: 1;
-						background: #fff;
-						animation: page-transition 2s 1s forwards;
-					}
-				</style>
+    /* About (Cerita Kami) */
+    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
+    .about .paper{background:var(--card);border:1px solid #f3ece2;border-radius:16px;box-shadow:var(--shadow);padding:22px}
+    .owners{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap}
+    .owner{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fff;border:1px solid #f1e8da;border-radius:999px}
+    .owner img{width:32px;height:32px;border-radius:999px;object-fit:cover}
 
+    /* Services with tabs (Halaman Khusus) */
+    .tabs{display:grid;grid-template-columns:280px 1fr;gap:20px}
+    .tab-list{display:grid;gap:10px;position:sticky;top:86px;height:max-content}
+    .tab-btn{background:#fff;border:1px solid #f0e7d9;border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:center;cursor:pointer;font-weight:600}
+    .tab-btn[aria-selected="true"]{border-color:var(--brand);box-shadow:0 0 0 3px var(--ring)}
+    .tab-panel{display:none}
+    .tab-panel.active{display:block}
 
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+    .gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;filter:grayscale(100%);transition:filter .3s ease, transform .3s}
+    .gallery img:hover{filter:grayscale(0%);transform:translateY(-2px)}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;place-items:center;z-index:70}
+    .lightbox.open{display:grid}
+    .lightbox img{max-width:min(92vw,900px);max-height:80vh;border-radius:14px}
 
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/far/font.woff" as="font" crossorigin="anonymous" type="font/woff">
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/far/font.woff2" as="font" crossorigin="anonymous" type="font/woff2">
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/icon-hotel-restaurant/font.woff" as="font" crossorigin="anonymous" type="font/woff">
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/icon-food/font.woff" as="font" crossorigin="anonymous" type="font/woff">
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/icon-education/font.woff" as="font" crossorigin="anonymous" type="font/woff">
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/icon-finance/font.woff" as="font" crossorigin="anonymous" type="font/woff">
-<style>.fa-person-walking:before{content:"\f554";}.icon-hotel-restaurant-003:before{content:"c";}.icon-hotel-restaurant-132:before{content:"\e032";}.icon-hotel-restaurant-211:before{content:"\e07c";}.icon-food-058:before{content:"@";}.icon-education-007:before{content:"s";}.icon-finance-200:before{content:"0";}</style>
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/icon-travel/font.woff" as="font" crossorigin="anonymous" type="font/woff">
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/icon/font.woff" as="font" crossorigin="anonymous" type="font/woff">
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/icon/font.woff2" as="font" crossorigin="anonymous" type="font/woff2">
-<style>.icon-travel-115:before{content:"\e00e";}.icon-hotel-restaurant-151:before{content:"\e039";}.icon-hotel-restaurant-208:before{content:"\e071";}.icon-drawer:before{content:"\e03f";}</style>
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/fab/font.woff" as="font" crossorigin="anonymous" type="font/woff">
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/fab/font.woff2" as="font" crossorigin="anonymous" type="font/woff2">
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/fas/font.woff" as="font" crossorigin="anonymous" type="font/woff">
-<link rel="preload" href="/bitrix/templates/landing24/assets/vendor/icon/fas/font.woff2" as="font" crossorigin="anonymous" type="font/woff2">
-<style>.fa-instagram:before{content:"\f16d";}.fa-facebook-square:before{content:"\f082";}.fa-tiktok:before{content:"\e07b";}.fa-envelope:before{content:"\f0e0";}</style>
-<style>
-					body {
-						--landing-font-family: Montserrat
-					}
-				</style>
-<link rel="stylesheet" href="https://fonts.bitrix24.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900">
-<style>
-				body {
-					font-weight: 400;
-					font-family: Montserrat;
-					-webkit-font-smoothing: antialiased;
-					-moz-osx-font-smoothing: grayscale;
-					-moz-font-feature-settings: "liga", "kern";
-					text-rendering: optimizelegibility;
-				}
-			</style>
-<style>
-				h1, h2, h3, h4, h5, h6 {
-					font-family: Montserrat;
-				}
-			</style>
-<style>
-				html {font-size: 14px;}
-				body {font-size: 0.92857rem;}
-				.g-font-size-default {font-size: 0.92857rem;}
-			</style>
-<style>
-				main.landing-public-mode {
-					line-height: 1.6;
-					font-weight: 400;
-				}
-				
-				.landing-public-mode .h1, .landing-public-mode .h2, .landing-public-mode .h3, .landing-public-mode .h4, 
-				.landing-public-mode .h5, .landing-public-mode .h6, .landing-public-mode .h7,
-				.landing-public-mode h1, .landing-public-mode h2, .landing-public-mode h3, .landing-public-mode h4, 
-				.landing-public-mode h5, .landing-public-mode h6 {
-					font-weight: 400;
-				}
-			</style>
-<meta property="og:title" content="Coffee Toffee"><meta property="og:description" content="Kami adalah perusahaan kopi yang mendedikasikan seluruh gairah, kecintaan, dan antusiasme kami kepada dunia kopi yang menakjubkan. Kami adalah perusahaan lokal dan sebagian besar bahan baku yang kami gunakan adalah lokal. Ya, dan kami mengatakan hal tersebut dengan bangga."><meta property="og:image" content="images/Suasana_Ruangan_CT_08_1x.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="797"><meta property="og:type" content="website"><meta property="twitter:title" content="Coffee Toffee"><meta property="twitter:description" content="Kami adalah perusahaan kopi yang mendedikasikan seluruh gairah, kecintaan, dan antusiasme kami kepada dunia kopi yang menakjubkan. Kami adalah perusahaan lokal dan sebagian besar bahan baku yang kami gunakan adalah lokal. Ya, dan kami mengatakan hal tersebut dengan bangga."><meta property="twitter:image" content="https://cdn.bitrix24.id/b14044525/landing/6ce/6ce86cfa51eb1ef8f50de1d3d72a51e9/Suasana_Ruangan_CT_08_1x.jpg"><meta name="twitter:card" content="summary_large_image"><meta property="twitter:type" content="website"> <meta property="Bitrix24SiteType" content="page"> <meta property="og:url" content="https://coffeetoffee.co.id/">
-<link rel="canonical" href="https://coffeetoffee.co.id/">
-<link rel="icon" type="image/png" href="images/Logo_Coffee_Toffee_2022_-_Favicon.png" sizes="16x16">
-<link rel="icon" type="image/png" href="images/Logo_Coffee_Toffee_2022_-_Favicon_3.png" sizes="32x32">
-<link rel="icon" type="image/png" href="images/Logo_Coffee_Toffee_2022_-_Favicon_2.png" sizes="96x96">
-<link rel="apple-touch-icon" href="images/Logo_Coffee_Toffee_2022_-_Favicon_5.png" sizes="120x120">
-<link rel="apple-touch-icon" href="images/Logo_Coffee_Toffee_2022_-_Favicon_1.png" sizes="180x180">
-<link rel="apple-touch-icon" href="images/Logo_Coffee_Toffee_2022_-_Favicon_4.png" sizes="152x152">
-<link rel="apple-touch-icon" href="images/Logo_Coffee_Toffee_2022_-_Favicon_6.png" sizes="167x167">
- <link rel="icon" type="image/x-icon" href="images/favicon.ico"></head>
-<body class="landing-page-transition">
-<main class="w-100 landing-public-mode">
-<div id="block1" class="block-wrapper block-0-menu-17-restaurant"><header class="landing-block landing-block-menu g-bg-white u-header g-z-index-9999 u-header--sticky u-header--relative" style="--bg: ;">
-	<div class="u-header__section u-header__section--light g-transition-0_3 g-py-16" data-header-fix-moment-exclude="g-py-16" data-header-fix-moment-classes="u-shadow-v27 g-py-6">
-		<nav class="navbar navbar-expand-lg g-py-0 g-px-10 u-navbar-align-right" style="--navbar-color: ;--navbar-color--hover: ;">
-			<div class="container">
-				<!-- Logo -->
-				<a href="https://coffeetoffee.co.id/" class="landing-block-node-menu-logo-link navbar-brand u-header__logo p-0" target="_self">
-					<img class="landing-block-node-menu-logo u-header__logo-img u-header__logo-img--main g-max-width-180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iOTAiPjxyZWN0IGlkPSJiYWNrZ3JvdW5kcmVjdCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgeD0iMCIgeT0iMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIuNyIgc3Ryb2tlPSJub25lIi8+PC9zdmc+" alt="Coffee Toffee Home" srcset="" data-fileid="6156" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/7ca/7ca2da143ac4c81b35adf011c06d94d4/logo_coffee_toffee_favicon_1x.png" loading="lazy">
-				</a>
-				<!-- End Logo -->
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .contact-card{background:var(--card);border:1px solid #f3ece2;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+    .contact-card h4{margin:8px 0 4px}
 
-				<!-- Navigation -->
-				<div class="collapse navbar-collapse align-items-center flex-sm-row" id="navBar1">
-					<ul class="landing-block-node-menu-list js-scroll-nav navbar-nav text-uppercase g-font-weight-700 g-font-size-12 g-pt-20 g-pt-0--lg ml-auto"><li class="landing-block-node-menu-list-item nav-item g-mx-10--lg g-mb-7 g-mb-0--lg">
-							<a href="https://coffeetoffee.co.id/" class="landing-block-node-menu-list-item-link nav-link p-0" target="_self">HOME</a>
-						</li><li class="landing-block-node-menu-list-item nav-item g-mx-10--lg g-mb-7 g-mb-0--lg">
-							<a href="https://coffeetoffee.co.id/coffeetoffee6/" class="landing-block-node-menu-list-item-link nav-link p-0" target="_self">KOPI</a>
-						</li><li class="landing-block-node-menu-list-item nav-item g-mx-10--lg g-mb-7 g-mb-0--lg">
-							<a href="https://coffeetoffee.co.id/coffeetoffee62/" class="landing-block-node-menu-list-item-link nav-link p-0" target="_self">MENU</a>
-						</li><li class="landing-block-node-menu-list-item nav-item g-mx-10--lg g-mb-7 g-mb-0--lg">
-							<a href="https://coffeetoffee.co.id/coffeetoffee622/" class="landing-block-node-menu-list-item-link nav-link p-0" target="_self">LAYANAN</a>
-						</li><li class="landing-block-node-menu-list-item nav-item g-mx-10--lg g-mb-7 g-mb-0--lg">
-							<a href="https://coffeetoffee.co.id/vacancy/" class="landing-block-node-menu-list-item-link nav-link p-0" target="_self">PELUANG</a>
-						</li><li class="landing-block-node-menu-list-item nav-item g-mx-10--lg g-mb-7 g-mb-0--lg">
-							<a href="https://coffeetoffee.co.id/coffeetoffee62222/" class="landing-block-node-menu-list-item-link nav-link p-0" target="_self">MEMBER</a>
-						</li><li class="landing-block-node-menu-list-item nav-item g-mx-10--lg g-mb-7 g-mb-0--lg">
-							<a href="https://coffeetoffee.co.id/coffeetoffee622222/" class="landing-block-node-menu-list-item-link nav-link p-0" target="_self">KAMPANYE</a>
-						</li><li class="landing-block-node-menu-list-item nav-item g-mx-10--lg g-mb-7 g-mb-0--lg">
-							<a href="https://coffeetoffee.co.id/news/" class="landing-block-node-menu-list-item-link nav-link p-0" target="_self">BERITA</a>
-						</li><li class="landing-block-node-menu-list-item nav-item g-mx-10--lg g-mb-7 g-mb-0--lg">
-							<a href="https://coffeetoffee.co.id/coffeetoffee6222222/" class="landing-block-node-menu-list-item-link nav-link p-0" target="_self">TENTANG KAMI</a>
-						</li><li class="landing-block-node-menu-list-item nav-item g-mx-10--lg g-mb-7 g-mb-0--lg">
-							<a href="https://coffeetoffee.co.id/coffeetoffee62222222/" class="landing-block-node-menu-list-item-link nav-link p-0" target="_self">KONTAK</a>
-						</li></ul>
-				</div>
-				<!-- End Navigation -->
+    /* Footer */
+    footer{border-top:1px solid #f0e7d9;background:#fff;padding:22px 0;color:#6b7280}
+    .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 
-				<!-- Responsive Toggle Button -->
-				<button class="navbar-toggler btn g-line-height-1 g-brd-none g-pa-0 ml-auto" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar1" data-toggle="collapse" data-target="#navBar1">
-                <span class="hamburger hamburger--slider">
-                  <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                  </span>
-                </span>
-				</button>
-				<!-- End Responsive Toggle Button -->
-			</div>
-		</nav>
-	</div>
-</header></div><div id="block43" class="block-wrapper block-41-1-big-image-slider-with-texts"><section class="landing-block">
-	<div class="js-carousel" data-autoplay="true" data-infinite="true" data-speed="5000" data-pagi-classes="u-carousel-indicators-v1--white g-absolute-centered--x g-bottom-20"><div class="landing-block-node-card js-slide">
-			<div class="landing-block-node-card-bgimg g-flex-centered g-min-height-100vh h-100 g-bg-pos-center g-bg-img-hero g-bg-cover g-bg-black-opacity-0_5--after" style="background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiPjxyZWN0IGlkPSJiYWNrZ3JvdW5kcmVjdCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgeD0iMCIgeT0iMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIuNyIgc3Ryb2tlPSJub25lIi8+PC9zdmc+);" data-fileid="6692" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" isoplusapsari="" ","target":"_self","enabled":true}"="" data-lazy-bg="Y" data-bg="url('https://cdn.bitrix24.id/b14044525/landing/cdd/cdd6c02e8b4dd5625959b751ea661171/isoplus_run_coffee_toffee_apsari_grahadi_slider_1x.png')" data-src="https://cdn.bitrix24.id/b14044525/landing/cdd/cdd6c02e8b4dd5625959b751ea661171/isoplus_run_coffee_toffee_apsari_grahadi_slider_1x.png">
-				<div class="text-center g-pos-rel container g-max-width-800 g-z-index-1 landing-block-node-card-container js-animation fadeInLeft">
-					<span class="landing-block-node-card-icon-container g-color-white-opacity-0_7">
-						<i class="landing-block-node-card-icon g-font-size-60 g-mb-10 far fa-person-walking" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"=""></i>
-					</span>
-					<h2 class="landing-block-node-card-title text-uppercase g-line-height-1_2 g-font-weight-700 g-font-size-55 g-color-white g-mb-10 g-mb-15--md">ISOPlus RUN Surabaya Marathon</h2>
-					<div class="landing-block-node-card-subtitle text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-40 g-mb-50--md" data-auto-font-scale="">Lari Santai, Ngopi Asik, Seru Bareng di Coffee Toffee Apsari</div>
-					<img class="landing-block-node-card-photo g-width-130 g-height-130 g-brd-around g-brd-10 g-brd-white g-rounded-50x mx-auto g-mb-20 g-mb-25--md" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjEwODAiPjxyZWN0IGlkPSJiYWNrZ3JvdW5kcmVjdCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgeD0iMCIgeT0iMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIuNyIgc3Ryb2tlPSJub25lIi8+PC9zdmc+" alt="" srcset="" data-fileid="6694" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" isoplusapsari="" ","target":"_self","enabled":true}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/873/8736153068eb50805f278d9ed8d3ac8c/isoplus_run_coffee_toffee_apsari_grahadi_logo_1x.png" loading="lazy">
-					<div class="landing-block-node-card-name text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-10 g-mb-15--md" data-auto-font-scale=""> </div>
-					<div class="landing-block-node-card-text g-line-height-1_1 g-font-weight-100 g-font-size-default g-color-white g-mb-10 g-mb-20--md" data-auto-font-scale="">Sabtu pagi di Surabaya emang nggak pernah se-hype ini! ISOPlus Surabaya Marathon yang digelar di Coffee Toffee Apsari Grahadi pada Tanggal 3 Mei 2025 sukses bikin pagi jadi lebih bersemangat. Bareng ISOPlus dan Aquviva_ID, acara ini bukan sekadar fun run biasa, tapi ajang kumpul seru buat para lokal runners Surabaya yang doyan olahraga sekaligus menikmati kopi setelahnya.</div>
-					<div class="landing-block-node-card-price text-uppercase g-font-weight-700 g-font-size-16 g-color-primary mb-0" data-auto-font-scale=""> </div>
-				</div>
-			</div>
-		</div><div class="landing-block-node-card js-slide">
-			<div class="landing-block-node-card-bgimg g-flex-centered g-min-height-100vh h-100 g-bg-pos-center g-bg-img-hero g-bg-cover g-bg-black-opacity-0_5--after" style="background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiPjxyZWN0IGlkPSJiYWNrZ3JvdW5kcmVjdCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgeD0iMCIgeT0iMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIuNyIgc3Ryb2tlPSJub25lIi8+PC9zdmc+);" data-fileid="303" data-fileid2x="305" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" coffeetoffee6="" ","target":"_self","enabled":true}"="" data-lazy-bg="Y" data-bg="url('https://cdn.bitrix24.id/b14044525/landing/73e/73efd0b0c870b2de431d5fdff0fc9c57/Untitled_design-3_1x.jpg')|-webkit-image-set(url('https://cdn.bitrix24.id/b14044525/landing/73e/73efd0b0c870b2de431d5fdff0fc9c57/Untitled_design-3_1x.jpg') 1x, url('https://cdn.bitrix24.id/b14044525/landing/1ed/1eda3763600261d8d823cc27ef3cde0c/Untitled_design-3_2x.jpg') 2x)|image-set(url('https://cdn.bitrix24.id/b14044525/landing/73e/73efd0b0c870b2de431d5fdff0fc9c57/Untitled_design-3_1x.jpg') 1x, url('https://cdn.bitrix24.id/b14044525/landing/1ed/1eda3763600261d8d823cc27ef3cde0c/Untitled_design-3_2x.jpg') 2x)" data-src="https://cdn.bitrix24.id/b14044525/landing/73e/73efd0b0c870b2de431d5fdff0fc9c57/Untitled_design-3_1x.jpg" data-src2x="https://cdn.bitrix24.id/b14044525/landing/1ed/1eda3763600261d8d823cc27ef3cde0c/Untitled_design-3_2x.jpg">
-				<div class="text-center g-pos-rel container g-max-width-800 g-z-index-1 landing-block-node-card-container js-animation fadeInLeft">
-					<span class="landing-block-node-card-icon-container g-color-white-opacity-0_7">
-						<i class="landing-block-node-card-icon g-font-size-60 g-mb-10 icon-hotel-restaurant-003 u-line-icon-pro icon-hotel-restaurant-132" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"=""></i>
-					</span>
-					<h2 class="landing-block-node-card-title text-uppercase g-line-height-1_2 g-font-weight-700 g-font-size-55 g-color-white g-mb-10 g-mb-15--md">OUR PLANTATION</h2>
-					<div class="landing-block-node-card-subtitle text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-40 g-mb-50--md" data-auto-font-scale="">JAVA-MOCHA ORIGIN</div>
-					<img class="landing-block-node-card-photo g-width-130 g-height-130 g-brd-around g-brd-10 g-brd-white g-rounded-50x mx-auto g-mb-20 g-mb-25--md" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="" data-fileid="295" data-fileid2x="297" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" coffeetoffee6="" ","target":"_self","enabled":true}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/4a2/4a227305e5b8def519c9eecf76af3a10/SLIDER_02_-_PLANTATION_-_ICON_-_Petik_Merah_01_2x_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/fea/fea34fbccf04732b1f0123a36869ec32/SLIDER_02_-_PLANTATION_-_ICON_-_Petik_Merah_01_2x_2x.jpg 2x">
-					<div class="landing-block-node-card-name text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-10 g-mb-15--md" data-auto-font-scale="">Perkebunan Kami</div>
-					<div class="landing-block-node-card-text g-line-height-1_1 g-font-weight-100 g-font-size-default g-color-white g-mb-10 g-mb-20--md" data-auto-font-scale="">Terletak di lereng gunung Argopuro dengan ketinggian di 600m - 900m, membuat perkebunan ini salah satu penghasil biji kopi terbaik Jawa Timur</div>
-					<div class="landing-block-node-card-price text-uppercase g-font-weight-700 g-font-size-16 g-color-primary mb-0" data-auto-font-scale=""> </div>
-				</div>
-			</div>
-		</div><div class="landing-block-node-card js-slide">
-			<div class="landing-block-node-card-bgimg g-flex-centered g-min-height-100vh h-100 g-bg-pos-center g-bg-img-hero g-bg-cover g-bg-black-opacity-0_5--after" style="background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjI2IiBoZWlnaHQ9IjEwODAiPjxyZWN0IGlkPSJiYWNrZ3JvdW5kcmVjdCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgeD0iMCIgeT0iMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIuNyIgc3Ryb2tlPSJub25lIi8+PC9zdmc+);" data-fileid="127" data-fileid2x="129" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"="" data-lazy-bg="Y" data-bg="url('https://cdn.bitrix24.id/b14044525/landing/c6e/c6e244514e259e42af4ad2b4dda5c9c9/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0019_1x.jpg')|-webkit-image-set(url('https://cdn.bitrix24.id/b14044525/landing/c6e/c6e244514e259e42af4ad2b4dda5c9c9/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0019_1x.jpg') 1x, url('https://cdn.bitrix24.id/b14044525/landing/ed1/ed1b96f87460eeb548083f4a6f3d0e52/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0019_2x.jpg') 2x)|image-set(url('https://cdn.bitrix24.id/b14044525/landing/c6e/c6e244514e259e42af4ad2b4dda5c9c9/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0019_1x.jpg') 1x, url('https://cdn.bitrix24.id/b14044525/landing/ed1/ed1b96f87460eeb548083f4a6f3d0e52/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0019_2x.jpg') 2x)" data-src="https://cdn.bitrix24.id/b14044525/landing/c6e/c6e244514e259e42af4ad2b4dda5c9c9/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0019_1x.jpg" data-src2x="https://cdn.bitrix24.id/b14044525/landing/ed1/ed1b96f87460eeb548083f4a6f3d0e52/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0019_2x.jpg">
-				<div class="text-center g-pos-rel container g-max-width-800 g-z-index-1 landing-block-node-card-container js-animation fadeInLeft">
-					<span class="landing-block-node-card-icon-container g-color-white-opacity-0_7">
-						<i class="landing-block-node-card-icon g-font-size-60 g-mb-10 icon-hotel-restaurant-003 u-line-icon-pro icon-food-058" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"=""></i>
-					</span>
-					<h2 class="landing-block-node-card-title text-uppercase g-line-height-1_2 g-font-weight-700 g-font-size-55 g-color-white g-mb-10 g-mb-15--md">OUR COFFEE</h2>
-					<div class="landing-block-node-card-subtitle text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-40 g-mb-50--md" data-auto-font-scale="">Only the Best of Specialty Coffee from Indonesia</div>
-					<img class="landing-block-node-card-photo g-width-130 g-height-130 g-brd-around g-brd-10 g-brd-white g-rounded-50x mx-auto g-mb-20 g-mb-25--md" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="" data-fileid="287" data-fileid2x="289" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" coffeetoffee6="" ","target":"_self","enabled":true}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/b7b/b7b5bdfbda02fc56a1d0219b50c13b24/SLIDER_03_-_Our_Coffee_04_1x_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/991/991a0bd3aca801d661f1c1b2aaa7c65e/SLIDER_03_-_Our_Coffee_04_1x_2x.jpg 2x">
-					<div class="landing-block-node-card-name text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-10 g-mb-15--md" data-auto-font-scale="">9 Varian dari Origin Terbaik Indonesia</div>
-					<div class="landing-block-node-card-text g-line-height-1_1 g-font-weight-100 g-font-size-default g-color-white g-mb-10 g-mb-20--md" data-auto-font-scale=""><p>
-							Java Mocha, Mount Arjuno, Flores Bajawa, Bali Kintamani, Toraja Kalosi, Java Malabar, Sumatra Gayo, Sumatra Linthong,</p></div>
-					<div class="landing-block-node-card-price text-uppercase g-font-weight-700 g-font-size-16 g-color-primary mb-0" data-auto-font-scale=""> </div>
-				</div>
-			</div>
-		</div><div class="landing-block-node-card js-slide">
-			<div class="landing-block-node-card-bgimg g-flex-centered g-min-height-100vh h-100 g-bg-pos-center g-bg-img-hero g-bg-cover g-bg-black-opacity-0_5--after" style="background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiPjxyZWN0IGlkPSJiYWNrZ3JvdW5kcmVjdCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgeD0iMCIgeT0iMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIuNyIgc3Ryb2tlPSJub25lIi8+PC9zdmc+);" data-fileid="131" data-fileid2x="133" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"="" data-lazy-bg="Y" data-bg="url('https://cdn.bitrix24.id/b14044525/landing/6a8/6a80e84d64d9a6a57c309818258e8d6b/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0024_1x.jpg')|-webkit-image-set(url('https://cdn.bitrix24.id/b14044525/landing/6a8/6a80e84d64d9a6a57c309818258e8d6b/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0024_1x.jpg') 1x, url('https://cdn.bitrix24.id/b14044525/landing/55b/55bb4666524a658282cdb162c6fee8af/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0024_2x.jpg') 2x)|image-set(url('https://cdn.bitrix24.id/b14044525/landing/6a8/6a80e84d64d9a6a57c309818258e8d6b/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0024_1x.jpg') 1x, url('https://cdn.bitrix24.id/b14044525/landing/55b/55bb4666524a658282cdb162c6fee8af/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0024_2x.jpg') 2x)" data-src="https://cdn.bitrix24.id/b14044525/landing/6a8/6a80e84d64d9a6a57c309818258e8d6b/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0024_1x.jpg" data-src2x="https://cdn.bitrix24.id/b14044525/landing/55b/55bb4666524a658282cdb162c6fee8af/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0024_2x.jpg">
-				<div class="text-center g-pos-rel container g-max-width-800 g-z-index-1 landing-block-node-card-container js-animation fadeInLeft">
-					<span class="landing-block-node-card-icon-container g-color-white-opacity-0_7">
-						<i class="landing-block-node-card-icon g-font-size-60 g-mb-10 icon-hotel-restaurant-003 u-line-icon-pro icon-education-007" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"=""></i>
-					</span>
-					<h2 class="landing-block-node-card-title text-uppercase g-line-height-1_2 g-font-weight-700 g-font-size-55 g-color-white g-mb-10 g-mb-15--md">NEWS / EVENTS</h2>
-					<div class="landing-block-node-card-subtitle text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-40 g-mb-50--md" data-auto-font-scale="">Get Update with the Latest Info from Us</div>
-					<img class="landing-block-node-card-photo g-width-130 g-height-130 g-brd-around g-brd-10 g-brd-white g-rounded-50x mx-auto g-mb-20 g-mb-25--md" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Event News" data-fileid="465" data-fileid2x="467" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" news="" ","target":"_self","enabled":true}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/b57/b573fae09a844186bf6d94b6e3f7ca98/Slider_04_-_Event_-_Icon_01_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/fb1/fb1664f31db49699af90e1235742a84f/Slider_04_-_Event_-_Icon_01_2x.jpg 2x">
-					<div class="landing-block-node-card-name text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-10 g-mb-15--md" data-auto-font-scale="">Berita & Info Terbaru</div>
-					<div class="landing-block-node-card-text g-line-height-1_1 g-font-weight-100 g-font-size-default g-color-white g-mb-10 g-mb-20--md" data-auto-font-scale=""><p><br></p></div>
-					<div class="landing-block-node-card-price text-uppercase g-font-weight-700 g-font-size-16 g-color-primary mb-0" data-auto-font-scale=""> </div>
-				</div>
-			</div>
-		</div><div class="landing-block-node-card js-slide">
-			<div class="landing-block-node-card-bgimg g-flex-centered g-min-height-100vh h-100 g-bg-pos-center g-bg-img-hero g-bg-cover g-bg-black-opacity-0_5--after" style="background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTE5IiBoZWlnaHQ9IjEwODAiPjxyZWN0IGlkPSJiYWNrZ3JvdW5kcmVjdCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgeD0iMCIgeT0iMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIuNyIgc3Ryb2tlPSJub25lIi8+PC9zdmc+);" data-fileid="147" data-fileid2x="149" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"="" data-lazy-bg="Y" data-bg="url('https://cdn.bitrix24.id/b14044525/landing/4a8/4a8adff16946a49fbbaccabaeae96790/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0044_2x_1x.jpg')|-webkit-image-set(url('https://cdn.bitrix24.id/b14044525/landing/4a8/4a8adff16946a49fbbaccabaeae96790/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0044_2x_1x.jpg') 1x, url('https://cdn.bitrix24.id/b14044525/landing/ebe/ebe3fbbfd342fce5520a6efeddb13651/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0044_2x_2x.jpg') 2x)|image-set(url('https://cdn.bitrix24.id/b14044525/landing/4a8/4a8adff16946a49fbbaccabaeae96790/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0044_2x_1x.jpg') 1x, url('https://cdn.bitrix24.id/b14044525/landing/ebe/ebe3fbbfd342fce5520a6efeddb13651/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0044_2x_2x.jpg') 2x)" data-src="https://cdn.bitrix24.id/b14044525/landing/4a8/4a8adff16946a49fbbaccabaeae96790/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0044_2x_1x.jpg" data-src2x="https://cdn.bitrix24.id/b14044525/landing/ebe/ebe3fbbfd342fce5520a6efeddb13651/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0044_2x_2x.jpg">
-				<div class="text-center g-pos-rel container g-max-width-800 g-z-index-1 landing-block-node-card-container js-animation fadeInLeft">
-					<span class="landing-block-node-card-icon-container g-color-white-opacity-0_7">
-						<i class="landing-block-node-card-icon g-font-size-60 g-mb-10 icon-hotel-restaurant-003 u-line-icon-pro icon-finance-200" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"=""></i>
-					</span>
-					<h2 class="landing-block-node-card-title text-uppercase g-line-height-1_2 g-font-weight-700 g-font-size-55 g-color-white g-mb-10 g-mb-15--md">BE OUR MEMBER</h2>
-					<div class="landing-block-node-card-subtitle text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-40 g-mb-50--md" data-auto-font-scale="">AND GET ALL THE PRIVILEGES</div>
-					<img class="landing-block-node-card-photo g-width-130 g-height-130 g-brd-around g-brd-10 g-brd-white g-rounded-50x mx-auto g-mb-20 g-mb-25--md" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee Loyalty Program - Member Card Kartu Member" data-fileid="813" data-fileid2x="815" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" coffeetoffee62222="" ","target":"_self","enabled":true}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/3f8/3f829c9a9ba88e132c8b1c6bf6685a63/Slider_05_-_Member_-_Icon_05b_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/89f/89ff59c83684398ac024d73121b1cc88/Slider_05_-_Member_-_Icon_05b_2x.jpg 2x">
-					<div class="landing-block-node-card-name text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-10 g-mb-15--md" data-auto-font-scale="">Berbagai Manfaat Khusus Member</div>
-					<div class="landing-block-node-card-text g-line-height-1_1 g-font-weight-100 g-font-size-default g-color-white g-mb-10 g-mb-20--md" data-auto-font-scale="">Dapatkan diskon khusus, free kopi, dan special event khusus member. Serta banyak benefit lain.</div>
-					<div class="landing-block-node-card-price text-uppercase g-font-weight-700 g-font-size-16 g-color-primary mb-0" data-auto-font-scale=""> </div>
-				</div>
-			</div>
-		</div><div class="landing-block-node-card js-slide">
-			<div class="landing-block-node-card-bgimg g-flex-centered g-min-height-100vh h-100 g-bg-pos-center g-bg-img-hero g-bg-cover g-bg-black-opacity-0_5--after" style="background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwMzQiPjxyZWN0IGlkPSJiYWNrZ3JvdW5kcmVjdCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgeD0iMCIgeT0iMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIuNyIgc3Ryb2tlPSJub25lIi8+PC9zdmc+);" data-fileid="239" data-fileid2x="241" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"="" data-lazy-bg="Y" data-bg="url('https://cdn.bitrix24.id/b14044525/landing/62e/62ed0fae93c1e767271f3355ce961733/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0026_2x_2x_2x_1x.jpg')|-webkit-image-set(url('https://cdn.bitrix24.id/b14044525/landing/62e/62ed0fae93c1e767271f3355ce961733/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0026_2x_2x_2x_1x.jpg') 1x, url('https://cdn.bitrix24.id/b14044525/landing/4ed/4ed2a58ef8660e372ced07ed1699527b/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0026_2x_2x_2x_2x.jpg') 2x)|image-set(url('https://cdn.bitrix24.id/b14044525/landing/62e/62ed0fae93c1e767271f3355ce961733/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0026_2x_2x_2x_1x.jpg') 1x, url('https://cdn.bitrix24.id/b14044525/landing/4ed/4ed2a58ef8660e372ced07ed1699527b/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0026_2x_2x_2x_2x.jpg') 2x)" data-src="https://cdn.bitrix24.id/b14044525/landing/62e/62ed0fae93c1e767271f3355ce961733/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0026_2x_2x_2x_1x.jpg" data-src2x="https://cdn.bitrix24.id/b14044525/landing/4ed/4ed2a58ef8660e372ced07ed1699527b/cb8ed21218d9f6ab2a99c174166f5ae38_28085375_200529_0026_2x_2x_2x_2x.jpg">
-				<div class="text-center g-pos-rel container g-max-width-800 g-z-index-1 landing-block-node-card-container js-animation fadeInLeft">
-					<span class="landing-block-node-card-icon-container g-color-white-opacity-0_7">
-						<i class="landing-block-node-card-icon g-font-size-60 g-mb-10 icon-hotel-restaurant-003 u-line-icon-pro icon-hotel-restaurant-211" data-pseudo-url="{" text":"","href":"#","target":"_blank","enabled":false}"=""></i>
-					</span>
-					<h2 class="landing-block-node-card-title text-uppercase g-line-height-1_2 g-font-weight-700 g-font-size-55 g-color-white g-mb-10 g-mb-15--md">AWARDS & RECOGNITIONS</h2>
-					<div class="landing-block-node-card-subtitle text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-40 g-mb-50--md" data-auto-font-scale="">WE ARE HUMBLE BY THESE APPRECIATION</div>
-					<img class="landing-block-node-card-photo g-width-130 g-height-130 g-brd-around g-brd-10 g-brd-white g-rounded-50x mx-auto g-mb-20 g-mb-25--md" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Award and Recognition" data-fileid="481" data-fileid2x="483" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" coffeetoffee6222222="" ","target":"_self","enabled":true}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/c3d/c3d04ae4318c63ff0c31d061e7c3f26b/Slider_05_-_Award_-_Icon_01_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/f94/f943b4b2a3a6d44c5bf16a9bfc3c24a9/Slider_05_-_Award_-_Icon_01_2x.jpg 2x">
-					<div class="landing-block-node-card-name text-uppercase g-line-height-1 g-font-weight-700 g-font-size-20 g-color-white g-mb-10 g-mb-15--md" data-auto-font-scale="">Penghargaan & Apresiasi</div>
-					<div class="landing-block-node-card-text g-line-height-1_1 g-font-weight-100 g-font-size-default g-color-white g-mb-10 g-mb-20--md" data-auto-font-scale="">Kami melihat penghargaan dan apresiasi ini sebagai bentuk tanggung jawab untuk bisa memberikan produk dan layanan terbaik untuk Indonesia</div>
-					<div class="landing-block-node-card-price text-uppercase g-font-weight-700 g-font-size-16 g-color-primary mb-0" data-auto-font-scale=""> </div>
-				</div>
-			</div>
-		</div></div>
-</section></div><div id="block53" class="block-wrapper block-04-1-one-col-fix-with-title"><section class="landing-block js-animation fadeInUp g-pt-60 g-pb-10">
-        <div class="container">
-            <div class="landing-block-node-inner text-uppercase text-center u-heading-v2-4--bottom g-brd-primary">
-                <h4 class="landing-block-node-subtitle h6 g-font-weight-800 g-font-size-12 g-letter-spacing-1 g-color-primary g-mb-20">from the best indonesian specialty coffee to heart-warming foods</h4>
-                <h2 class="landing-block-node-title h1 u-heading-v2__title g-line-height-1_3 g-font-weight-600 g-font-size-40 g-mb-minus-10">our menu</h2>
+    /* Reveal on scroll */
+    .reveal{opacity:0;transform:translateY(16px);transition:all .6s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    /* Utilities */
+    .center{text-align:center}
+    .lead{font-size:15px;color:#4b5563}
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff40;background:#ffffff1f;color:#fff;padding:8px 12px;border-radius:999px}
+    .spacer{height:12px}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .grid.cols-4{grid-template-columns:repeat(2,1fr)}
+      .grid.cols-3{grid-template-columns:repeat(2,1fr)}
+      .about{grid-template-columns:1fr}
+      .tabs{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(4,1fr)}
+      .contact-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+      .grid.cols-2{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-4{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Overlay & Drawer for mobile navigation -->
+  <div class="overlay" id="overlay"></div>
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="panel container">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div class="brand"><div class="logo">☕</div><span>NJ Cafe</span></div>
+        <button class="btn ghost" id="closeDrawer" aria-label="Tutup menu">✕</button>
+      </div>
+      <nav>
+        <a href="#home" class="drawer-link">Home</a>
+        <a href="#menu" class="drawer-link">Menu</a>
+        <a href="#services" class="drawer-link">Layanan</a>
+        <a href="#gallery" class="drawer-link">Galeri</a>
+        <a href="#about" class="drawer-link">Tentang Kami</a>
+        <a href="#contact" class="drawer-link">Kontak</a>
+      </nav>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="NJ Cafe Home">
+        <div class="logo">☕</div>
+        <span>NJ Cafe</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#services">Layanan</a>
+        <a href="#gallery">Galeri</a>
+        <a href="#about">Tentang</a>
+        <a href="#contact">Kontak</a>
+        <a class="btn ghost" href="#special">Halaman Khusus</a>
+        <a class="btn primary" href="#contact">Pesan Sekarang</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="home" class="hero">
+    <div class="slides" aria-live="polite">
+      <div class="slide active" data-index="0">
+        <img alt="Suasana event lari dan booth kopi" src="https://images.unsplash.com/photo-1514511542286-6fb2b47321d8?q=80&w=1600&auto=format&fit=crop" />
+        <div class="hero-content">
+          <div>
+            <div class="pills" style="margin-bottom:10px"><span class="pill">Event • Komunitas</span></div>
+            <h1>NGOPI SERU, MOMEN LEBIH HIDUP</h1>
+            <p class="lead">Dari kopi Indonesia terbaik hingga makanan hangat—sempurna untuk harimu.</p>
+            <div class="pills">
+              <a class="btn primary" href="#menu">Lihat Menu</a>
+              <a class="btn ghost" href="#services">Layanan Kami</a>
             </div>
+          </div>
         </div>
-    </section></div><div id="block1601" class="block-wrapper block-20-3-four-cols-fix-img-title-text"><section class="landing-block g-pt-10 g-pb-20" style="">
-	<div class="landing-block-node-container container g-pt-30 g-pb-30">
-		<div class="row landing-block-inner" style=""><div class="landing-block-card js-animation fadeInUp landing-block-node-block col-md-3 col-lg-3 g-mb-30 g-mb-0--md g-pt-10 landing-card" style="">
-				<div class="landing-block-node-img-container text-left">
-					<img class="landing-block-node-img img-fluid g-mb-30" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNDY2Ij48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Our Beans - Biji Kopi Kami" data-fileid="581" data-fileid2x="583" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" coffeetoffee6="" ","target":"_self","enabled":true}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/0df/0df770c516501494d227c73107fddbac/01_Coffee_Toffee_-_Our_Bean_-_Biji_Kopi_02_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/4b0/4b0dd7a794074f694a017ca5629a503e/01_Coffee_Toffee_-_Our_Bean_-_Biji_Kopi_02_2x.jpg 2x">
-				</div>
-				<h5 class="landing-block-node-title landing-semantic-subtitle-big text-uppercase g-font-weight-700 g-color-black g-mb-20 g-font-size-16" style=""><p style="text-align: center;"><span style="">OUR BEANS</span></p></h5>
-				<div class="landing-block-node-text landing-semantic-text-medium" style=""><p style="text-align: center;">Biji kopi grade Specialty Arabica dan Fine Robusta dari 9 perkebunan terbaik Indonesia</p></div>
-			</div><div class="landing-block-card js-animation fadeInUp landing-block-node-block col-md-3 col-lg-3 g-mb-30 g-mb-0--md g-pt-10" style="">
-				<div class="landing-block-node-img-container text-left">
-					<img class="landing-block-node-img img-fluid g-mb-30" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNDY2Ij48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee-based Drinks - Minuman berbasis Kopi" data-fileid="573" data-fileid2x="575" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" coffeetoffee62="" ","target":"_self","enabled":true}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/c62/c6294854ba78d852574632dc890d190f/02_Coffee_Toffee_-_Coffee_based_drink_02_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/5d2/5d24e7726f8d55a532d3fc23cea3c338/02_Coffee_Toffee_-_Coffee_based_drink_02_2x.jpg 2x">
-				</div>
-				<h5 class="landing-block-node-title landing-semantic-subtitle-big text-uppercase g-font-weight-700 g-color-black g-mb-20 g-font-size-16" style=""><p style="text-align: center;"><span style="font-size: 1.14286rem;">COFFEE-BASED DRINKS</span></p></h5>
-				<div class="landing-block-node-text landing-semantic-text-medium" style=""><p style="text-align: center;">Dari minunan tradisional berbasis espresso sampai berbagai minuman racikan kopi terkini.</p></div>
-			</div><div class="landing-block-card js-animation fadeInUp landing-block-node-block col-md-3 col-lg-3 g-mb-30 g-mb-0--md g-pt-10" style="">
-				<div class="landing-block-node-img-container text-left">
-					<img class="landing-block-node-img img-fluid g-mb-30" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNDY2Ij48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Non Coffee Drinks" data-fileid="569" data-fileid2x="571" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" coffeetoffee62="" ","target":"_self","enabled":true}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/7b9/7b93c0553023b530776562d260fadb18/03_Coffee_Toffee_-_Non_Coffee_Drinks_02_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/04d/04dc5af81ad5b85830e8b40d6ba087fd/03_Coffee_Toffee_-_Non_Coffee_Drinks_02_2x.jpg 2x">
-				</div>
-				<h5 class="landing-block-node-title landing-semantic-subtitle-big text-uppercase g-font-weight-700 g-color-black g-mb-20 g-font-size-16" style=""><p style="text-align: center;"><span style="">NON-COFFEE</span></p></h5>
-				<div class="landing-block-node-text landing-semantic-text-medium" style=""><p style="text-align: center;">Kami juga memiliki menu non-coffee untuk kamu yang ingin pilihan lain selain kopi dan untuk anak - anak..</p></div>
-			</div><div class="landing-block-card js-animation fadeInUp landing-block-node-block col-md-3 col-lg-3 g-mb-30 g-mb-0--md g-pt-10" style="">
-				<div class="landing-block-node-img-container text-left">
-					<img class="landing-block-node-img img-fluid g-mb-30" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNDY2Ij48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Food and Snack" data-fileid="577" data-fileid2x="579" data-pseudo-url="{" text":"","href":"https:="" coffeetoffee.co.id="" coffeetoffee62="" ","target":"_self","enabled":true}"="" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/d2c/d2ca22526ac99209aaee45dc7b00507d/04_Coffee_Toffee_-_Food_n_Snack_03_-_Cordon_Bleu_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/c2c/c2cb0be94f3715677f67326a554017da/04_Coffee_Toffee_-_Food_n_Snack_03_-_Cordon_Bleu_2x.jpg 2x">
-				</div>
-				<h5 class="landing-block-node-title landing-semantic-subtitle-big text-uppercase g-font-weight-700 g-color-black g-mb-20 g-font-size-16" style=""><p style="text-align: center;"><span style="">FOOD & SNACK</span></p></h5>
-				<div class="landing-block-node-text landing-semantic-text-medium" style=""><p style="text-align: center;">Berbagai macam makanan ringan sampai makanan utama siap menemani secangkir kopimu.</p></div>
-			</div></div>
-	</div>
-</section></div><div id="block389" class="block-wrapper block-19-7-cover-with-img-text-and-standart-buttons"><section class="landing-block g-bg-gray-light-v5 g-pb-0 g-pt-3">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-lg-5 offset-lg-1 d-flex text-center text-md-left">
-				<div class="align-self-center">
-					<h2 class="landing-block-node-title text-uppercase g-line-height-1_3 g-font-size-36 g-mb-30--lg g-mb-10"><span style="font-weight: bold;">CERITA KAMI</span></h2>
-					<div class="g-mb-20 g-mb-35--lg">
-						<div class="landing-block-node-text">Dimulai dari satu outlet kecil di depan satu minimarket di kota Surabaya, kami berkembang menjadi jaringan kedai kopi nasional dengan cabang tersebar di banyak kota di Indonesia.<p><br></p><p>Di tahun 2012, kami adalah pionir dan penggagas dalam gerakan bangga terhadap kopi Indonesia dengan kampanye "Yes I Drink Indonesian Coffee."</p><p>Di tahun 2017, kami mendapatkan Penghargaan Indonesia Franchise Award dari kementerian Perdagangan sebagai <span style="font-weight: bold;">Pemenang Nasional</span>. Penghargaan ini serta diserahkan langsung oleh bapak Presiden RI Joko Widodo.<span style="font-weight: bold;font-size: 0.92857rem;">Read more...</span></p><p></p></div>
-					</div>
+      </div>
+      <div class="slide" data-index="1">
+        <img alt="Barista sedang membuat latte" src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=1600&auto=format&fit=crop" />
+        <div class="hero-content"><div><h1>ESPRESSO TO HEART‑WARMING FOODS</h1><p class="lead">Racikan terkini, rasa autentik Nusantara.</p><div class="pills"><a class="btn primary" href="#menu">Cicipi Sekarang</a></div></div></div>
+      </div>
+      <div class="slide" data-index="2">
+        <img alt="Interior kafe hangat" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop" />
+        <div class="hero-content"><div><h1>RUMAH NYAMAN UNTUK SETIAP PENGGEMAR KOPI</h1><p class="lead">Datang, duduk, dan nikmati percakapan terbaikmu.</p><div class="pills"><a class="btn primary" href="#contact">Temukan Kami</a></div></div></div>
+      </div>
+    </div>
+    <div class="hero-controls" aria-label="Slider controls">
+      <span class="dot active" data-go="0" aria-label="Slide 1"></span>
+      <span class="dot" data-go="1" aria-label="Slide 2"></span>
+      <span class="dot" data-go="2" aria-label="Slide 3"></span>
+    </div>
+  </main>
 
-					<div class="container-fluid px-0">
-						<div class="row no-gutters justify-content-center justify-content-md-start"><div class="landing-block-node-card g-mb-12 g-mr-12">
-								<a class="landing-block-node-card-button btn btn-sm btn-lg--sm g-rounded-10 text-uppercase g-btn-primary g-btn-type-solid rounded-0" href="https://coffeetoffee.co.id/coffeetoffee6222222/" target="_self">AWAL MULA</a>
-							</div><div class="landing-block-node-card g-mb-12 g-mr-12">
-								<a class="landing-block-node-card-button btn btn-sm btn-lg--sm g-rounded-10 g-btn-primary g-btn-type-solid rounded-0 g-text-transform-none" href="https://coffeetoffee.co.id/coffeetoffee622222/" target="_self">KAMPANYE</a>
-							</div></div>
-					</div>
-				</div>
-			</div>
+  <!-- Our Menu -->
+  <section id="menu" class="container reveal">
+    <div class="section-head">
+      <span class="kicker">FROM SPECIALTY INDONESIAN COFFEE TO HEART‑WARMING FOODS</span>
+      <h2>OUR MENU</h2>
+      <p class="lead">Dari biji kopi pilihan, minuman klasik hingga kreatif, non‑coffee menyegarkan, serta camilan & makanan ringan.</p>
+    </div>
+    <div class="grid cols-4">
+      <article class="card">
+        <div class="media"><img alt="Biji kopi" src="https://images.unsplash.com/photo-1455470956270-4cbb357f7052?q=80&w=900&auto=format&fit=crop"></div>
+        <div class="body"><h3>Our Beans</h3><p class="muted">Specialty Arabica & Fine Robusta dari berbagai kebun terbaik nusantara.</p><div class="spacer"></div><a class="btn ghost" href="#special" data-open-tab="beans">Lihat detail</a></div>
+      </article>
+      <article class="card">
+        <div class="media"><img alt="Minuman espresso" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop"></div>
+        <div class="body"><h3>Coffee‑Based Drinks</h3><p class="muted">Dari espresso tradisional sampai racikan latte & signature.</p><div class="spacer"></div><a class="btn ghost" href="#special" data-open-tab="coffee">Lihat detail</a></div>
+      </article>
+      <article class="card">
+        <div class="media"><img alt="Minuman non kopi" src="https://images.unsplash.com/photo-1524594154908-edd0acb090b7?q=80&w=900&auto=format&fit=crop"></div>
+        <div class="body"><h3>Non‑Coffee</h3><p class="muted">Pilihan segar untuk kamu yang ingin selain kopi, ramah untuk anak.</p><div class="spacer"></div><a class="btn ghost" href="#special" data-open-tab="noncoffee">Lihat detail</a></div>
+      </article>
+      <article class="card">
+        <div class="media"><img alt="Snack" src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=900&auto=format&fit=crop"></div>
+        <div class="body"><h3>Food & Snack</h3><p class="muted">Teman sempurna secangkir kopimu—hangat, gurih, bikin betah.</p><div class="spacer"></div><a class="btn ghost" href="#special" data-open-tab="food">Lihat detail</a></div>
+      </article>
+    </div>
+  </section>
 
-			<div class="col-md-6 col-lg-6 g-overflow-hidden align-self-end">
-				<img class="landing-block-node-img js-animation slideInUp img-fluid" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NDAiIGhlaWdodD0iNTQwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Sejarah - Cerita Kami" srcset="" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="5804" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/7ba/7bab5dccad7b1d57c7c8112c420ff41e/Coffee_Toffee_-_Our_Story_1x.png" loading="lazy">
-			</div>
-		</div>
-	</div>
-</section></div><div id="block57" class="block-wrapper block-04-1-one-col-fix-with-title"><section class="landing-block js-animation fadeInUp g-pb-20 g-pt-40">
-        <div class="container">
-            <div class="landing-block-node-inner text-uppercase text-center u-heading-v2-4--bottom g-brd-primary">
-                <h4 class="landing-block-node-subtitle h6 g-font-weight-800 g-font-size-12 g-letter-spacing-1 g-color-primary g-mb-20">take us with you</h4>
-                <h2 class="landing-block-node-title h1 u-heading-v2__title g-line-height-1_3 g-font-weight-600 g-mb-minus-10 g-font-size-36">bawa kami dalam keseharian kamu </h2>
-            </div>
+  <!-- Cerita Kami / About -->
+  <section id="about" class="container reveal">
+    <div class="section-head">
+      <h2>CERITA KAMI</h2>
+    </div>
+    <div class="about">
+      <div class="paper">
+        <p>Dimulai dari satu sudut kota, NJ Cafe tumbuh dari mimpi sederhana: menghadirkan kopi Indonesia terbaik yang bisa dinikmati semua orang. Kami percaya kafe bukan sekadar tempat membeli minuman, tetapi ruang untuk berjejaring, bercerita, dan merayakan momen.</p>
+        <p>Pada 2025, kami memperluas layanan mulai dari katering hingga hampers hadiah—agar pengalaman ngopi favoritmu bisa dibawa pulang atau ke acara spesial.</p>
+        <div class="owners">
+          <div class="owner"><img alt="Owner Jennifer" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"/><strong>Jennifer Bacas</strong><span class="muted">Owner</span></div>
+          <div class="owner"><img alt="Owner Narendra" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"/><strong>Narendra</strong><span class="muted">Owner</span></div>
         </div>
-    </section></div><div id="block59" class="block-wrapper block-34-3-four-cols-countdown"><section class="landing-block g-bg-main g-pt-20 g-pb-40">
-	<div class="container">
-		<div class="row landing-block-inner"><div class="landing-block-node-card js-animation fadeInUp col-md-6 col-lg-3 text-center g-mb-40 g-mb-0--lg landing-card">
-					<span class="landing-block-node-card-icon-container u-icon-v1 u-icon-size--lg g-color-primary g-mb-15 m-auto">
-						<i class="landing-block-node-card-icon icon-travel-115 u-line-icon-pro"></i>
-					</span>
-				<h3 class="landing-block-node-card-number mb-0 g-font-size-18 g-color-black-opacity-0_9"><span style="font-weight: bold;">CATERING</span></h3>
-				<div class="landing-block-node-card-number-title text-uppercase g-font-weight-700 g-font-size-11 g-color-white g-mb-20"> </div>
-				<div class="landing-block-node-card-text g-font-size-default mb-0 g-color-gray-light-v1"><p>Kamu bisa membawa Coffee Toffee dalam acara kantor atau selebrasi pribadi kamu</p></div>
-			</div><div class="landing-block-node-card js-animation fadeInUp col-md-6 col-lg-3 text-center g-mb-40 g-mb-0--lg animated">
-					<span class="landing-block-node-card-icon-container u-icon-v1 u-icon-size--lg g-color-primary g-mb-15 m-auto">
-						<i class="landing-block-node-card-icon icon-hotel-restaurant-151 u-line-icon-pro"></i>
-					</span>
-				<h3 class="landing-block-node-card-number mb-0 g-font-size-18 g-color-black-opacity-0_9"><span style="font-weight: bold;">COFFEE PACK</span></h3>
-				<div class="landing-block-node-card-number-title text-uppercase g-font-weight-700 g-font-size-11 g-color-white g-mb-20"> </div>
-				<div class="landing-block-node-card-text g-font-size-default mb-0 g-color-gray-light-v1"><p>Dalam kemasan 200gr, kamu bisa menikmati kopi specialty arabika Coffee Toffee di rumah.</p></div>
-			</div><div class="landing-block-node-card js-animation fadeInUp col-md-6 col-lg-3 text-center g-mb-40 g-mb-0--lg animated">
-					<span class="landing-block-node-card-icon-container u-icon-v1 u-icon-size--lg g-color-primary g-mb-15 m-auto">
-						<i class="landing-block-node-card-icon icon-hotel-restaurant-208 u-line-icon-pro"></i>
-					</span>
-				<h3 class="landing-block-node-card-number mb-0 g-font-size-18 g-color-black-opacity-0_9"><span style="font-weight: bold;">MERCHANDISE</span></h3>
-				<div class="landing-block-node-card-number-title text-uppercase g-font-weight-700 g-font-size-11 g-color-white g-mb-20"> </div>
-				<div class="landing-block-node-card-text g-font-size-default mb-0 g-color-gray-light-v1"><p> Berbagai pilihan merchandise utk menunjukkan kecintaan (atau kegilaan) kamu ke dunia kopi</p></div>
-			</div><div class="landing-block-node-card js-animation fadeInUp col-md-6 col-lg-3 text-center g-mb-40 g-mb-0--lg animated">
-					<span class="landing-block-node-card-icon-container u-icon-v1 u-icon-size--lg g-color-primary g-mb-15 m-auto">
-						<i class="landing-block-node-card-icon icon-drawer"></i>
-					</span>
-				<h3 class="landing-block-node-card-number mb-0 g-font-size-18 g-color-black-opacity-0_9"><span style="font-weight: bold;">HAMPERS</span></h3>
-				<div class="landing-block-node-card-number-title text-uppercase g-font-weight-700 g-font-size-11 g-color-white g-mb-20"> </div>
-				<div class="landing-block-node-card-text g-font-size-default mb-0 g-color-gray-light-v1"><p>Kirimkan satu kotak berisi biji kopi, minuman favorit dia serta satu mug kopi untuk orang spesial kamu.</p></div>
-			</div></div>
-	</div>
-</section></div><div id="block299" class="block-wrapper block-04-1-one-col-fix-with-title"><section class="landing-block js-animation fadeInUp g-pt-20 g-pb-20">
-        <div class="container">
-            <div class="landing-block-node-inner text-uppercase text-center u-heading-v2-4--bottom g-brd-primary">
-                <h4 class="landing-block-node-subtitle h6 g-font-weight-800 g-font-size-12 g-letter-spacing-1 g-color-primary g-mb-20">MOMENTS</h4>
-                <h2 class="landing-block-node-title h1 u-heading-v2__title g-line-height-1_3 g-font-weight-600 g-font-size-40 g-mb-minus-10">gallery</h2>
-            </div>
-        </div>
-    </section></div><div id="block297" class="block-wrapper block-45-3-gallery-6cols-2row"><section class="g-pt-20 g-pb-20">
+      </div>
+      <div>
+        <img alt="Sketsa booth kopi" style="width:100%;border-radius:16px;border:1px solid #f3ece2;box-shadow:var(--shadow)" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop"/>
+      </div>
+    </div>
+  </section>
 
-	<div class="container">
-		<div>
-			<div 1="" 3="" 5="" 6="" class="js-carousel js-gallery-cards row g-line-height-0 g-pb-40" data-slides-scroll="6" data-rows="2" data-slides-show="6" data-pagi-classes="u-carousel-indicators-v1 g-absolute-centered--x g-bottom-0 text-center" data-responsive="[{
-                     " breakpoint":="" 1200,="" "settings":="" {="" "slidestoshow":="" 6,="" "slidestoscroll":="" }="" },="" "breakpoint":="" 992,="" 5,="" 768,="" 3,="" 576,="" 1,="" }]"="" data-init-classes-exclude="[{
-					 " selector":="" ".landing-block-node-card",="" "class":="" "col-12="" col-md-3="" col-lg-2"="" "selector":="" ".js-carousel",="" "row"=""><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm landing-card col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Tofee - Black Coffee for Take Away" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="587" data-fileid2x="585" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/83d/83d41b5e852f4e4453d050db3eefe3ba/Coffee_Toffee_-_Gallery_01b_-_Menyerahkan_gelas_take_away_2x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/83d/83d41b5e852f4e4453d050db3eefe3ba/Coffee_Toffee_-_Gallery_01b_-_Menyerahkan_gelas_take_away_2x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Pride in Every Cup" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="621" data-fileid2x="623" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/c92/c9299b8a8020afb495f9d6cb6fe9caa4/Coffee_Toffee_-_Gallery_07b_-_Pride_in_every_cup_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/c92/c9299b8a8020afb495f9d6cb6fe9caa4/Coffee_Toffee_-_Gallery_07b_-_Pride_in_every_cup_1x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Barista - Smile" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="589" data-fileid2x="591" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/410/4106d5147ec1b026daeedd1ea72ae5d3/Coffee_Toffee_-_Gallery_02b_-_Barista_Senyuman_Hangat_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/410/4106d5147ec1b026daeedd1ea72ae5d3/Coffee_Toffee_-_Gallery_02b_-_Barista_Senyuman_Hangat_1x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Biji Kopi dari Hati" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="629" data-fileid2x="631" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/ed9/ed91aee6adb75ea1bb9765175043d023/Coffee_Toffee_-_Gallery_08b_-_Coffee_Bean_with_Heart_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/ed9/ed91aee6adb75ea1bb9765175043d023/Coffee_Toffee_-_Gallery_08b_-_Coffee_Bean_with_Heart_1x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="601" data-fileid2x="603" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/de6/de6e5e30d25c19b6cba2653cfa61df6d/Coffee_Toffee_-_Gallery_04b_-_Take_Away_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/de6/de6e5e30d25c19b6cba2653cfa61df6d/Coffee_Toffee_-_Gallery_04b_-_Take_Away_1x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Logo Art" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="613" data-fileid2x="615" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/c1a/c1a0ed68ffe547097375024e9b5ee61c/Coffee_Toffee_-_Gallery_10b_-_Coffee_Toffee_Logo_Art_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/c1a/c1a0ed68ffe547097375024e9b5ee61c/Coffee_Toffee_-_Gallery_10b_-_Coffee_Toffee_Logo_Art_1x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Warm Ambience Happy Customer" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="597" data-fileid2x="599" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/f97/f97569b8085540f7cd768b003720e451/Coffee_Toffee_-_Gallery_03b_-_Happy_Customer_2x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/f97/f97569b8085540f7cd768b003720e451/Coffee_Toffee_-_Gallery_03b_-_Happy_Customer_2x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Iced Coffee for Everyone" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="633" data-fileid2x="635" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/713/71374217a1e039e6b8ca376aa7f090e4/Coffee_Toffee_-_Gallery_10b_-_Iced_Coffee_for_Everyone_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/713/71374217a1e039e6b8ca376aa7f090e4/Coffee_Toffee_-_Gallery_10b_-_Iced_Coffee_for_Everyone_1x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Barista Menyeduh Coffee Brewing" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="605" data-fileid2x="607" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/1b0/1b05c5c9c6bda019158adf36dffa01af/Coffee_Toffee_-_Gallery_05b_-_Barista_Brewing_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/1b0/1b05c5c9c6bda019158adf36dffa01af/Coffee_Toffee_-_Gallery_05b_-_Barista_Brewing_1x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Manual Brew" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="637" data-fileid2x="639" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/a1e/a1ee3b306a3086be52a94b6bafe81dab/Coffee_Toffee_-_Gallery_11b_-_Manual_Brew_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/a1e/a1ee3b306a3086be52a94b6bafe81dab/Coffee_Toffee_-_Gallery_11b_-_Manual_Brew_1x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Toffee - Latte Art Offering" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="609" data-fileid2x="611" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/ff3/ff30bcff3eaf4435381e1b418bcb8c11/Coffee_Toffee_-_Gallery_06b_-_Pelayanan_Hangat_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/ff3/ff30bcff3eaf4435381e1b418bcb8c11/Coffee_Toffee_-_Gallery_06b_-_Pelayanan_Hangat_1x.jpg 2x">
-					</div>
-				</div><div class="landing-block-node-card js-animation fadeIn js-slide g-pb-15 g-pa-15--sm col-12 col-md-3 col-lg-2">
-					<div class="g-parent g-pos-rel g-brd-around g-brd-gray-light-v5 g-overflow-hidden">
-						<img class="landing-block-node-card-img img-fluid g-grayscale-100x g-grayscale-0--parent-hover g-transform-scale-0_85--parent-hover g-transition-0_2 g-transition--ease-in w-100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iLjciIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPg==" alt="Coffee Tofee - Signage in the Sky" data-fancybox="gallery" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"="" data-fileid="625" data-fileid2x="627" data-lazy-img="Y" data-src="https://cdn.bitrix24.id/b14044525/landing/6b4/6b4035305d5e34824f9d16eb807c5b62/Coffee_Toffee_-_Gallery_12b_-_Sign_Pole_in_Sky_1x.jpg" loading="lazy" data-srcset="https://cdn.bitrix24.id/b14044525/landing/6b4/6b4035305d5e34824f9d16eb807c5b62/Coffee_Toffee_-_Gallery_12b_-_Sign_Pole_in_Sky_1x.jpg 2x">
-					</div>
-				</div></div>
-		</div>
-	</div>
+  <!-- Services / Take us with you (with tabs as Halaman Khusus) -->
+  <section id="services" class="container reveal">
+    <div class="section-head">
+      <span class="kicker">TAKE US WITH YOU</span>
+      <h2>BAWA KAMI DALAM KESEHARIAN KAMU</h2>
+    </div>
+    <div class="grid cols-4" style="margin-bottom:20px">
+      <article class="card"><div class="media"><img alt="Katering" src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=900&auto=format&fit=crop"></div><div class="body"><h3>Catering</h3><p class="muted">Coffee bar & snack untuk kantor, pesta, hingga acara komunitas.</p><div class="spacer"></div><a class="btn ghost" href="#special" data-open-tab="catering">Lihat detail</a></div></article>
+      <article class="card"><div class="media"><img alt="Coffee pack" src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?q=80&w=900&auto=format&fit=crop"></div><div class="body"><h3>Coffee Pack</h3><p class="muted">Kopi bubuk/beans 200gr—nikmati specialty di rumah.</p><div class="spacer"></div><a class="btn ghost" href="#special" data-open-tab="coffee-pack">Lihat detail</a></div></article>
+      <article class="card"><div class="media"><img alt="Merchandise" src="https://images.unsplash.com/photo-1520975922284-5f573a6533c1?q=80&w=900&auto=format&fit=crop"></div><div class="body"><h3>Merchandise</h3><p class="muted">Kaos, mug, & tote untuk menunjukkan kecintaanmu pada kopi.</p><div class="spacer"></div><a class="btn ghost" href="#special" data-open-tab="merch">Lihat detail</a></div></article>
+      <article class="card"><div class="media"><img alt="Hampers" src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=900&auto=format&fit=crop"></div><div class="body"><h3>Hampers</h3><p class="muted">Kotak hadiah berisi biji/pack kopi & satu mug untuk orang spesial.</p><div class="spacer"></div><a class="btn ghost" href="#special" data-open-tab="hampers">Lihat detail</a></div></article>
+    </div>
 
-</section></div><div id="block75" class="block-wrapper block-04-7-one-col-fix-with-title-and-text-2"><section class="landing-block g-py-20 js-animation fadeInUp g-bg-primary g-pt-30 g-pb-20">
-
-        <div class="container landing-block-node-subcontainer text-center g-max-width-800">
-
-            <div class="landing-block-node-inner text-uppercase u-heading-v2-4--bottom g-brd-white">
-                <h4 class="landing-block-node-subtitle g-font-weight-700 g-font-size-12 g-mb-15 g-color-white-opacity-0_8">get up close and personal</h4>
-                <h4 class="landing-block-node-title u-heading-v2__title g-line-height-1_1 g-font-weight-700 g-font-size-40 g-mb-minus-10 g-color-white">contact us</h4>
-            </div>
-
-			<div class="landing-block-node-text g-color-white-opacity-0_8"> </div>
+    <!-- Halaman Khusus (Tabbed Details) -->
+    <div id="special" class="tabs">
+      <div class="tab-list" role="tablist" aria-label="Halaman khusus layanan">
+        <button class="tab-btn" role="tab" aria-selected="true" data-tab="catering">🍰 Catering</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="coffee-pack">📦 Coffee Pack</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="merch">👕 Merchandise</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="hampers">🎁 Hampers</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="beans">🌱 Our Beans</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="coffee">☕ Coffee‑Based Drinks</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="noncoffee">🥤 Non‑Coffee</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="food">🍟 Food & Snack</button>
+      </div>
+      <div>
+        <div class="tab-panel active" id="panel-catering" role="tabpanel">
+          <h3>Catering</h3>
+          <p class="lead">Paket coffee bar lengkap (barista + peralatan) mulai 50–300 cup. Cocok untuk <em>office gathering</em>, ulang tahun, launching, hingga wedding.</p>
+          <div class="grid cols-2">
+            <div class="card"><div class="media"><img alt="Coffee cart" src="https://images.unsplash.com/photo-1532635223-312a5f0d2a1a?q=80&w=1200&auto=format&fit=crop"></div><div class="body"><h3>Paket Starter</h3><p class="muted">50 cup • 2 menu espresso • 1 barista • 3 jam.</p><a class="btn primary" href="#contact">Minta Penawaran</a></div></div>
+            <div class="card"><div class="media"><img alt="Event setup" src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?q=80&w=1200&auto=format&fit=crop"></div><div class="body"><h3>Paket Pro</h3><p class="muted">200 cup • 5 menu • 2 barista • 5 jam.</p><a class="btn primary" href="#contact">Minta Penawaran</a></div></div>
+          </div>
         </div>
 
-    </section></div><div id="block291" class="block-wrapper block-14-1-contacts-4-cols"><section class="landing-block g-pt-40 g-pb-25 text-center">
-	<div class="container">
-		<div class="row justify-content-center"><div class="landing-block-card js-animation fadeIn landing-block-node-contact g-brd-between-cols col-sm-6 col-md-6 col-lg-3 g-brd-primary g-px-15 g-py-30 g-py-0--md g-mb-15" data-card-preset="contact-link">
-				<a class="landing-block-node-linkcontact-link g-text-decoration-none--hover" href="https://www.instagram.com/coffeetoffeeidn/" target="_blank">
-					<span class="landing-block-node-contact-icon-container d-block g-color-primary g-font-size-50 g-line-height-1 g-mb-20">
-						<i class="landing-block-node-contact-icon fab fa-instagram" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"=""></i>
-					</span>
-					<span class="landing-block-node-linkcontact-title d-block text-uppercase g-font-size-14 g-color-main g-mb-5">Instagram</span>
-					<span class="landing-block-node-linkcontact-text g-text-decoration-none g-text-underline--hover g-font-size-14 g-font-weight-700">@coffeetoffeeidn</span>
-				</a>
-			</div><div class="landing-block-card js-animation fadeIn landing-block-node-contact g-brd-between-cols col-sm-6 col-md-6 col-lg-3 g-brd-primary g-px-15 g-py-30 g-py-0--md g-mb-15" data-card-preset="contact-link">
-				<a class="landing-block-node-linkcontact-link g-text-decoration-none--hover" href="https://www.facebook.com/coffeetoffee/?eid=ARAEtp5zVjJnO0WI3AxY6SZQLA5VdCDxZxxobZQEe4ErD9mybc-9t-lw2i1AAS4sz1X47JRpzqQ9ge5t" target="_popup">
-					<span class="landing-block-node-contact-icon-container d-block g-color-primary g-font-size-50 g-line-height-1 g-mb-20">
-						<i class="landing-block-node-contact-icon fab fa-facebook-square" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"=""></i>
-					</span>
-					<span class="landing-block-node-linkcontact-title d-block text-uppercase g-font-size-14 g-color-main g-mb-5">Facebook</span>
-					<span class="landing-block-node-linkcontact-text g-text-decoration-none g-text-underline--hover g-font-size-14 g-font-weight-700">Coffee Toffee Indonesia</span>
-				</a>
-			</div><div class="landing-block-card js-animation fadeIn landing-block-node-contact g-brd-between-cols col-sm-6 col-md-6 col-lg-3 g-brd-primary g-px-15 g-py-30 g-py-0--md g-mb-15" data-card-preset="contact-link">
-				<a class="landing-block-node-linkcontact-link g-text-decoration-none--hover" href="mailto:coffeetoffeeidn@gmail.com" target="_blank">
-					<span class="landing-block-node-contact-icon-container d-block g-color-primary g-font-size-50 g-line-height-1 g-mb-20">
-						<i class="landing-block-node-contact-icon fas fa-envelope" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"=""></i>
-					</span>
-					<span class="landing-block-node-linkcontact-title d-block text-uppercase g-font-size-14 g-color-main g-mb-5">Email</span>
-					<span class="landing-block-node-linkcontact-text g-text-decoration-none g-text-underline--hover g-font-size-14 g-font-weight-700">coffeetoffeeidn@gmail.com</span>
-				</a>
-			</div><div class="landing-block-card js-animation fadeIn landing-block-node-contact g-brd-between-cols col-sm-6 col-md-6 col-lg-3 g-brd-primary g-px-15 g-py-30 g-py-0--md g-mb-15" data-card-preset="contact-text">
-				<div class="landing-block-node-contact-container">
-					<span class="landing-block-node-contact-icon-container d-block g-color-primary g-font-size-50 g-line-height-1 g-mb-20">
-						<i class="landing-block-node-contact-icon fab fa-tiktok" data-pseudo-url="{" text":"","href":"","target":"_self","enabled":false}"=""></i>
-					</span>
-					<span class="landing-block-node-contact-title d-block text-uppercase g-font-size-14 g-color-main g-mb-5">TikTok</span>
-					<span class="landing-block-node-contact-text g-font-size-14 g-font-weight-700"><a href="https://vm.tiktok.com/ZSv5aymq" target="_self">coffeetoffeeidn</a></span>
-				</div>
-			</div></div>
-	</div>
-</section></div><div id="block79" class="block-wrapper block-17-copyright"><section class="landing-block js-animation animation-none">
-	<div class="landing-semantic-text-medium text-center g-pa-10">
-		<div class="g-width-600 mx-auto">
-			<div class="landing-block-node-text g-font-size-12  js-animation animation-none"><p>© 2023 All rights reserved.</p></div>
-		</div>
-	</div>
-</section></div>
-</main>
-<div class="bitrix-footer"><span class="bitrix-footer-text"><div class="bitrix-footer-seo">Powered by <img src="images/logo_en.svg" alt="Bitrix24">. <a class="bitrix-footer-link" target="_blank" href="https://www.bitrix24.com/tools/websites/?utm_medium=referral&utm_source=bitrix24.com&utm_campaign=com_sites_websites">Create websites online</a></div>	<div class="bitrix-footer-terms">
-        <span class="bitrix-footer-link bitrix-footer-link-report"><a class="bitrix-footer-link" target="_blank" rel="nofollow" href="https://www.bitrix24.com/abuse/?sender_page=PAGE&hostname=coffeetoffeeidn.bitrix24.id&siteId=1&from_url=https%253A%252F%252Fcoffeetoffeeidn.bitrix24.id%252Fpub%252Fsite%252F1%252F%253Fuser_lang%253Den">Report abuse</a></span>
-		<span class="bitrix-footer-hint" data-hint="Bitrix24 bears no responsibility for the content of the site, please contact us, if any violations are found."></span>
-	</div></span></div><script>if(!window.BX)window.BX={};if(!window.BX.message)window.BX.message=function(mess){if(typeof mess==='object'){for(let i in mess) {BX.message[i]=mess[i];} return true;}};</script>
-<script>(window.BX||top.BX).message({"JS_CORE_LOADING":"Loading...","JS_CORE_WINDOW_CLOSE":"Close","JS_CORE_WINDOW_EXPAND":"Expand","JS_CORE_WINDOW_NARROW":"Restore","JS_CORE_WINDOW_SAVE":"Save","JS_CORE_WINDOW_CANCEL":"Cancel","JS_CORE_H":"h","JS_CORE_M":"m","JS_CORE_S":"s","JS_CORE_NO_DATA":"- No data -","JSADM_AI_HIDE_EXTRA":"Hide extra items","JSADM_AI_ALL_NOTIF":"All notifications","JSADM_AUTH_REQ":"Authentication is required!","JS_CORE_WINDOW_AUTH":"Log In","JS_CORE_IMAGE_FULL":"Full size","JS_CORE_WINDOW_CONTINUE":"Continue"});</script><script src="js/core.min.js"></script><script>BX.Runtime.registerExtension({"name":"main.core","namespace":"BX","loaded":true});</script>
-<script>BX.setJSList(["\/bitrix\/js\/main\/core\/core_ajax.js","\/bitrix\/js\/main\/core\/core_promise.js","\/bitrix\/js\/main\/polyfill\/promise\/js\/promise.js","\/bitrix\/js\/main\/loadext\/loadext.js","\/bitrix\/js\/main\/loadext\/extension.js","\/bitrix\/js\/main\/polyfill\/promise\/js\/promise.js","\/bitrix\/js\/main\/polyfill\/find\/js\/find.js","\/bitrix\/js\/main\/polyfill\/includes\/js\/includes.js","\/bitrix\/js\/main\/polyfill\/matches\/js\/matches.js","\/bitrix\/js\/ui\/polyfill\/closest\/js\/closest.js","\/bitrix\/js\/main\/polyfill\/fill\/main.polyfill.fill.js","\/bitrix\/js\/main\/polyfill\/find\/js\/find.js","\/bitrix\/js\/main\/polyfill\/matches\/js\/matches.js","\/bitrix\/js\/main\/polyfill\/core\/dist\/polyfill.bundle.js","\/bitrix\/js\/main\/core\/core.js","\/bitrix\/js\/main\/polyfill\/intersectionobserver\/js\/intersectionobserver.js","\/bitrix\/js\/main\/lazyload\/dist\/lazyload.bundle.js","\/bitrix\/js\/main\/polyfill\/core\/dist\/polyfill.bundle.js","\/bitrix\/js\/main\/parambag\/dist\/parambag.bundle.js"]);
-</script>
-<script>BX.Runtime.registerExtension({"name":"ui.dexie","namespace":"BX.DexieExport","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"ls","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"fx","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"fc","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"pull.protobuf","namespace":"BX","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"rest.client","namespace":"window","loaded":true});</script>
-<script>(window.BX||top.BX).message({"pull_server_enabled":"Y","pull_config_timestamp":1753719973,"shared_worker_allowed":"Y","pull_guest_mode":"N","pull_guest_user_id":0,"pull_worker_mtime":1743166765});(window.BX||top.BX).message({"PULL_OLD_REVISION":"This page must be reloaded to ensure proper site functioning and to continue work."});</script>
-<script>BX.Runtime.registerExtension({"name":"pull.client","namespace":"BX","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"pull","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"intranet.design-tokens.bitrix24","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"ui.design-tokens","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"ui.fonts.opensans","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"landing.metrika","namespace":"BX.Landing","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"main.pageobject","namespace":"BX","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"main.popup","namespace":"BX.Main","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"popup","namespace":"window","loaded":true});</script>
-<script>(window.BX||top.BX).message({"CORE_CLIPBOARD_COPY_SUCCESS":"Copy done","CORE_CLIPBOARD_COPY_FAILURE":"Copy failed"});</script>
-<script>BX.Runtime.registerExtension({"name":"clipboard","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"ui.icon-set","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"ui.icon-set.actions","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"ui.icon-set.main","namespace":"window","loaded":true});</script>
-<script>(window.BX||top.BX).message({"MAIN_SIDEPANEL_CLOSE":"Close","MAIN_SIDEPANEL_COPY_LINK":"Copy link","MAIN_SIDEPANEL_MINIMIZE":"Minimize","MAIN_SIDEPANEL_NEW_WINDOW":"Open in a new window","MAIN_SIDEPANEL_PRINT":"Print","MAIN_SIDEPANEL_REMOVE_ALL":"Empty page bar"});</script>
-<script>BX.Runtime.registerExtension({"name":"main.sidepanel","namespace":"BX.SidePanel","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"sidepanel","namespace":"window","loaded":true});</script>
-<script>(window.BX||top.BX).message({"AMPM_MODE":false});(window.BX||top.BX).message({"CAL_BUTTON":"Select","CAL_TIME":"Time","CAL_TIME_SET":"Set time","DAY_OF_WEEK_0":"Sunday","DAY_OF_WEEK_1":"Monday","DAY_OF_WEEK_2":"Tuesday","DAY_OF_WEEK_3":"Wednesday","DAY_OF_WEEK_4":"Thursday","DAY_OF_WEEK_5":"Friday","DAY_OF_WEEK_6":"Saturday","DOW_0":"Sun","DOW_1":"Mon","DOW_2":"Tue","DOW_3":"Wed","DOW_4":"Thu","DOW_5":"Fri","DOW_6":"Sat","FD_DAY_AGO_0":"#VALUE# days ago","FD_DAY_AGO_1":"#VALUE# day ago","FD_DAY_AGO_10_20":"#VALUE# days ago","FD_DAY_AGO_MOD_1":"#VALUE# days ago","FD_DAY_AGO_MOD_2_4":"#VALUE# days ago","FD_DAY_AGO_MOD_OTHER":"#VALUE# days ago","FD_DAY_AT_TIME":"#DAY# at #TIME#","FD_DAY_DIFF_0":"#VALUE# days","FD_DAY_DIFF_1":"#VALUE# day","FD_DAY_DIFF_10_20":"#VALUE# days","FD_DAY_DIFF_MOD_1":"#VALUE# days","FD_DAY_DIFF_MOD_2_4":"#VALUE# days","FD_DAY_DIFF_MOD_OTHER":"#VALUE# days","FD_DAY_SHORT":"#VALUE# d","FD_HOUR_AGO_0":"#VALUE# hours ago","FD_HOUR_AGO_1":"#VALUE# hour ago","FD_HOUR_AGO_10_20":"#VALUE# hours ago","FD_HOUR_AGO_MOD_1":"#VALUE# hours ago","FD_HOUR_AGO_MOD_2_4":"#VALUE# hours ago","FD_HOUR_AGO_MOD_OTHER":"#VALUE# hours ago","FD_HOUR_DIFF_0":"#VALUE# hours","FD_HOUR_DIFF_1":"#VALUE# hour","FD_HOUR_DIFF_10_20":"#VALUE# hours","FD_HOUR_DIFF_MOD_1":"#VALUE# hours","FD_HOUR_DIFF_MOD_2_4":"#VALUE# hours","FD_HOUR_DIFF_MOD_OTHER":"#VALUE# hours","FD_HOUR_SHORT":"#VALUE# h","FD_LAST_SEEN_MORE_YEAR":"more than a year ago","FD_LAST_SEEN_NOW":"just now","FD_LAST_SEEN_TODAY":"today at #TIME#","FD_LAST_SEEN_TOMORROW":"tomorrow at #TIME#","FD_LAST_SEEN_YESTERDAY":"yesterday at #TIME#","FD_MINUTE_0":"#VALUE# minutes","FD_MINUTE_1":"#VALUE# minute","FD_MINUTE_10_20":"#VALUE# minutes","FD_MINUTE_AGO_0":"#VALUE# minutes ago","FD_MINUTE_AGO_1":"#VALUE# minute ago","FD_MINUTE_AGO_10_20":"#VALUE# minutes ago","FD_MINUTE_AGO_MOD_1":"#VALUE# minutes ago","FD_MINUTE_AGO_MOD_2_4":"#VALUE# minutes ago","FD_MINUTE_AGO_MOD_OTHER":"#VALUE# minutes ago","FD_MINUTE_DIFF_0":"#VALUE# minutes","FD_MINUTE_DIFF_1":"#VALUE# minute","FD_MINUTE_DIFF_10_20":"#VALUE# minutes","FD_MINUTE_DIFF_MOD_1":"#VALUE# minutes","FD_MINUTE_DIFF_MOD_2_4":"#VALUE# minutes","FD_MINUTE_DIFF_MOD_OTHER":"#VALUE# minutes","FD_MINUTE_MOD_1":"#VALUE# minutes","FD_MINUTE_MOD_2_4":"#VALUE# minutes","FD_MINUTE_MOD_OTHER":"#VALUE# minutes","FD_MINUTE_SHORT":"#VALUE# m","FD_MONTH_AGO_0":"#VALUE# months ago","FD_MONTH_AGO_1":"#VALUE# month ago","FD_MONTH_AGO_10_20":"#VALUE# months ago","FD_MONTH_AGO_MOD_1":"#VALUE# months ago","FD_MONTH_AGO_MOD_2_4":"#VALUE# months ago","FD_MONTH_AGO_MOD_OTHER":"#VALUE# months ago","FD_MONTH_DIFF_0":"#VALUE# months","FD_MONTH_DIFF_1":"#VALUE# month","FD_MONTH_DIFF_10_20":"#VALUE# months","FD_MONTH_DIFF_MOD_1":"#VALUE# months","FD_MONTH_DIFF_MOD_2_4":"#VALUE# months","FD_MONTH_DIFF_MOD_OTHER":"#VALUE# months","FD_MONTH_SHORT":"#VALUE# mon","FD_SECOND_AGO_0":"#VALUE# seconds ago","FD_SECOND_AGO_1":"#VALUE# second ago","FD_SECOND_AGO_10_20":"#VALUE# seconds ago","FD_SECOND_AGO_MOD_1":"#VALUE# seconds ago","FD_SECOND_AGO_MOD_2_4":"#VALUE# seconds ago","FD_SECOND_AGO_MOD_OTHER":"#VALUE# seconds ago","FD_SECOND_DIFF_0":"#VALUE# seconds","FD_SECOND_DIFF_1":"#VALUE# second","FD_SECOND_DIFF_10_20":"#VALUE# seconds","FD_SECOND_DIFF_MOD_1":"#VALUE# seconds","FD_SECOND_DIFF_MOD_2_4":"#VALUE# seconds","FD_SECOND_DIFF_MOD_OTHER":"#VALUE# seconds","FD_SECOND_SHORT":"#VALUE# s","FD_SEPARATOR":"\u0026#32;","FD_SEPARATOR_SHORT":"\u0026#32;","FD_TODAY":"today","FD_TOMORROW":"tomorrow","FD_UNIT_ORDER":"Y m d H i s","FD_YEARS_AGO_0":"#VALUE# years ago","FD_YEARS_AGO_1":"#VALUE# year ago","FD_YEARS_AGO_10_20":"#VALUE# years ago","FD_YEARS_AGO_MOD_1":"#VALUE# years ago","FD_YEARS_AGO_MOD_2_4":"#VALUE# years ago","FD_YEARS_AGO_MOD_OTHER":"#VALUE# years ago","FD_YEARS_DIFF_0":"#VALUE# years","FD_YEARS_DIFF_1":"#VALUE# year","FD_YEARS_DIFF_10_20":"#VALUE# years","FD_YEARS_DIFF_MOD_1":"#VALUE# years","FD_YEARS_DIFF_MOD_2_4":"#VALUE# years","FD_YEARS_DIFF_MOD_OTHER":"#VALUE# years","FD_YEARS_SHORT_0":"#VALUE# y","FD_YEARS_SHORT_1":"#VALUE# y","FD_YEARS_SHORT_10_20":"#VALUE# y","FD_YEARS_SHORT_MOD_1":"#VALUE# y","FD_YEARS_SHORT_MOD_2_4":"#VALUE# y","FD_YEARS_SHORT_MOD_OTHER":"#VALUE# y","FD_YESTERDAY":"yesterday","MONTH_1":"January","MONTH_1_S":"January","MONTH_2":"February","MONTH_2_S":"February","MONTH_3":"March","MONTH_3_S":"March","MONTH_4":"April","MONTH_4_S":"April","MONTH_5":"May","MONTH_5_S":"May","MONTH_6":"June","MONTH_6_S":"June","MONTH_7":"July","MONTH_7_S":"July","MONTH_8":"August","MONTH_8_S":"August","MONTH_9":"September","MONTH_9_S":"September","MONTH_10":"October","MONTH_10_S":"October","MONTH_11":"November","MONTH_11_S":"November","MONTH_12":"December","MONTH_12_S":"December","MON_1":"Jan","MON_2":"Feb","MON_3":"Mar","MON_4":"Apr","MON_5":"May","MON_6":"Jun","MON_7":"Jul","MON_8":"Aug","MON_9":"Sep","MON_10":"Oct","MON_11":"Nov","MON_12":"Dec"});</script>
-<script>BX.Runtime.registerExtension({"name":"main.date","namespace":"BX.Main","loaded":true});</script>
-<script>(window.BX||top.BX).message({"WEEK_START":1});</script>
-<script>BX.Runtime.registerExtension({"name":"date","namespace":"window","loaded":true});</script>
-<script>(window.BX||top.BX).message({"JS_CORE_LOADING":"Loading...","JS_CORE_WINDOW_CLOSE":"Close","JS_CORE_WINDOW_EXPAND":"Expand","JS_CORE_WINDOW_NARROW":"Restore","JS_CORE_WINDOW_SAVE":"Save","JS_CORE_WINDOW_CANCEL":"Cancel","JS_CORE_H":"h","JS_CORE_M":"m","JS_CORE_S":"s","JS_CORE_NO_DATA":"- No data -","JSADM_AI_HIDE_EXTRA":"Hide extra items","JSADM_AI_ALL_NOTIF":"All notifications","JSADM_AUTH_REQ":"Authentication is required!","JS_CORE_WINDOW_AUTH":"Log In","JS_CORE_IMAGE_FULL":"Full size","JS_CORE_WINDOW_CONTINUE":"Continue"});</script>
-<script>BX.Runtime.registerExtension({"name":"window","namespace":"window","loaded":true});</script>
-<script>(window.BX||top.BX).message({"JC_CORE_TREE_SELECT_CONTROL":"Select condition","JC_CORE_TREE_ADD_CONTROL":"Add condition","JC_CORE_TREE_DELETE_CONTROL":"Delete condition","JC_CORE_TREE_CONTROL_DATETIME_ICON":"Click to select date","JC_CORE_TREE_CONDITION_ERROR":"Condition error","JC_CORE_TREE_CONDITION_FATAL_ERROR":"Unrecoverable condition error. It is recommended to delete the condition."});</script>
-<script>BX.Runtime.registerExtension({"name":"core_condtree","namespace":"window","loaded":true});</script>
-<script>BX.Runtime.registerExtension({"name":"ui.hint","namespace":"window","loaded":true});</script>
-<script>(window.BX||top.BX).message({"LANDING_NAVBAR_MODAL_ALERT":"Edit mode.\u003Cbr\u003EThe block will be fully functional in preview mode.","LANDING_NAVBAR_TOGGLER_HIDE":"Collapse ","LANDING_NAVBAR_TOGGLER_SHOW":"Expand"});</script>
-<script>BX.Runtime.registerExtension({"name":"landing_assets","namespace":"window","loaded":true});</script>
-<script>(window.BX||top.BX).message({"LANGUAGE_ID":"en","FORMAT_DATE":"DD\/MM\/YYYY","FORMAT_DATETIME":"DD\/MM\/YYYY HH:MI:SS","COOKIE_PREFIX":"BITRIX_SM","SERVER_TZ_OFFSET":"10800","UTF_MODE":"Y","SITE_ID":"s1","SITE_DIR":"\/","USER_ID":"","SERVER_TIME":1755386682,"USER_TZ_OFFSET":0,"USER_TZ_AUTO":"Y","bitrix_sessid":"6de53bfaebd9e56ac25762cdfe010e4a"});</script><script src="js/dexie.bundle.min.js"></script>
-<script src="js/core_ls.min.js"></script>
-<script src="js/core_fx.min.js"></script>
-<script src="js/core_frame_cache.min.js"></script>
-<script src="js/protobuf.min.js"></script>
-<script src="js/model.min.js"></script>
-<script src="js/rest.client.min.js"></script>
-<script src="js/pull.client.min.js"></script>
-<script src="js/metrika.bundle.min.js"></script>
-<script src="js/pageobject.bundle.min.js"></script>
-<script src="js/main.popup.bundle.min.js"></script>
-<script src="js/core_clipboard.min.js"></script>
-<script src="js/side-panel.bundle.min.js"></script>
-<script src="js/main.date.min.js"></script>
-<script src="js/core_date.min.js"></script>
-<script src="js/core_window.min.js"></script>
-<script src="js/core_tree.min.js"></script>
-<script src="js/ui.hint.min.js"></script>
-<script src="js/intersectionobserver.min.js"></script>
-<script src="js/utils.min.js"></script>
-<script src="js/base_mediaplayer.min.js"></script>
-<script src="js/youtube_mediaplayer.min.js"></script>
-<script src="js/mediaplayer_factory.min.js"></script>
-<script src="js/auto_font_scale.bundle.min.js"></script>
-<script src="js/event-tracker.min.js"></script>
-<script src="js/base-service.min.js"></script>
-<script src="js/google-analytics-service.min.js"></script>
-<script src="js/polyfill.min.js"></script>
-<script src="js/block_event.min.js"></script>
-<script src="js/public.min.js"></script>
-<script>
-					if (Intl && Intl.DateTimeFormat)
-					{
-						const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-						document.cookie = "BITRIX_SM_TZ=" + timezone + "; path=/; expires=Sat, 01 Aug 2026 00:00:00 +0300";
-						
-					}
-				</script>
-<script src="js/lazyload.min.js"></script>
-<script src="js/onscroll-animation_init.min.js"></script>
-<script src="js/jquery_landing.min.js"></script>
-<script src="js/jquery.easing_landing.min.js"></script>
-<script src="js/util.min.js"></script>
-<script src="js/collapse.min.js"></script>
-<script src="js/scrollspy.min.js"></script>
-<script src="js/menu_init.min.js"></script>
-<script src="js/block-header-entry.min.js"></script>
-<script src="js/block-header-init.min.js"></script>
-<script src="js/slick_landing.min.js"></script>
-<script src="js/hs.core_landing.min.js"></script>
-<script src="js/hs.carousel.min.js"></script>
-<script src="js/carousel_helper.min.js"></script>
-<script src="js/base_carousel_init.min.js"></script>
-<script src="js/jquery.fancybox_landing.min.js"></script>
-<script src="js/gallery_cards_init.min.js"></script>
-<script src="js/popup_init.min.js"></script>
-<script src="js/upper_init.min.js"></script>
-<script src="js/auto_font_scale_init.min.js"></script>
-<script src="js/script.min.js"></script>
-<script>
-	BX.namespace("BX.Landing");
-	BX.Landing.getMode = () => "view";
-</script>
+        <div class="tab-panel" id="panel-coffee-pack" role="tabpanel">
+          <h3>Coffee Pack</h3>
+          <p class="lead">Roast mingguan, 200gr & 1kg. Pilihan grind: whole bean, espresso, V60.</p>
+          <div class="grid cols-3">
+            <div class="card"><div class="media"><img alt="House blend" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1200&auto=format&fit=crop"></div><div class="body"><h3>House Blend</h3><p class="muted">Balance cokelat & kacang. 200gr.</p><a class="btn primary" href="#contact">Pesan</a></div></div>
+            <div class="card"><div class="media"><img alt="Single origin" src="https://images.unsplash.com/photo-1517701604594-5e6c9127b4d4?q=80&w=1200&auto=format&fit=crop"></div><div class="body"><h3>Single Origin</h3><p class="muted">Seimbang fruity & floral. 200gr.</p><a class="btn primary" href="#contact">Pesan</a></div></div>
+            <div class="card"><div class="media"><img alt="Decaf" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1200&auto=format&fit=crop"></div><div class="body"><h3>Decaf</h3><p class="muted">Nikmati rasa tanpa kafein. 200gr.</p><a class="btn primary" href="#contact">Pesan</a></div></div>
+          </div>
+        </div>
 
+        <div class="tab-panel" id="panel-merch" role="tabpanel">
+          <h3>Merchandise</h3>
+          <p class="lead">Mug keramik, kaos nyaman, dan tote tebal—desain khas NJ Cafe.</p>
+          <div class="grid cols-3">
+            <div class="card"><div class="media"><img alt="Mug" src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1200&auto=format&fit=crop"></div><div class="body"><h3>Mug Signature</h3><p class="muted">Keramik 12oz, aman microwave.</p><a class="btn primary" href="#contact">Pesan</a></div></div>
+            <div class="card"><div class="media"><img alt="T-shirt" src="https://images.unsplash.com/photo-1475180098004-ca77a66827be?q=80&w=1200&auto=format&fit=crop"></div><div class="body"><h3>Kaos Maroon</h3><p class="muted">Cotton combed 24s, S–XL.</p><a class="btn primary" href="#contact">Pesan</a></div></div>
+            <div class="card"><div class="media"><img alt="Totebag" src="https://images.unsplash.com/photo-1520975922284-5f573a6533c1?q=80&w=1200&auto=format&fit=crop"></div><div class="body"><h3>Tote Tebal</h3><p class="muted">Kapasitas 12L, kuat & stylish.</p><a class="btn primary" href="#contact">Pesan</a></div></div>
+          </div>
+        </div>
 
-<script>
-	(function()
-	{
-		new BX.Landing.Metrika();
-	})();
-</script>
+        <div class="tab-panel" id="panel-hampers" role="tabpanel">
+          <h3>Hampers</h3>
+          <p class="lead">Hadiah premium: kopi + mug + kartu ucapan. Cocok untuk hari spesial.</p>
+          <div class="grid cols-2">
+            <div class="card"><div class="media"><img alt="Hampers klasik" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"></div><div class="body"><h3>Klasik</h3><p class="muted">House Blend + Mug.</p><a class="btn primary" href="#contact">Pesan</a></div></div>
+            <div class="card"><div class="media"><img alt="Hampers premium" src="https://images.unsplash.com/photo-1484821582734-6c6c9f99a672?q=80&w=1200&auto=format&fit=crop"></div><div class="body"><h3>Premium</h3><p class="muted">Single Origin + Mug + Cookies.</p><a class="btn primary" href="#contact">Pesan</a></div></div>
+          </div>
+        </div>
 
-<script>
-	BX.ready(function() {
-		void new BX.Landing.Pub.PageTransition();
-	});
-</script>
+        <!-- Menu tabs (for deep links from menu cards) -->
+        <div class="tab-panel" id="panel-beans" role="tabpanel">
+          <h3>Our Beans</h3>
+          <p class="lead">Arabika & Robusta pilihan dari petani lokal. Transparansi asal & roast date.</p>
+        </div>
+        <div class="tab-panel" id="panel-coffee" role="tabpanel">
+          <h3>Coffee‑Based Drinks</h3>
+          <p class="lead">Espresso, Americano, Cappuccino, Latte, Mocha, Caramel Macchiato, dan Seasonal Signature.</p>
+        </div>
+        <div class="tab-panel" id="panel-noncoffee" role="tabpanel">
+          <h3>Non‑Coffee</h3>
+          <p class="lead">Chocolate, Matcha, Red Velvet, Lychee Tea, Lemon Tea, Yakult Series.</p>
+        </div>
+        <div class="tab-panel" id="panel-food" role="tabpanel">
+          <h3>Food & Snack</h3>
+          <p class="lead">Croissant, Sandwich, French Fries, Wedges, Churros, Chicken Pop, dan banyak lagi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-	(function(w,d,u){
-		var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
-		var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-	})(window,document,'https://cdn.bitrix24.id/b14044525/crm/tag/call.tracker.js');
-</script>
-<script>BX.ready(function() {BX.UI.Hint.init(BX('.bitrix-footer-terms'))})</script>
+  <!-- Gallery -->
+  <section id="gallery" class="container reveal">
+    <div class="section-head">
+      <span class="kicker">MOMENTS</span>
+      <h2>GALLERY</h2>
+    </div>
+    <div class="gallery" aria-label="Galeri foto">
+      <img alt="m1" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=600&auto=format&fit=crop">
+      <img alt="m2" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600&auto=format&fit=crop">
+      <img alt="m3" src="https://images.unsplash.com/photo-1521017432531-fbd92d1cf06f?q=80&w=600&auto=format&fit=crop">
+      <img alt="m4" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=600&auto=format&fit=crop">
+      <img alt="m5" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=600&auto=format&fit=crop">
+      <img alt="m6" src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=600&auto=format&fit=crop">
+      <img alt="m7" src="https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=600&auto=format&fit=crop">
+      <img alt="m8" src="https://images.unsplash.com/photo-1514511542286-6fb2b47321d8?q=80&w=600&auto=format&fit=crop">
+      <img alt="m9" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=600&auto=format&fit=crop">
+      <img alt="m10" src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=600&auto=format&fit=crop">
+    </div>
+  </section>
 
+  <!-- Contact -->
+  <section id="contact" class="container reveal">
+    <div class="section-head">
+      <span class="kicker">GET UP CLOSE AND PERSONAL</span>
+      <h2>CONTACT US</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">📍</div>
+        <h4>Alamat</h4>
+        <p class="muted">Jl. Siliwangi No.62, Pancoran Mas, Depok</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">✉️</div>
+        <h4>Email</h4>
+        <p class="muted">njcafe.id@gmail.com</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📸</div>
+        <h4>Instagram</h4>
+        <p class="muted">@njcafe.id</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📞</div>
+        <h4>Telepon</h4>
+        <p class="muted">(+62) 812-0000-0000</p>
+      </div>
+    </div>
+  </section>
 
+  <footer>
+    <div class="container foot">
+      <div class="brand"><div class="logo">☕</div><span>NJ Cafe</span></div>
+      <div>© 2025. All rights reserved.</div>
+    </div>
+  </footer>
 
-</body></html>
+  <!-- Lightbox for gallery -->
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog"><img alt="preview" id="lightboxImg"></div>
+
+  <script>
+    // Mobile drawer
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('drawer');
+    const overlay = document.getElementById('overlay');
+    const closeDrawer = document.getElementById('closeDrawer');
+
+    function openDrawer(){drawer.classList.add('open');overlay.classList.add('show');drawer.setAttribute('aria-hidden','false');}
+    function hideDrawer(){drawer.classList.remove('open');overlay.classList.remove('show');drawer.setAttribute('aria-hidden','true');}
+    hamburger?.addEventListener('click', openDrawer);
+    closeDrawer?.addEventListener('click', hideDrawer);
+    overlay?.addEventListener('click', hideDrawer);
+    document.querySelectorAll('.drawer-link').forEach(a=>a.addEventListener('click', hideDrawer));
+
+    // Hero slider
+    const slides = [...document.querySelectorAll('.slide')];
+    const dots = [...document.querySelectorAll('.dot')];
+    let idx = 0, timer;
+    function go(n){
+      idx = n; slides.forEach((s,i)=>s.classList.toggle('active', i===idx));
+      dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+    }
+    function next(){go((idx+1)%slides.length)}
+    function play(){clearInterval(timer); timer = setInterval(next, 5000)}
+    dots.forEach(d=>d.addEventListener('click', e=>{go(+e.target.dataset.go); play()}));
+    play();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold: .12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Tabs (Halaman Khusus)
+    const tabs = [...document.querySelectorAll('.tab-btn')];
+    const panels = {
+      'catering': document.getElementById('panel-catering'),
+      'coffee-pack': document.getElementById('panel-coffee-pack'),
+      'merch': document.getElementById('panel-merch'),
+      'hampers': document.getElementById('panel-hampers'),
+      'beans': document.getElementById('panel-beans'),
+      'coffee': document.getElementById('panel-coffee'),
+      'noncoffee': document.getElementById('panel-noncoffee'),
+      'food': document.getElementById('panel-food')
+    };
+    function activateTab(key){
+      tabs.forEach(t=>t.setAttribute('aria-selected', String(t.dataset.tab===key)));
+      Object.entries(panels).forEach(([k,el])=>el.classList.toggle('active', k===key));
+    }
+    tabs.forEach(t=>t.addEventListener('click',()=>activateTab(t.dataset.tab)));
+
+    // Deep links from cards
+    document.querySelectorAll('[data-open-tab]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        const key = btn.dataset.openTab; activateTab(key);
+      });
+    });
+
+    // Lightbox gallery
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click',()=>{lbImg.src = img.src; lb.classList.add('open');});
+    });
+    lb.addEventListener('click',()=>lb.classList.remove('open'));
+  </script>
+</body>
+</html>
